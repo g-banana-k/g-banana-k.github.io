@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build TypeScript
-        run: npx tsc
+        run: npm run build
 
       - name: Deploy to deploy branch
         run: |
