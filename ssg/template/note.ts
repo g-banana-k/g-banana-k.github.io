@@ -17,9 +17,9 @@ export const note_template = (content: string, meta: MetaData, r_path: string) =
     <link rel="icon" href="/assets/blinol.png" />
     <link rel="canonical" href="${url}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
-    <link rel="stylesheet" href="/src/note.css">
-    <link rel="stylesheet" href="/src/note_theme.css">
-    <link rel="stylesheet" href="/src/footer.css">
+    <link rel="stylesheet" href="/styles/note.css">
+    <link rel="stylesheet" href="/styles/note_theme.css">
+    <link rel="stylesheet" href="/styles/footer.css">
 </head>
 
 <body>
