@@ -5,7 +5,7 @@ page_title: 木口幸福廃校トリオ
 category: sludgetale
 tag: [sludgetale, cringe_canon]
 ---
-![](group_photo.png)
+![](./group_photo.png)
 
 ...
 
