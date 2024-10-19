@@ -1,6 +1,6 @@
 ---
-title: コロッセウム
-subtitle: H14O
+title: 金色の花
+subtitle: Golden flower
 category: sludgetale
 tag: [sludgetale, world]
 ---

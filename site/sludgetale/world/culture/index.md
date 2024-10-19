@@ -1,6 +1,6 @@
 ---
-title: コロッセウム
-subtitle: H14O
+title: 文化
+subtitle: culture
 category: sludgetale
 tag: [sludgetale, world]
 ---
