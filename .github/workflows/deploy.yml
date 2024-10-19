@@ -26,8 +26,8 @@ jobs:
 
     - name: Deploy to deploy branch
       run: |
-        git config --local user.name "GitHub Actions"
-        git config --local user.email "actions@github.com"
+        git config --global user.name "${{ github.actor }}"
+        git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         git checkout deploy
         # 既存の内容を削除。ただし、distディレクトリを除外する
         shopt -s extglob  # bashの拡張グロブを有効にする
