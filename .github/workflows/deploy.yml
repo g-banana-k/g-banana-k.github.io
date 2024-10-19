@@ -31,7 +31,7 @@ jobs:
       - name: TREE
         run: tree
 
-      # site_dist の中身を deploy ブランチにコピーしてコミット & プッシュ
+      # dist の中身を deploy ブランチにコピーしてコミット & プッシュ
       - name: Deploy to deploy branch
         run: |
           git config --global user.name "${{ github.actor }}"
@@ -41,9 +41,9 @@ jobs:
           git fetch origin deploy || git checkout --orphan deploy
           git checkout deploy
 
-          # site_dist の中身でブランチを上書き
-          # rm -rf ./*
-          # cp -r dist/* .
-          # git add .
-          # git commit -m "Deploy from main branch: ${{ github.sha }}"
-          # git push -f origin deploy
+          # dist の中身でブランチを上書き
+          rm -rf ./*
+          cp -r dist/* .
+          git add .
+          git commit -m "Deploy from main branch: ${{ github.sha }}"
+          git push -f origin deploy
