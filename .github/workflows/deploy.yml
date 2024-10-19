@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -10,40 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # リポジトリのコードをチェックアウト
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      # Node.js のセットアップ
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # 必要なNode.jsのバージョンを指定
 
-      # 依存関係のインストール
-      - name: Install dependencies
-        run: npm ci
+    - name: Install dependencies
+      run: npm install
 
-      # TypeScript でビルド & Markdown から HTML 生成 (ssg)
-      - name: Run build process
-        run: npm run ssg
+    - name: Build site
+      run: npm run ssg  # ssgスクリプトを実行
 
-      - name: TREE
-        run: tree
-
-      # site_dist の中身を deploy ブランチにコピーしてコミット & プッシュ
-      - name: Deploy to deploy branch
-        run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-
-          # deploy ブランチをチェックアウト (存在しなければ作成)
-          git fetch origin deploy || git checkout --orphan deploy
-          git checkout deploy
-
-          # site_dist の中身でブランチを上書き
-          find . ! -name dist -exec rm -rf {} +
-          cp -r dist/* .
-          git add .
-          git commit -m "Deploy from main branch: ${{ github.sha }}"
-          git push -f origin deploy
+    - name: Deploy to deploy branch
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "actions@github.com"
+        git checkout deploy
+        # 既存の内容を削除。ただし、distディレクトリを除外する
+        shopt -s extglob  # bashの拡張グロブを有効にする
+        rm -rf !(dist)  # distディレクトリ以外を削除
+        cp -r dist/* .  # distディレクトリの内容をルートにコピー
+        git add .
+        git commit -m "Deploy to GitHub Pages"
+        git push --force origin deploy  # deployブランチに強制プッシュ
