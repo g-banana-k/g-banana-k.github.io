@@ -82,6 +82,9 @@ h1 {
     margin-left: 20px;
     width: 120px;
     border-radius: 15px;
+    line-height: 60px;
+    text-align: center;
+    user-select: none;
 }
 
 #search_button:hover {

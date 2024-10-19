@@ -92,6 +92,13 @@ const trans_with_tag = (tag) => {
 
 window.trans_with_tag = trans_with_tag;
 
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        button.dispatchEvent(new PointerEvent("click"))
+        e.preventDefault()
+    }
+});
+
 button.addEventListener("click", () => {
     /** @type {string[]} */
     const tags = [];
