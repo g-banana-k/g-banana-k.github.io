@@ -5,7 +5,7 @@ export const note_template = (content: string, meta: MetaData, r_path: string) =
     const url = `https://g-banana-k.github.io/${r_path.replace(/\/index$/, "")}`
     const page_title = `${meta.title ? `${meta.title} | ` : ""}BananaLinoleum's house`
     const title = meta.title ? meta.title : "Note";
-    const subtitle = meta.title ? meta.title : "ノート";
+    const subtitle = meta.subtitle ? meta.subtitle : "ノート";
     return `
 <!DOCTYPE html>
 <html lang="ja">
