@@ -1,0 +1,34 @@
+---
+title: スノーフル
+subtitle: Snowdin
+category: sludgetale
+tag: [sludgetale, area]
+---
+
+# スノーテル
+
+フリスクが泊まることのできる宿屋。全室コンセント完備である。
+
+売店では竜が巻き付いた剣のキーホルダーが売っている。
+
+<div class="space_line_2"></div>
+
+# としょんか
+
+町の中央にある図書館。
+
+奥にパソコン室があるが、外部と遮断された30年以上前のPCしかないためほとんど使われない。
+
+<div class="space_line_2"></div>
+
+# グリルビーズ
+
+[サンズ](/sludgetale/character/sans)をはじめとする多くのスノーフルのモンスターが出入りしている酒場。
+
+<div class="space_line_2"></div>
+
+# サンズとパピルスの家
+
+[パピルス](/sludgetale/character/papyrus)と和解すると入ることができるようになる。
+
+1階にはリビング、キッチン、サンズのペットのドラム式洗濯機が、2階にはサンズとパピルスそれぞれの部屋がある。
