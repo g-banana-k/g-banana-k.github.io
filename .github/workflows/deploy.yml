@@ -24,6 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: TREE
+        run: tree
+
       # TypeScript でビルド & Markdown から HTML 生成 (ssg)
       - name: Run build process
         run: npm run ssg
