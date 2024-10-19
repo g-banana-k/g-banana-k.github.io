@@ -24,12 +24,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: TREE
-        run: tree
-
       # TypeScript でビルド & Markdown から HTML 生成 (ssg)
       - name: Run build process
         run: npm run ssg
+
+      - name: TREE
+        run: tree
 
       # site_dist の中身を deploy ブランチにコピーしてコミット & プッシュ
       - name: Deploy to deploy branch
@@ -43,7 +43,7 @@ jobs:
 
           # site_dist の中身でブランチを上書き
           rm -rf ./*
-          cp -r site_dist/* .
+          cp -r dist/* .
           git add .
           git commit -m "Deploy from main branch: ${{ github.sha }}"
           git push -f origin deploy
