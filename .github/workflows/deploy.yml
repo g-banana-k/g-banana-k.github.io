@@ -28,6 +28,8 @@ jobs:
       run: |
         git config --global user.name "${{ github.actor }}"
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+        # deploy ブランチをチェックアウト (存在しなければ作成)
+        git fetch origin deploy || git checkout --orphan deploy
         git checkout deploy
         # 既存の内容を削除。ただし、distディレクトリを除外する
         shopt -s extglob  # bashの拡張グロブを有効にする
