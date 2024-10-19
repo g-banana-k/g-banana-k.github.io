@@ -14,7 +14,7 @@ const main = async (root: string) => {
     await mkdir(`${root}/dist`);
     const ctx = new Context(root);
     await ctx.generate(dir);
-    fs.writeFile(`${root}/dist/db.json`, ctx.db_to_json());
+    fs.writeFile(`${root}/dist/db.js`, `export default ${ctx.db_to_json()}`);
 }
 
 type DB = {
