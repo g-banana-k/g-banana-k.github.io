@@ -1,5 +1,3 @@
-import { MetaData } from "../metadata/main.js";
-
 export const footer = () => {
     return `
 <footer>

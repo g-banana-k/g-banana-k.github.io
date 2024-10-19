@@ -10,7 +10,8 @@
         "remark-parse": "^11.0.0"
     },
     "scripts": {
-        "ssg": "npx tsc && node ssg_dist/index.js",
+        "ssg": "tsc && node ssg_dist/index.js",
+        "live": "cd dist && live-server",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],

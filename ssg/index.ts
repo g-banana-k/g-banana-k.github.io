@@ -20,7 +20,9 @@ const main = async (root: string) => {
 type DB = {
     map: Map<string, {
         category: "sludgetale" | "note" | "uncategorized",
-        tag: string[]
+        tag: string[],
+        title: string,
+        subtitle: string,
     }>;
 }
 
@@ -57,6 +59,8 @@ class Context {
                 this.db.map.set(r_path.replace(/\.md$/, ""), {
                     category: metadata.category ?? "uncategorized",
                     tag: metadata.tag,
+                    title: metadata.title ?? "Untitled",
+                    subtitle: metadata.subtitle ?? "untitled",
                 });
             } else if (kind === "metadata") {
                 const code = (await fs.readFile(path)).toString();
@@ -64,6 +68,8 @@ class Context {
                 this.db.map.set(r_path.replace(/\.meta.md$/, ""), {
                     category: metadata.category ?? "uncategorized",
                     tag: metadata.tag,
+                    title: metadata.title ?? "Untitled",
+                    subtitle: metadata.subtitle ?? "untitled",
                 });
             }
         })(r_path)))

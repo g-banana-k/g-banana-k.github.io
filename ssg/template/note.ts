@@ -4,8 +4,8 @@ import { footer } from "./footer.js";
 export const note_template = (content: string, meta: MetaData, r_path: string) => {
     const url = `https://g-banana-k.github.io/${r_path.replace(/\/index$/, "")}`
     const page_title = `${meta.title ? `${meta.title} | ` : ""}BananaLinoleum's house`
-    const title = meta.title ? meta.title : "Note";
-    const subtitle = meta.subtitle ? meta.subtitle : "ノート";
+    const title = meta.title ? meta.title : "Untitled";
+    const subtitle = meta.subtitle ? meta.subtitle : "untitled";
     return `
 <!DOCTYPE html>
 <html lang="ja">

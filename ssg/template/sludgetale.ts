@@ -5,8 +5,8 @@ import { footer } from "./footer.js";
 export const sludgetale_template = (content: string, meta: MetaData, r_path: string) => {
     const url = `https://g-banana-k.github.io/${r_path.replace(/\/index$/, "")}`
     const page_title = `${(meta.title && meta.title !== "SLUDGETALE") ? `${meta.title} | ` : ""}SLUDGETALE`
-    const title = meta.title ? meta.title : "SLUDGETALE";
-    const subtitle = meta.subtitle ? meta.subtitle : "汚泥物語";
+    const title = meta.title ? meta.title : "Untitled";
+    const subtitle = meta.subtitle ? meta.subtitle : "untitled";
     const title_determination = is_ascii(title) ? "determination" : "";
     return `
 <!DOCTYPE html>
