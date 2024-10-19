@@ -1,4 +1,5 @@
 import { MetaData } from "../metadata/main.js";
+import { floating } from "./floating.js";
 import { footer } from "./footer.js";
 
 export const note_template = (content: string, meta: MetaData, r_path: string) => {
@@ -33,6 +34,7 @@ export const note_template = (content: string, meta: MetaData, r_path: string) =
         </article>
     </main>
     ${footer()}
+    ${floating()}
 </body>
 
 </html>

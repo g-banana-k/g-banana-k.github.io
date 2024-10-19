@@ -1,5 +1,6 @@
 import { MetaData } from "../metadata/main.js";
 import { is_ascii } from "../util.js";
+import { floating } from "./floating.js";
 import { footer } from "./footer.js";
 
 export const sludgetale_template = (content: string, meta: MetaData, r_path: string) => {
@@ -35,6 +36,7 @@ export const sludgetale_template = (content: string, meta: MetaData, r_path: str
         </article>
     </main>
     ${footer()}
+    ${floating()}
 </body>
 
 </html>
