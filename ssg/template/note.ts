@@ -2,7 +2,7 @@ import { MetaData } from "../metadata/main.js";
 import { footer } from "./footer.js";
 
 export const note_template = (content: string, meta: MetaData, r_path: string) => {
-    const page_title = `${meta.title ? `${meta.title} | ` : ""}BananaLinoleum's house}`
+    const page_title = `${meta.title ? `${meta.title} | ` : ""}BananaLinoleum's house`
     const title = meta.title ? meta.title : "Note";
     const subtitle = meta.title ? meta.title : "ノート";
     return `
@@ -31,7 +31,7 @@ export const note_template = (content: string, meta: MetaData, r_path: string) =
         ${content}
         </article>
     </main>
-    ${footer(content, meta, r_path)}
+    ${footer()}
 </body>
 
 </html>

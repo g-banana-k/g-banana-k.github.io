@@ -3,7 +3,7 @@ import { is_ascii } from "../util.js";
 import { footer } from "./footer.js";
 
 export const sludgetale_template = (content: string, meta: MetaData, r_path: string) => {
-    const page_title = `${(meta.title && meta.title !== "SLUDGETALE") ? `${meta.title} | ` : ""}SLUDGETALE}`
+    const page_title = `${(meta.title && meta.title !== "SLUDGETALE") ? `${meta.title} | ` : ""}SLUDGETALE`
     const title = meta.title ? meta.title : "SLUDGETALE";
     const subtitle = meta.subtitle ? meta.subtitle : "汚泥物語";
     const title_determination = is_ascii(title) ? "determination" : "";
@@ -33,7 +33,7 @@ export const sludgetale_template = (content: string, meta: MetaData, r_path: str
         ${content}
         </article>
     </main>
-    ${footer(content, meta, r_path)}
+    ${footer()}
 </body>
 
 </html>

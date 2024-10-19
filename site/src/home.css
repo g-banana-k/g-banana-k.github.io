@@ -7,13 +7,24 @@ body {
     font-style: normal;
     font-optical-sizing: auto;
     font-size: 20px;
-    color: #222;
+    color: var(--text-color);
     height: 100%;
     margin: 0;
+    overflow-x: hidden;
+}
+
+
+:root {
+    --text-color: #261f0a;
+    --link-color: #4d97ff;
+    --link-color-visited: #855cd6;
+    --background-color-1: #fbf6e2;
+    --background-color-2: #fff;
+    --border-color: #332a0d;
 }
 
 main {
-    background-color: #fbf6e2;
+    background-color: var(--background-color-1);
     height: 100%;
     position: relative;
 }
@@ -29,8 +40,19 @@ main h1 {
     margin: auto;
 }
 
-main h1 img {
+main h1 .icon {
     display:inline;
     height: 120px;
     margin-right: 20px;
+}
+
+.logo .icon {
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
 }

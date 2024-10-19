@@ -4,6 +4,7 @@ import * as path_lib from "path";
 import { read } from "./markdown/main.js";
 import { note_template } from "./template/note.js";
 import { sludgetale_template } from "./template/sludgetale.js";
+import { footer } from "./template/footer.js";
 
 const main = async (root: string) => {
     const dir = (await fs.readdir(`${root}/site`));
@@ -27,7 +28,13 @@ class Context {
                 await mkdir(`${this.root}/dist/${r_path}`);
                 await this.generate(dir.map(name => `${r_path}/${name}`));
             } else if (kind === "file") {
-                await fs.copyFile(path, `${this.root}/dist/${r_path}`)
+                if (path_lib.extname(path) === ".html") {
+                    const html_source = (await fs.readFile(path)).toString();
+                    const html = html_source.replace(/{{\s*footer\s*}}/g, footer());
+                    await fs.writeFile(`${this.root}/dist/${r_path}`, html)
+                } else {
+                    await fs.copyFile(path, `${this.root}/dist/${r_path}`)
+                }
             } else if (kind === "md") {
                 const code = (await fs.readFile(path)).toString();
                 const html = await this.generate_page(code, r_path.replace(/\.md$/, ""));

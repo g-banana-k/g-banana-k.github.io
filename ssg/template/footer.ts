@@ -1,6 +1,6 @@
 import { MetaData } from "../metadata/main.js";
 
-export const footer = (content: string, metadata: MetaData, r_path: string) => {
+export const footer = () => {
     return `
 <footer>
     <div id="footer_grid">
