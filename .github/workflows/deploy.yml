@@ -1,0 +1,36 @@
+name: Deploy to Deploy Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16' # 使用したいNode.jsのバージョン
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run SSG command
+      run: npm run ssg # ssgコマンドを定義しているスクリプト
+
+    - name: Deploy to Deploy Branch
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git checkout deploy
+        rm -rf * # 現在のdeployブランチの内容を削除
+        cp -R dist/* . # distフォルダの中身をコピー
+        git add .
+        git commit -m "Deploy to deploy branch" || echo "No changes to commit"
+        git push origin deploy
