@@ -2,6 +2,7 @@ import { MetaData } from "../metadata/main.js";
 import { footer } from "./footer.js";
 
 export const note_template = (content: string, meta: MetaData, r_path: string) => {
+    const url = `https://g-banana-k.github.io/${r_path.replace(/\/index$/, "")}`
     const page_title = `${meta.title ? `${meta.title} | ` : ""}BananaLinoleum's house`
     const title = meta.title ? meta.title : "Note";
     const subtitle = meta.title ? meta.title : "ノート";
@@ -14,7 +15,7 @@ export const note_template = (content: string, meta: MetaData, r_path: string) =
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${page_title}</title>
     <link rel="icon" href="/assets/blinol.png" />
-    <link rel="canonical" href="https://g-banana-k.github.io/${r_path}">
+    <link rel="canonical" href="${url}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
     <link rel="stylesheet" href="/src/note.css">
     <link rel="stylesheet" href="/src/note_theme.css">
