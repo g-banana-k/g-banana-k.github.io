@@ -17,8 +17,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - run: npm ci
-      - run: npm run build
+      - run: npm install
+      - run: npm run ssg
       
       - uses: actions/upload-artifact@v3
         with:
