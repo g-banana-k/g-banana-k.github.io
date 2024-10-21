@@ -28,6 +28,7 @@ tag: [sludgetale, index]
 - [アンダイン](/sludgetale/character/undyne)
 - [アルフィー](/sludgetale/character/alphys)
 - [MTTブラザーズ](/sludgetale/character/mtt_bros)
+- [マフェット](/sludgetale/character/muffet)
 - [アズゴア](/sludgetale/character/asgore)
 - [アズリエル](/sludgetale/character/asriel)
 - [キャラ](/sludgetale/character/chara)
