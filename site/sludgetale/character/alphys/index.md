@@ -9,6 +9,8 @@ tag: [sludgetale, character]
 
 オタク、特にボカロのオタクであり、考察と称してなんでも自殺や妊娠にこじつけようとする記事を忌み嫌っている。
 
+<div class="space_line_2"></div>
+
 # MTTブラザーズ
 
 [個別記事](/sludgetale/character/mtt_bros/)も参照。
