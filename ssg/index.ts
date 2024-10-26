@@ -13,7 +13,8 @@ const main = async (root: string) => {
     // await rm(`${root}/dist`);
     await mkdir(`${root}/dist`);
     const ctx = new Context(root);
-    await ctx.generate(dir);
+    await ctx.crawl(dir);
+    await ctx.generate();
     fs.writeFile(`${root}/dist/db.js`, `export default ${ctx.db_to_json()}`);
 }
 
@@ -29,13 +30,15 @@ type DB = {
 class Context {
     root: string;
     db: DB;
+    pages: Map<string, { dest: string, code: string, kind: "file" | "html" | "md" | "metadata" | "dir" }>;
     constructor(root: string) {
         this.root = root;
         this.db = {
             map: new Map(),
         };
+        this.pages = new Map();
     }
-    async generate(r_paths: string[]) {
+    async crawl(r_paths: string[]) {
         const promises: Promise<void>[] = [];
         r_paths.forEach((r_path) => promises.push((async r_path => {
             const path = `${this.root}/site/${r_path}`;
@@ -43,28 +46,27 @@ class Context {
             if (kind === "dir") {
                 const dir = await fs.readdir(path);
                 await mkdir(`${this.root}/dist/${r_path}`);
-                await this.generate(dir.map(name => `${r_path}/${name}`));
+                await this.crawl(dir.map(name => `${r_path}/${name}`));
+            } else if (kind === "html") {
+                const html_source = (await fs.readFile(path)).toString();
+                const html = html_source.replace(/{{\s*footer\s*}}/g, footer());
+                this.pages.set(r_path.replace(/\.html$/, ""), {  dest:`${this.root}/dist/${r_path}`, code: html, kind });
             } else if (kind === "file") {
-                if (path_lib.extname(path) === ".html") {
-                    const html_source = (await fs.readFile(path)).toString();
-                    const html = html_source.replace(/{{\s*footer\s*}}/g, footer());
-                    await fs.writeFile(`${this.root}/dist/${r_path}`, html)
-                } else {
-                    await fs.copyFile(path, `${this.root}/dist/${r_path}`)
-                }
+                this.pages.set(r_path, { dest:`${this.root}/dist/${r_path}`, code: "binary", kind });
             } else if (kind === "md") {
-                const code = (await fs.readFile(path)).toString();
-                const [html, metadata] = await this.generate_page(code, r_path.replace(/\.md$/, ""));
-                fs.writeFile(`${this.root}/dist/${r_path}`.replace(/\.md$/, '.html'), html);
-                this.db.map.set(r_path.replace(/\.md$/, ""), {
+                const source = (await fs.readFile(path)).toString();
+                const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw);
+                this.pages.set(r_path.replace(/(\.md|\.md\/|\/index\.md|\/index\.md\/)$/, ""), { dest:`${this.root}/dist/${r_path.replace(/\.md|\.md\/$/, ".html")}`, code: source, kind });
+                this.db.map.set(r_path.replace(/(\.md|\.md\/|index\.md|index\.md\/)$/, ""), {
                     category: metadata.category ?? "uncategorized",
                     tag: metadata.tag,
                     title: metadata.title ?? "Untitled",
                     subtitle: metadata.subtitle ?? "untitled",
                 });
             } else if (kind === "metadata") {
-                const code = (await fs.readFile(path)).toString();
-                const metadata = new MetaData(parseMD(code).metadata as MetaDataRaw)
+                const source = (await fs.readFile(path)).toString();
+                this.pages.set(r_path, { dest:"none", code: source, kind });
+                const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw)
                 this.db.map.set(r_path.replace(/\.meta.md$/, ""), {
                     category: metadata.category ?? "uncategorized",
                     tag: metadata.tag,
@@ -75,8 +77,21 @@ class Context {
         })(r_path)))
         await Promise.all(promises);
     }
+    async generate() {
+        const promises: Promise<void>[] = [];
+        this.pages.forEach(({ dest, kind, code }, r_path) => promises.push((async () => {
+            if (kind === "html") {
+                await fs.writeFile(dest, code);
+            } else if (kind === "file") {
+                await fs.copyFile(`${this.root}/site/${r_path}`, dest)
+            } else if (kind === "md") {
+                await fs.writeFile(dest, (await this.generate_page(code, r_path))[0]);
+            }
+        })()))
+        await Promise.all(promises);
+    }
     async generate_page(code: string, r_path: string): Promise<[string, MetaData]> {
-        const [html, metadata] = await read(code);
+        const [html, metadata] = await read(code, this.pages);
         if (metadata.category === "sludgetale") {
             return [sludgetale_template(html, metadata, r_path), metadata];
         } else {
@@ -91,10 +106,11 @@ class Context {
     }
 }
 
-const check_kind = async (path: string): Promise<"file" | "md" | "metadata" | "dir"> => {
+const check_kind = async (path: string): Promise<"file" | "html" | "md" | "metadata" | "dir"> => {
     const stat = await fs.stat(path);
     if (stat.isDirectory()) return "dir"
     else if (path_lib.extname(path) === ".md") return "md";
+    else if (path_lib.extname(path) === ".html") return "html";
     else if (path.endsWith(".meta.md")) return "metadata";
     else return "file";
 }

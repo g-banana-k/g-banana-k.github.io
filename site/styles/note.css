@@ -174,3 +174,7 @@ article ul>li {
 article ol>li {
     list-style: upper-roman;
 }
+
+a.link_404 {
+    color: var(--link-color-404);
+}
