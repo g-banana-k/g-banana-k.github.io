@@ -57,7 +57,7 @@ class Context {
                 this.pages.set(r_path, { dest: `${this.root}/dist/${r_path}`, code: "binary", kind });
             } else if (kind === "md") {
                 const source = (await fs.readFile(path)).toString();
-                const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw);
+                const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw, r_path);
                 this.pages.set(r_path.replace(/(\.md|\.md\/|\/index\.md|\/index\.md\/)$/, ""), { dest: `${this.root}/dist/${r_path.replace(/\.md|\.md\/$/, ".html")}`, code: source, kind });
                 this.db.map.set(r_path.replace(/(\.md|\.md\/|index\.md|index\.md\/)$/, ""), {
                     category: metadata.category ?? "uncategorized",
@@ -71,7 +71,7 @@ class Context {
             } else if (kind === "metadata") {
                 const source = (await fs.readFile(path)).toString();
                 this.pages.set(r_path, { dest: "none", code: source, kind });
-                const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw)
+                const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw, r_path);
                 this.db.map.set(r_path.replace(/\.meta.md$/, ""), {
                     category: metadata.category ?? "uncategorized",
                     tag: metadata.tag,
@@ -102,7 +102,7 @@ class Context {
         await Promise.all(promises);
     }
     async generate_page(code: string, r_path: string): Promise<[string, MetaData]> {
-        const [html, metadata] = await read(code, this.pages);
+        const [html, metadata] = await read(code, this.pages, r_path);
         if (metadata.category === "sludgetale") {
             return [sludgetale_template(html, metadata, r_path), metadata];
         } else {

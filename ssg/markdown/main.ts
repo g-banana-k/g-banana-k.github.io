@@ -4,13 +4,13 @@ import { remark } from "remark";
 import gfm from "remark-gfm";
 import { MetaDataRaw, MetaData } from "../metadata/main.js";
 
-export const read = async (code: string, pages: Map<string, unknown>): Promise<[string, MetaData]> => {
+export const read = async (code: string, pages: Map<string, unknown>, r_path: string): Promise<[string, MetaData]> => {
     const parse_res = parseMD(code);
     const content = parse_res.content;
     const metadata = parse_res.metadata as unknown as MetaDataRaw;
     const r = await remark().use(gfm).parse(content);
     const html = translate_all(r.children, pages);
-    return [html, new MetaData(metadata)]
+    return [html, new MetaData(metadata, r_path)]
 }
 
 export const translate_all = (root: RootContent[], pages: Map<string, unknown>) => {

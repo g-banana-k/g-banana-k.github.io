@@ -21,6 +21,13 @@ export const note_template = (content: string, meta: MetaData, r_path: string) =
     <link rel="stylesheet" href="/styles/note.css">
     <link rel="stylesheet" href="/styles/note_theme.css">
     <link rel="stylesheet" href="/styles/footer.css">
+
+    <meta property="og:title" content="${page_title}">
+    <meta property="og:description" content="${meta.description}">
+    <meta property="og:url" content="${url}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="${meta.thumbnail}">
+
 </head>
 
 <body>

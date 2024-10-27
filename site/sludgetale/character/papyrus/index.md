@@ -1,5 +1,5 @@
 ---
-title: サンズ
+title: パピルス
 subtitle: Sans
 category: sludgetale
 tag: [sludgetale, character]
