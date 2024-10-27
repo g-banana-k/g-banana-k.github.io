@@ -79,20 +79,24 @@ const translate = (e: RootContent, pages: Map<string, unknown>) => {
         case "table": {
             let t_res = "";
             const rows = e.children;
+            let is_head_void = true;
             rows.forEach((row, i) => {
+                let r_res = "";
+                row.children.forEach((cell, j) => {
+                    r_res += j === 0 || i === 0 ? `<th>${translate_all(cell.children, pages)}</th>` : `<td>${translate_all(cell.children, pages)}</td>`
+                    if (i === 0) is_head_void &&= cell.children.length === 0;
+                })
                 if (i === 0) {
-                    t_res += `<thead>${translate_all(row.children, pages)}</thead>`
+                    if (!is_head_void) t_res += `<thead>${r_res}</thead>`
                 } else if (i < rows.length - 1) {
-                    t_res += `<tbody>${translate_all(row.children, pages)}</tbody>`
+                    t_res += `<tbody>${r_res}</tbody>`
                 } else {
-                    t_res += `<tfoot>${translate_all(row.children, pages)}</tfoot>`
+                    t_res += `<tfoot>${r_res}</tfoot>`
                 }
             });
             return `<table>${t_res}</table>`
         } break;
-        case "tableCell": {
-            return `<tr>${translate_all(e.children, pages)}</tr>`
-        } break;
+        case "tableCell": { } break;
         case "tableRow": { } break;
         case "text": {
             return e.value;
@@ -103,8 +107,4 @@ const translate = (e: RootContent, pages: Map<string, unknown>) => {
         case "yaml": { } break;
     }
     return "";
-}
-
-const get_text = (root: RootContent[]) => {
-    
 }

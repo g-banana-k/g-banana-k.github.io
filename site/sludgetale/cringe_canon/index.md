@@ -9,7 +9,7 @@ SLUDGETALEに付与されてしまった謎設定をここに記す。CC!SLUDGET
 
 # 所在地
 
-SLUDGETALEは、実はUNDERTALE AUのマルチバースや[ブルーアーカイブのマルチバース](https://x.com/dazerosaiko/status/1825498390136025277)ではなく、ヘキサゴン・木口ハッピー連合バース廃校バースというマルチバース上に存在している。
+SLUDGETALEは、実はUNDERTALE AUのマルチバースや[ブルーアーカイブのマルチバース](https://x.com/dazerosaiko/status/1825498390136025277)ではなく、[ヘキサゴン・木口ハッピー連合バース廃校バース](/creation/world)上に存在している。
 
 そのためUNDERTALE AUのマルチバースが崩壊するような出来事が起きてもSLUDGETALEには大した影響がない。
 
