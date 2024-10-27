@@ -7,6 +7,8 @@ import { sludgetale_template } from "./template/sludgetale.js";
 import { footer } from "./template/footer.js";
 import { MetaData, MetaDataRaw } from "./metadata/main.js";
 import parseMD from "parse-md";
+import { minify } from "terser"
+
 
 const main = async (root: string) => {
     const dir = (await fs.readdir(`${root}/site`));
@@ -30,7 +32,7 @@ type DB = {
 class Context {
     root: string;
     db: DB;
-    pages: Map<string, { dest: string, code: string, kind: "file" | "html" | "md" | "metadata" | "dir" }>;
+    pages: Map<string, { dest: string, code: string, kind: Kind }>;
     constructor(root: string) {
         this.root = root;
         this.db = {
@@ -50,22 +52,25 @@ class Context {
             } else if (kind === "html") {
                 const html_source = (await fs.readFile(path)).toString();
                 const html = html_source.replace(/{{\s*footer\s*}}/g, footer());
-                this.pages.set(r_path.replace(/\.html$/, ""), {  dest:`${this.root}/dist/${r_path}`, code: html, kind });
+                this.pages.set(r_path.replace(/\.html$/, ""), { dest: `${this.root}/dist/${r_path}`, code: html, kind });
             } else if (kind === "file") {
-                this.pages.set(r_path, { dest:`${this.root}/dist/${r_path}`, code: "binary", kind });
+                this.pages.set(r_path, { dest: `${this.root}/dist/${r_path}`, code: "binary", kind });
             } else if (kind === "md") {
                 const source = (await fs.readFile(path)).toString();
                 const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw);
-                this.pages.set(r_path.replace(/(\.md|\.md\/|\/index\.md|\/index\.md\/)$/, ""), { dest:`${this.root}/dist/${r_path.replace(/\.md|\.md\/$/, ".html")}`, code: source, kind });
+                this.pages.set(r_path.replace(/(\.md|\.md\/|\/index\.md|\/index\.md\/)$/, ""), { dest: `${this.root}/dist/${r_path.replace(/\.md|\.md\/$/, ".html")}`, code: source, kind });
                 this.db.map.set(r_path.replace(/(\.md|\.md\/|index\.md|index\.md\/)$/, ""), {
                     category: metadata.category ?? "uncategorized",
                     tag: metadata.tag,
                     title: metadata.title ?? "Untitled",
                     subtitle: metadata.subtitle ?? "untitled",
                 });
+            } else if (kind === "js") {
+                const source = (await fs.readFile(path)).toString();
+                this.pages.set(r_path, { dest: `${this.root}/dist/${r_path}`, code: source, kind });
             } else if (kind === "metadata") {
                 const source = (await fs.readFile(path)).toString();
-                this.pages.set(r_path, { dest:"none", code: source, kind });
+                this.pages.set(r_path, { dest: "none", code: source, kind });
                 const metadata = new MetaData(parseMD(source).metadata as MetaDataRaw)
                 this.db.map.set(r_path.replace(/\.meta.md$/, ""), {
                     category: metadata.category ?? "uncategorized",
@@ -86,6 +91,9 @@ class Context {
                 await fs.copyFile(`${this.root}/site/${r_path}`, dest)
             } else if (kind === "md") {
                 await fs.writeFile(dest, (await this.generate_page(code, r_path))[0]);
+            } else if (kind === "js") {
+                const minified = await minify(code, {});
+                await fs.writeFile(dest,minified.code ?? "");
             }
         })()))
         await Promise.all(promises);
@@ -106,12 +114,15 @@ class Context {
     }
 }
 
-const check_kind = async (path: string): Promise<"file" | "html" | "md" | "metadata" | "dir"> => {
+type Kind = "file" | "html" | "md" | "metadata" | "dir" |"js";
+
+const check_kind = async (path: string): Promise<Kind> => {
     const stat = await fs.stat(path);
     if (stat.isDirectory()) return "dir"
     else if (path_lib.extname(path) === ".md") return "md";
     else if (path_lib.extname(path) === ".html") return "html";
     else if (path.endsWith(".meta.md")) return "metadata";
+    else if (path.endsWith(".js")) return "js";
     else return "file";
 }
 
