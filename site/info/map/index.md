@@ -1,6 +1,6 @@
 ---
 title: サイトマップ
-subtitle: index
+subtitle: サイト内案内
 category: note
 tag: [index]
 ---
@@ -15,11 +15,15 @@ tag: [index]
 
 サイト内検索。完全にローカルで完結させている。
 
+<div class="space_line_2"></div>
+
 # [創作](/creation)
 
 ## [SLUDGETALE](/sludgetale)
 
 ScratchのときからあるUNDERTALEのAU。2024年中にどうにか終わらせたい。
+
+<div class="space_line_2"></div>
 
 # ブログ
 

@@ -3,7 +3,7 @@ title: Hexagon-Kimchi Happy Union Verse Abandoned-School Verse Time trio
 subtitle: ヘキサゴン・木口ハッピー連合バース廃校バースタイムトリオ
 page_title: 木口幸福廃校トリオ
 category: sludgetale
-tag: [sludgetale, cringe_canon]
+tag: [sludgetale, cringe_canon, HKHUVASVTT]
 ---
 ![](./group_photo.png)
 

@@ -27,7 +27,7 @@ export class MetaData implements MetaDataRaw {
             note: `${this.title ? `${this.title} | ` : ""}BananaLinoleum's house`
         } as Record<"sludgetale" | "note", string>)[this.category];
         this.tag = md.tag ?? [];
-        this.description=md.description ?? "なんかの記事です";
-        this.thumbnail=md.thumbnail ?? (this.category ==="note" ? "/assets/blinol.png" : "/assets/blinol.png")
+        this.description = md.description ?? "なんかの記事です";
+        this.thumbnail = md.thumbnail ?? (this.category === "note" ? "/assets/blinol.png" : "/assets/blinol.png")
     }
 }

@@ -104,9 +104,9 @@ class Context {
     async generate_page(code: string, r_path: string): Promise<[string, MetaData]> {
         const [html, metadata] = await read(code, this.pages, r_path);
         if (metadata.category === "sludgetale") {
-            return [sludgetale_template(html, metadata, r_path), metadata];
+            return [sludgetale_template(html, metadata), metadata];
         } else {
-            return [note_template(html, metadata, r_path), metadata]
+            return [note_template(html, metadata), metadata]
         }
     }
     db_to_json() {

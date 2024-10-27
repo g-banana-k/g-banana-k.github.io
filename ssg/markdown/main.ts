@@ -13,13 +13,13 @@ export const read = async (code: string, pages: Map<string, unknown>, r_path: st
     return [html, new MetaData(metadata, r_path)]
 }
 
-export const translate_all = (root: RootContent[], pages: Map<string, unknown>) => {
+const translate_all = (root: RootContent[], pages: Map<string, unknown>) => {
     let res = "";
     root.forEach(e => { res += translate(e, pages) });
     return res;
 }
 
-export const translate = (e: RootContent, pages: Map<string, unknown>) => {
+const translate = (e: RootContent, pages: Map<string, unknown>) => {
     switch (e.type) {
         case "blockquote": {
             return `<div class="blockquote">${translate_all(e.children, pages)}</div>`;
@@ -46,7 +46,7 @@ export const translate = (e: RootContent, pages: Map<string, unknown>) => {
             return e.value;
         } break;
         case "image": {
-            return `<div class="img_outer"><img src="${e.url}"></div>`
+            return `<div class="img_outer"><img src="${e.url}" ${e.alt ? `alt="${e.alt}"` : ""}></div>`
         } break;
         case "imageReference": { } break;
         case "inlineCode": {
@@ -103,4 +103,8 @@ export const translate = (e: RootContent, pages: Map<string, unknown>) => {
         case "yaml": { } break;
     }
     return "";
+}
+
+const get_text = (root: RootContent[]) => {
+    
 }

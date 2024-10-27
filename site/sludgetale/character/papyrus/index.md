@@ -1,6 +1,6 @@
 ---
 title: パピルス
-subtitle: Sans
+subtitle: Papyrus
 category: sludgetale
 tag: [sludgetale, character]
 ---
