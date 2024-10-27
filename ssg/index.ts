@@ -8,7 +8,7 @@ import { footer } from "./template/footer.js";
 import { MetaData, MetaDataRaw } from "./metadata/main.js";
 import parseMD from "parse-md";
 import { minify } from "terser"
-
+import * as CleanCSS from "clean-css"
 
 const main = async (root: string) => {
     const dir = (await fs.readdir(`${root}/site`));
@@ -65,7 +65,7 @@ class Context {
                     title: metadata.title ?? "Untitled",
                     subtitle: metadata.subtitle ?? "untitled",
                 });
-            } else if (kind === "js") {
+            } else if (kind === "js" || kind === "css") {
                 const source = (await fs.readFile(path)).toString();
                 this.pages.set(r_path, { dest: `${this.root}/dist/${r_path}`, code: source, kind });
             } else if (kind === "metadata") {
@@ -93,7 +93,10 @@ class Context {
                 await fs.writeFile(dest, (await this.generate_page(code, r_path))[0]);
             } else if (kind === "js") {
                 const minified = await minify(code, {});
-                await fs.writeFile(dest,minified.code ?? "");
+                await fs.writeFile(dest, minified.code ?? "");
+            } else if (kind === "css") {
+                const minified = await new CleanCSS.default().minify(code);
+                await fs.writeFile(dest, minified.styles ?? "");
             }
         })()))
         await Promise.all(promises);
@@ -114,7 +117,7 @@ class Context {
     }
 }
 
-type Kind = "file" | "html" | "md" | "metadata" | "dir" |"js";
+type Kind = "file" | "html" | "md" | "metadata" | "dir" | "js" | "css";
 
 const check_kind = async (path: string): Promise<Kind> => {
     const stat = await fs.stat(path);
@@ -123,6 +126,7 @@ const check_kind = async (path: string): Promise<Kind> => {
     else if (path_lib.extname(path) === ".html") return "html";
     else if (path.endsWith(".meta.md")) return "metadata";
     else if (path.endsWith(".js")) return "js";
+    else if (path.endsWith(".css")) return "css";
     else return "file";
 }
 
