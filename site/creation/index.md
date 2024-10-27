@@ -5,4 +5,4 @@ category: note
 tag: [creation, index]
 ---
 
-BananaLinoleumの自創作です。内容はまだない。
+BananaLinoleumの自創作。内容はまだない。
