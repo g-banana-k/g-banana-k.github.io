@@ -65,7 +65,7 @@ p {
 
 article h2 {
     font-size: 35px;
-    font-weight: 500;
+    font-weight: 600;
     padding-top: 20px;
     padding-bottom: 4px;
     margin-bottom: 8px;
@@ -74,10 +74,18 @@ article h2 {
 
 article h3 {
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 600;
     padding-top: 20px;
     padding-bottom: 6px;
     margin-bottom: 8px;
+}
+
+article h4 {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 20px;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 table {

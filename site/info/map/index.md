@@ -17,11 +17,15 @@ tag: [index]
 
 <div class="space_line_2"></div>
 
-# [創作](/creation)
+# 創作
 
 ## [SLUDGETALE](/sludgetale)
 
 ScratchのときからあるUNDERTALEのAU。2024年中にどうにか終わらせたい。
+
+## [ヘキサゴン・木口ハッピー連合バース廃校バース](/creation)
+
+BananaLinoleumの自創作。よく白紙に戻る。
 
 <div class="space_line_2"></div>
 
