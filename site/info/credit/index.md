@@ -7,13 +7,13 @@ tag: [information, credit]
 
 # 画像
 
-[Discord Logo](https://www.svgrepo.com/svg/515916/discord)" by Donnnno
+[Discord Logo](https://www.svgrepo.com/svg/515916/discord) by Donnnno
 
-[Twitter Logo](https://www.svgrepo.com/svg/519928/twitter)" by Donnnno
+[Twitter Logo](https://www.svgrepo.com/svg/519928/twitter) by Donnnno
 
-[Misskey Logo](https://www.svgrepo.com/svg/517872/misskey)" by Donnnno
+[Misskey Logo](https://www.svgrepo.com/svg/517872/misskey) by Donnnno
 
-[Github Logo ](https://www.svgrepo.com/svg/516640/github )  by Donnnno
+[Github Logo](https://www.svgrepo.com/svg/516640/github)  by Donnnno
 
 # フォント
 

@@ -13,11 +13,11 @@ body {
     --text-color: #261f0a;
     --link-color: #4d97ff;
     --link-color-visited: #855cd6;
+    --link-color-404: #c719af;
     --background-color-1: #fbf6e2;
     --background-color-2: #fff;
     --border-color: #332a0d;
 }
-
 
 article h2 {
     font-weight: 500;
