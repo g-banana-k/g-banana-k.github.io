@@ -17,8 +17,12 @@ BananaLinoleumの自創作。
 
 ### [六角風太](/creation/character/futa_rokusumi)
 
-### [ハンドソープ](/creation/character/hand_soap)
-
 ## 帰属未定
 
 ### [羅覇](/creation/character/raha)
+
+### [銀杏](/creation/character/ginnnan)
+
+### [ハンドソープ](/creation/character/hand_soap)
+
+### [ココア](/creation/character/cocoa)
