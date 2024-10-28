@@ -11,6 +11,8 @@ BananaLinoleumの自創作。
 
 ## [ヘキサゴン・木口ハッピー連合バース廃校バース](/creation/world)
 
+## [亜麻仁床市](/creation/world/amaniyuka)
+
 # 人物
 
 ## ヘキサゴン・木口ハッピー連合バース廃校バース
