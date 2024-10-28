@@ -11,4 +11,4 @@ tag: [creation, hkhuvasv, character]
 | 身長 | 172cm |
 | 誕生日 | 1月21日 |
 
-[ヘキサゴン・木口ハッピー連合バース廃校バース](/creation/world)が埋まっている公園の隣の家に住んでいる人。
+[ヘキサゴン・木口ハッピー連合バース廃校バース](/creation/world)の[亜麻仁床市](/creation/amaniyuka)に住んでいる。
