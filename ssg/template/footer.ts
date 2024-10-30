@@ -15,6 +15,7 @@ export const footer = () => {
             <h4>Works</h4>
             <ul>
                 <li><a href="https://g-banana-k.github.io/banahexel_site">BanaHexel</a></li>
+                <li><a href="https://g-banana-k.github.io/creation">HKHUVASV</a></li>
             </ul>
         </div>
         <div class="footer_content">
