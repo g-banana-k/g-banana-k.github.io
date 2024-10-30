@@ -6,13 +6,13 @@ export const footer = () => {
             <h4><a href="/info">Info</a></h4>
             <ul>
                 <li><a href="/info/about">About</a></li>
-                <li><a href="/info/map">Map</a></li>
-                <li><a href="/info/credit">Credit</a></li>
+                <li><a href="/info/profile">Profile</a></li>
                 <li><a href="/search">Search</a></li>
+                <li><a href="/info/credit">Credit</a></li>
             </ul>
         </div>
         <div class="footer_content">
-            <h4>Works</h4>
+            <h4><a href="/info/works">Works</a></h4>
             <ul>
                 <li><a href="https://g-banana-k.github.io/banahexel_site">BanaHexel</a></li>
                 <li><a href="https://g-banana-k.github.io/creation">HKHUVASV</a></li>
