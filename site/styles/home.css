@@ -55,3 +55,11 @@ main h1 .icon {
     align-items: center;
     height: 160px;
 }
+
+@media screen and (max-width: 480px) {
+    main h1 {
+        line-height: 70px;
+        font-size: 35px;
+        height: 190px;
+    }
+}
