@@ -16,12 +16,13 @@ footer {
     display: flex;
     flex-direction: column;
     font-weight: 400;
+    column-gap: 20px;
 }
 
 #footer_grid {
     width: 100%;
     flex-grow: 1;
-    padding: 40px 30px;
+    padding: 40px 0 40px 30px;
 }
 
 #footer_grid_inner {
