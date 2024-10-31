@@ -2,7 +2,6 @@
 title: 制作物
 subtitle: 作ったもの/作っているもの
 category: note
-thumbnail: /assets/blinol.png
 tag: [information, index]
 ---
 

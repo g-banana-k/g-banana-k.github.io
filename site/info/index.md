@@ -16,7 +16,7 @@ tag: [information, index]
 - [クレジット](/info/credit)
 - [サイト内検索](/search)
 
-# 創作/制作物
+# [創作/制作物](/info/works)
 
 - [BanaHexel](https://g-banana-k.github.io/banahexel_site)
 - [ヘキサゴン・木口ハッピー連合バース廃校バース](/creation)
