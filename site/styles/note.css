@@ -6,6 +6,7 @@ body {
     font-optical-sizing: auto;
     color: var(--text-color);
     font-size: 20px;
+    overflow-x: hidden;
 }
 
 a {
@@ -42,7 +43,7 @@ article {
 h1 {
     padding-top: 40px;
     padding-bottom: 0px;
-    font-size: 60px;
+    font-size: 52px;
     font-weight: 600;
     text-align: center;
 }
@@ -50,11 +51,13 @@ h1 {
 #head h2 {
     padding-top: 10px;
     padding-bottom: 40px;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 400;
     text-align: center;
 }
-#head h2::before,#head h2::after {
+
+#head h2::before,
+#head h2::after {
     content: "-";
 }
 
@@ -64,7 +67,7 @@ p {
 }
 
 article h2 {
-    font-size: 35px;
+    font-size: 32px;
     font-weight: 600;
     padding-top: 20px;
     padding-bottom: 4px;
@@ -73,7 +76,7 @@ article h2 {
 }
 
 article h3 {
-    font-size: 25px;
+    font-size: 26px;
     font-weight: 600;
     padding-top: 20px;
     padding-bottom: 6px;
@@ -116,27 +119,6 @@ table td {
     justify-content: center;
     align-items: center;
     height: 160px;
-}
-
-@media screen and (max-width: 768px) {
-    .icon {
-        height: 100%;
-    }
-
-    .logo h1 {
-        color: var(--background-color-1);
-        font-size: 40px;
-        font-weight: 600;
-    }
-
-    .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 160px;
-        margin-bottom: 20px;
-    }
 }
 
 article img {
@@ -185,4 +167,39 @@ article ol>li {
 
 a.link_404 {
     color: var(--link-color-404);
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .icon {
+        height: 100%;
+    }
+
+    .logo h1 {
+        color: var(--background-color-1);
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 160px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 100vw;
+    }
+
+    article {
+        background-color: var(--background-color-2);
+        border-radius: 0;
+        padding: 20px;
+    }
 }

@@ -2,7 +2,7 @@
 title: 六角風太
 subtitle: ヘキサゴン・フータ
 category: note
-tag: [creation, hkhuvasv, amaniyuka, character]
+tag: [creation, HKHUVASV, amaniyuka, character]
 ---
 
 |  |  |

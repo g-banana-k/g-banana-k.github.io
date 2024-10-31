@@ -45,17 +45,6 @@ main h1 .icon {
     margin-right: 20px;
 }
 
-.logo .icon {
-    height: 100%;
-}
-
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 160px;
-}
-
 @media screen and (max-width: 480px) {
     main h1 {
         line-height: 70px;

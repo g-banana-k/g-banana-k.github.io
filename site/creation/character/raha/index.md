@@ -2,7 +2,7 @@
 title: 羅覇
 subtitle: 羅覇
 category: note
-tag: [creation, hkhuvasv, amaniyuka, character]
+tag: [creation, HKHUVASV, amaniyuka, character]
 ---
 
 |  |  |
