@@ -162,9 +162,3 @@ SludgeはTEMPESTと組もうとしたが、彼はもうすでにOrganist・Recei
 HKHUVASVTTは織田信長を倒した。
 
 そうしてサンズ達は空の穴を通っていった...
-
-<div class="space_line_4"></div>
-
-## Incident - [ FORBIDDEN ]
-
-略
