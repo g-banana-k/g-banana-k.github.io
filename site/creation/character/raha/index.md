@@ -11,4 +11,4 @@ tag: [creation, HKHUVASV, amaniyuka, character]
 | 身長 | 199cm |
 | 誕生日 | 7月11日 |
 
-雰囲気が羅刹の覇王とかっぽいから羅覇。強力な雷の力を持つ。
+強い。
