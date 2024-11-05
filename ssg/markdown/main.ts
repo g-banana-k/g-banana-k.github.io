@@ -9,6 +9,7 @@ export const read = async (code: string, pages: Map<string, unknown>, r_path: st
     const content = parse_res.content;
     const metadata = parse_res.metadata as unknown as MetaDataRaw;
     const r = await remark().use(gfm).parse(content);
+    if ("debug" in metadata) debug_log(r);
     const html = translate_all(r.children, pages);
     return [html, new MetaData(metadata, r_path)]
 }
@@ -99,7 +100,14 @@ const translate = (e: RootContent, pages: Map<string, unknown>) => {
         case "tableCell": { } break;
         case "tableRow": { } break;
         case "text": {
-            return e.value;
+            return e.value.replace(/[&'`"<>]/g, c => ({
+                '&': '&amp;',
+                "'": '&#x27;',
+                '`': '&#x60;',
+                '"': '&quot;',
+                '<': '&lt;',
+                '>': '&gt;',
+            })[c] ?? c);
         } break;
         case "thematicBreak": {
             return `<div class="horizon"></div>`
@@ -107,4 +115,32 @@ const translate = (e: RootContent, pages: Map<string, unknown>) => {
         case "yaml": { } break;
     }
     return "";
+}
+
+const debug_log = (o: any) => {
+    console.log(to_string(o))
+}
+
+const to_string = (o: any) => {
+    if (typeof o === "string") {
+        return `"${o}"`
+    } else if (typeof o === "number") {
+        return `${o}`
+    } else if (typeof o === "boolean") {
+        return `${o}`
+    } else if (typeof o === "bigint") {
+        return `${o}`
+    } else if (typeof o === "undefined") {
+        return "undefined"
+    } else if (o === null) {
+        return "null"
+    } else if (typeof o === "function") {
+        return "Function"
+    } else if (typeof o === "object") {
+        let s = "";
+        for (const key in o) {
+            s += `${key}: ${to_string(o[key])}, `
+        }
+        return `{ ${s}}`
+    } else return ""
 }
