@@ -33,4 +33,4 @@ tag: [information, g_banana_k]
 - [Twitter](https://twitter.com/g_banana_k)
 - [Twitter(サブ)](https://twitter.com/g_banana_k_3)
 - [Bluesky](https://bsky.app/profile/g-banana-k.bsky.social)
-- [Scratch](https://scratch.mit.edu/Bananafoolish)
+- [Scratch](https://scratch.mit.edu/g_banana_k)
