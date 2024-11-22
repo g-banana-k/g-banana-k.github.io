@@ -1,8 +1,10 @@
+import { TranslateData } from "../markdown/main.js";
 import { MetaData } from "../metadata/main.js";
+import { card, highlight_css } from "./head.js";
 import { floating } from "./floating.js";
 import { footer } from "./footer.js";
 
-export const note_template = (content: string, meta: MetaData) => {
+export const note_template = (content: string, meta: MetaData, t_data: TranslateData) => {
     return `
 <!DOCTYPE html>
 <html lang="ja">
@@ -17,16 +19,8 @@ export const note_template = (content: string, meta: MetaData) => {
     <link rel="stylesheet" href="/styles/note.css">
     <link rel="stylesheet" href="/styles/note_theme.css">
     <link rel="stylesheet" href="/styles/footer.css">
-
-    <meta property="og:title" content="${meta.page_title}">
-    <meta property="og:description" content="${meta.description}">
-    <meta property="og:url" content="${meta.url}">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="${meta.thumbnail}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="${meta.page_title}">
-    <meta name="twitter:description" content="${meta.description}">
-    <meta name="twitter:image" content="${meta.thumbnail}">
+    ${card(meta)}
+    ${highlight_css(t_data.used_langs)}
 
 </head>
 

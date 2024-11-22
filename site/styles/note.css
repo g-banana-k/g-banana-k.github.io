@@ -5,7 +5,7 @@ body {
     height: 100%;
     font-optical-sizing: auto;
     color: var(--text-color);
-    font-size: 20px;
+    font-size: 1rem;
     overflow-x: hidden;
 }
 
@@ -67,7 +67,7 @@ p {
 }
 
 article h2 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 600;
     padding-top: 20px;
     padding-bottom: 4px;
@@ -76,7 +76,7 @@ article h2 {
 }
 
 article h3 {
-    font-size: 26px;
+    font-size: 1.6rem;
     font-weight: 600;
     padding-top: 20px;
     padding-bottom: 6px;
@@ -84,7 +84,7 @@ article h3 {
 }
 
 article h4 {
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: 600;
     padding-top: 20px;
     padding-bottom: 4px;
@@ -169,7 +169,20 @@ a.link_404 {
     color: var(--link-color-404);
 }
 
+.inline_code {
+    border-radius: 6px;
+    background-color: var(--inline-code-bg);
+}
 
+pre {
+    margin: 8px 0px;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
 
 @media screen and (max-width: 768px) {
     .icon {

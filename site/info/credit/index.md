@@ -20,3 +20,7 @@ tag: [information, credit]
 [Noto Sans JP](https://fonts.google.com/noto/specimen/Noto+Sans+JP) by Google
 
 [Noto Serif JP](https://fonts.google.com/noto/specimen/Noto+Serif+JP) by Google
+
+# その他
+
+[highlight.js](https://highlightjs.org/) by highlightjs

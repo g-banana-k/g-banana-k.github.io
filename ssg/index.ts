@@ -1,7 +1,6 @@
 import * as fs from "fs/promises";
 import { existsSync as exists } from "fs";
 import * as path_lib from "path";
-import { read } from "./markdown/main.js";
 import { note_template } from "./template/note.js";
 import { sludgetale_template } from "./template/sludgetale.js";
 import { footer } from "./template/footer.js";
@@ -9,6 +8,7 @@ import { MetaData, MetaDataRaw } from "./metadata/main.js";
 import parseMD from "parse-md";
 import { minify } from "terser"
 import * as CleanCSS from "clean-css"
+import { Translate } from "./markdown/main.js";
 
 const main = async (root: string) => {
     const dir = (await fs.readdir(`${root}/site`));
@@ -102,11 +102,12 @@ class Context {
         await Promise.all(promises);
     }
     async generate_page(code: string, r_path: string): Promise<[string, MetaData]> {
-        const [html, metadata] = await read(code, this.pages, r_path);
+        const translate = new Translate(code,this.pages, r_path);
+        const [html, metadata, t_data] = await translate.main();
         if (metadata.category === "sludgetale") {
-            return [sludgetale_template(html, metadata), metadata];
+            return [sludgetale_template(html, metadata, t_data), metadata];
         } else {
-            return [note_template(html, metadata), metadata]
+            return [note_template(html, metadata, t_data), metadata]
         }
     }
     db_to_json() {
