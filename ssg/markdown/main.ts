@@ -129,7 +129,7 @@ export class Translate {
                     '"': '&quot;',
                     '<': '&lt;',
                     '>': '&gt;',
-                })[c] ?? c);
+                })[c] ?? c).replaceAll("\n", "<br />");
             } break;
             case "thematicBreak": {
                 return `<div class="horizon"></div>`
