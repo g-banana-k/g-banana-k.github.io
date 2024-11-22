@@ -187,9 +187,9 @@ code {
     font-family: Consolas, monospace;
 }
 
-li {
+article li {
     line-height: 1.5;
-    list-style-type:disc;
+    list-style-type: disc;
 }
 
 @media screen and (max-width: 768px) {
