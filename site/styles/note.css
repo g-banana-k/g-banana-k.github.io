@@ -193,27 +193,11 @@ article li {
 }
 
 @media screen and (max-width: 768px) {
-    .icon {
-        height: 100%;
+    html,
+    body {
+        font-size: 15px;
     }
 
-    .logo h1 {
-        color: var(--background-color-1);
-        font-size: 40px;
-        font-weight: 600;
-    }
-
-    .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 160px;
-        margin-bottom: 20px;
-    }
-}
-
-@media screen and (max-width: 768px) {
     main {
         width: 100vw;
     }
@@ -221,6 +205,6 @@ article li {
     article {
         background-color: var(--background-color-2);
         border-radius: 0;
-        padding: 20px;
+        padding: 20px 10px;
     }
 }
