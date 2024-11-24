@@ -23,7 +23,7 @@ const input = document.querySelector("#search_text_box");
 const button = document.querySelector("#search_button");
 
 /** @type {HTMLDivElement} */
-const result_area = document.querySelector("#search_result_area");
+const result_area = document.querySelector("#content_area");
 
 const tags = url.searchParams.get("tag") ?? "";
 const words = url.searchParams.get("word") ?? "";
@@ -72,11 +72,10 @@ const update = () => {
     const contents = search(db, tags, words, category)
 
     result_area.innerHTML = contents.map(([r_path, c]) => `
-        <a href="/${r_path.endsWith('/index') ? r_path.slice(0, -6) : r_path}"><div class="search_result">
-        <div class="search_result_inner">
+        <div class="content">
+            <a href="/${r_path.endsWith('/index') ? r_path.slice(0, -6) : r_path}"></a>
             <h2>${c.title}</h2>
             <h3>${c.subtitle}</h3>
-            </div></a>
             <div class="tag_area">${c.tag.map(tag => `<div class="tag" onClick="trans_with_tag('${tag}')">${tag}</div>`).join("")}</div>
         </div>
     `).join("")

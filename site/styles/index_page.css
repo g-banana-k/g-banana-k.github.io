@@ -92,49 +92,57 @@ h1 {
     background-color: var(--button-color-1);
 }
 
-.search_result {
+.content {
     background-color: var(--search-result-1);
     margin: 20px 0;
+    padding: 20px;
     border-radius: 15px;
     user-select: none;
     position: relative;
-    height: 124px;
 }
 
-.search_result_inner {
-    padding: 20px;
-    margin: 0;
+.content>a {
+    position: absolute;
+    left: 0;
+    top:  0;
     width: 100%;
     height: 100%;
 }
 
-.search_result h2 {
+.content h2 {
     font-weight: 700;
     font-size: 24px;
     margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.search_result h3 {
+.content h3 {
     font-weight: 450;
     font-size: 16px;
     margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.search_result .tag_area {
-    position: absolute;
-    bottom: 16px;
-    left: 12px;
+.content .tag_area {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.search_result .tag {
-    display: inline;
+.content .tag {
     background-color: #fffc;
     font-size: 16px;
     border-radius: 5px;
     padding: 4px;
-    margin-right: 4px;
+    margin: 2px 4px 2px 0;
+    z-index: 1;
 }
 
-.search_result .tag:hover {
+.content .tag:hover {
     background-color: #eeec;
 }

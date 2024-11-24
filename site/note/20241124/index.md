@@ -3,7 +3,7 @@ title: サイトをまた作り直した
 subtitle: 何回やるの？
 category: note
 description: 何回やるの？
-tags: [note, 2024]
+tag: [note, 2024]
 ---
 
 BananaLinoleumです。またサイトを作り直しました。
