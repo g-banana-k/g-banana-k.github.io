@@ -12,6 +12,7 @@
     },
     "scripts": {
         "build": "tsc",
+        "ssg-dev": "tsc && node ssg_dist/index.js dev",
         "ssg": "tsc && node ssg_dist/index.js",
         "live": "cd dist && live-server",
         "test": "echo \"Error: no test specified\" && exit 1"

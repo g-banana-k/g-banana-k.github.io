@@ -10,9 +10,9 @@ import { minify } from "terser"
 import * as CleanCSS from "clean-css"
 import { Translate } from "./markdown/main.js";
 
-const main = async (root: string) => {
+const main = async (root: string, is_dev: boolean) => {
     const dir = (await fs.readdir(`${root}/site`));
-    // await rm(`${root}/dist`);
+    if (!is_dev) await rm(`${root}/dist`);
     await mkdir(`${root}/dist`);
     const ctx = new Context(root);
     await ctx.crawl(dir);
@@ -102,7 +102,7 @@ class Context {
         await Promise.all(promises);
     }
     async generate_page(code: string, r_path: string): Promise<[string, MetaData]> {
-        const translate = new Translate(code,this.pages, r_path);
+        const translate = new Translate(code, this.pages, r_path);
         const [html, metadata, t_data] = await translate.main();
         if (metadata.category === "sludgetale") {
             return [sludgetale_template(html, metadata, t_data), metadata];
@@ -139,4 +139,4 @@ const mkdir = async (path: string) => {
     if (!exists(path)) await fs.mkdir(path);
 }
 
-main(process.cwd())
+main(process.cwd(), process.argv[2] === "dev")
