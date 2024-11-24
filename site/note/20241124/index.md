@@ -1,5 +1,5 @@
 ---
-title: ブログをまた作り直した
+title: サイトをまた作り直した
 subtitle: 何回やるの？
 category: note
 description: 何回やるの？
