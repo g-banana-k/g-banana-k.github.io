@@ -15,7 +15,7 @@ BananaLinoleumの自創作。
 
 # 人物
 
-## ヘキサゴン・木口ハッピー連合バース廃校バース
+## 亜麻仁床市
 
 ### [六角風太](/creation/character/futa_rokusumi)
 
@@ -26,7 +26,3 @@ BananaLinoleumの自創作。
 ### [ハンドソープ](/creation/character/hand_soap)
 
 ### [米泥棒](/creation/character/komedorobo)
-
-## 帰属未定
-
-### [羅覇](/creation/character/raha)
