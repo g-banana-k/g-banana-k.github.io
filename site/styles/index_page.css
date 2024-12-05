@@ -7,19 +7,19 @@ body {
     font-style: normal;
     font-optical-sizing: auto;
     font-size: 20px;
-    color: var(--text-color);
+    color: var(--text1);
     height: 100%;
     margin: 0;
     overflow-x: hidden;
 }
 
 :root {
-    --text-color: #261f0a;
-    --link-color: #4d97ff;
-    --link-color-visited: #855cd6;
-    --link-color-404: #c719af;
-    --background-color-1: #fbf6e2;
-    --background-color-2: #fff;
+    --text1: #261f0a;
+    --link1: #4d97ff;
+    --link2: #855cd6;
+    --link3: #c719af;
+    --bg1: #fbf6e2;
+    --bg2: #fff;
     --button-color-1: #fff1bc;
     --button-color-2: #ffea9e;
     --search-result-1: #fff1bc;
@@ -27,7 +27,7 @@ body {
 }
 
 body {
-    background-color: var(--background-color-1);
+    background-color: var(--bg1);
 }
 
 main {

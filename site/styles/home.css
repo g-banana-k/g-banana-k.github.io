@@ -16,6 +16,26 @@
     --account_bluesky2: #333;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg1: hsl(228, 9%, 9%);
+        --text1: #333;
+        --text2: #555;
+        --text1_w: #fff;
+        --c_thumbnail_bg1: #d2e4e9;
+        --c_thumbnail_bg2: #d1d184;
+        --c_thumbnail_bg3: #c9e8bf;
+        --account_scratch1: #f8aa36;
+        --account_scratch2: #fff;
+        --account_discord1: #5865f2;
+        --account_discord2: #fff;
+        --account_github1: #111;
+        --account_github2: #fff;
+        --account_bluesky1: #fff;
+        --account_bluesky2: #333;
+    }
+}
+
 :root {
     background-color: var(--bg1);
     color: var(--text1);
@@ -176,6 +196,4 @@ div.card_sns {
     background-color: var(--c_thumbnail_bg3);
 }
 
-section.coding {
-    
-}
+section.coding {}
