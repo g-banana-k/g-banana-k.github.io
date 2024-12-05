@@ -1,6 +1,7 @@
 :root {
     --bg1: #fff5cf;
     --bg2: #fff;
+    --bg3: #ffec9e;
     --text1: #333;
     --text2: #555;
     --text1_w: #fff;
@@ -9,9 +10,12 @@
     --link3: #c719af;
     --inline-code-bg: #eff3f8;
     --border-color: #332a0d;
-    --c_thumbnail_bg1: #d2e4e9;
-    --c_thumbnail_bg2: #d1d184;
-    --c_thumbnail_bg3: #c9e8bf;
+    --card_bg1: #d2e4e9;
+    --card_bg2: #d1d184;
+    --card_bg3: #c9e8bf;
+    --section_bg1: hsl(193, 14%, 92%);
+    --section_bg2: hsl(60, 26%, 72%);
+    --section_bg3: hsl(105, 27%, 88%);
     --account_scratch1: #f8aa36;
     --account_scratch2: #fff;
     --account_discord1: #5865f2;
@@ -29,9 +33,9 @@
         --text1: #fff;
         --text2: #ddd;
         --text1_w: #000;
-        --c_thumbnail_bg1: hsl(193, 26%, 13%);
-        --c_thumbnail_bg2: hsl(60, 14%, 33%);
-        --c_thumbnail_bg3: hsl(105, 13%, 17%);
+        --card_bg1: hsl(193, 26%, 13%);
+        --card_bg2: hsl(60, 14%, 33%);
+        --card_bg3: hsl(105, 13%, 17%);
     }
 }
 
@@ -49,7 +53,7 @@
     min-height: 100vh;
 }
 
-h1 {
+#top h1 {
     font-size: 50px;
     font-weight: 800;
     line-height: 120px;
@@ -58,7 +62,7 @@ h1 {
     margin-bottom: 5px;
 }
 
-h1>img {
+#top h1>img {
     height: 120px;
     margin-right: 20px;
 }
@@ -185,15 +189,54 @@ div.flex_space {
 }
 
 div.card_coding {
-    background-color: var(--c_thumbnail_bg1);
+    background-color: var(--card_bg1);
 }
 
 div.card_note {
-    background-color: var(--c_thumbnail_bg2);
+    background-color: var(--card_bg2);
 }
 
 div.card_sns {
-    background-color: var(--c_thumbnail_bg3);
+    background-color: var(--card_bg3);
 }
 
-section.coding {}
+section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+section h1 {
+    font-weight: 600;
+    font-size: 30px;
+    height: 20px;
+    line-height: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+section h1::before {
+    margin-right: 20px;
+}
+
+section h1::after {
+    margin-left: 20px;
+}
+
+section h1::before,
+section h1::after  {
+    position: relative;
+    top: 10px;
+    content: "";
+    flex-grow: 1;
+    height: 2px;
+}
+
+
+section.coding h1::before,
+section.coding h1::after  {
+    background-color: var(--card_bg1)
+}
+
+section.coding {
+    background-color: var(--section_bg1);
+}
