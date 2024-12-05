@@ -9,6 +9,8 @@ import parseMD from "parse-md";
 import { minify } from "terser"
 import * as CleanCSS from "clean-css"
 import { Translate } from "./markdown/main.js";
+import "./lucide/main.js"
+import { lucide_replace } from "./lucide/main.js";
 
 const main = async (root: string, is_dev: boolean) => {
     const dir = (await fs.readdir(`${root}/site`));
@@ -51,7 +53,8 @@ class Context {
                 await this.crawl(dir.map(name => `${r_path}/${name}`));
             } else if (kind === "html") {
                 const html_source = (await fs.readFile(path)).toString();
-                const html = html_source.replace(/{{\s*footer\s*}}/g, footer());
+                const html_f = html_source.replace(/{{\s*footer\s*}}/g, footer());
+                const html = lucide_replace(html_f);
                 this.pages.set(r_path.replace(/\.html$/, ""), { dest: `${this.root}/dist/${r_path}`, code: html, kind });
             } else if (kind === "file") {
                 this.pages.set(r_path, { dest: `${this.root}/dist/${r_path}`, code: "binary", kind });

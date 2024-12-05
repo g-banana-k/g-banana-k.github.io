@@ -12,11 +12,74 @@
     <link rel="stylesheet" href="/styles/footer.css">
 </head>
 
-<body>
-    <main>
-        <h1><img class="icon" alt="BananaLinoleum" src="/assets/blinol.png" />BananaLinoleum</h1>
-    </main>
-    {{ footer }}
+<div id="main">
+    <h1>
+        <img class="icon" alt="BananaLinoleum" src="/assets/blinol.png" />BananaLinoleum
+    </h1>
+    <div class="accounts_area">
+        <div class="account scratch"><a href="https://scratch.mit.edu/users/g_banana_k/">
+                <div class="account_icon"><img src="/assets/scratch_s.svg"></div>
+                <div class="account_title">Scratch</div>
+            </a></div>
+        <div class="flex_space"></div>
+        <div class="account discord"><a href="https://discord.com/users/834563592069447731">
+                <div class="account_icon"><img src="/assets/discord_white.svg"></div>
+                <div class="account_title">Discord</div>
+            </a></div>
+            <div class="flex_space"></div>
+        <div class="account github"><a href="https://github.com/g-banana-k">
+                <div class="account_icon"><img src="/assets/github_white.svg"></div>
+                <div class="account_title">Github</div>
+            </a></div>
+            <div class="flex_space"></div>
+        <div class="account bluesky"><a href="https://bsky.app/profile/g-banana-k.bsky.social">
+                <div class="account_icon"><img src="/assets/bsky.svg"></div>
+                <div class="account_title">Bluesky</div>
+            </a></div>
+    </div>
+    <div class="cards_area">
+        <div class="card card_coding">
+            <div>
+                <div class="flex_space"></div>
+                <div class="card_title">Coding</div>
+                <div class="card_icon">
+                    {{ lucide CodeXml }}
+                </div>
+                <div class="card_text">TS, Rust, etc...</div>
+                <div class="flex_space"></div>
+            </div>
+        </div>
+        <div class="flex_space"></div>
+        <div class="card card_note">
+            <div>
+                <div class="flex_space"></div>
+                <div class="card_title">Note</div>
+                <div class="card_icon">
+                    {{ lucide Notebook }}
+                </div>
+                <div class="card_text">更新がほぼないブログ</div>
+                <div class="flex_space"></div>
+            </div>
+        </div>
+        <div class="flex_space"></div>
+        <div class="card card_sns">
+            <div>
+                <div class="flex_space"></div>
+                <div class="card_title">SNS</div>
+                <div class="card_icon">
+                    {{ lucide Twitter }}
+                </div>
+                <div class="card_text">クソリプしかしてない</div>
+                <div class="flex_space"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+</style>
+
 </body>
 
 </html>

@@ -4,6 +4,7 @@
     "main": "index.js",
     "dependencies": {
         "highlight.js": "^11.10.0",
+        "lucide-static": "^0.466.0",
         "parse-md": "^3.0.3",
         "remark": "^15.0.1",
         "remark-gfm": "^4.0.0",
