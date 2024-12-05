@@ -17,6 +17,7 @@ export const note_template = (content: string, meta: MetaData, t_data: Translate
     <link rel="canonical" href="${meta.url}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
     <link rel="stylesheet" href="/styles/note.css">
+    <link rel="stylesheet" href="/styles/article.css">
     <link rel="stylesheet" href="/styles/note_theme.css">
     <link rel="stylesheet" href="/styles/footer.css">
     ${card(meta)}
@@ -30,7 +31,7 @@ export const note_template = (content: string, meta: MetaData, t_data: Translate
             <h1>${meta.title}</h1>
             <h2>${meta.subtitle}</h2>
         </div>
-        <article>
+        <article class="article">
         ${content}
         </article>
     </main>

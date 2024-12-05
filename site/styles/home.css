@@ -1,8 +1,14 @@
 :root {
     --bg1: #fff5cf;
+    --bg2: #fff;
     --text1: #333;
     --text2: #555;
     --text1_w: #fff;
+    --link1: #4d97ff;
+    --link2: #855cd6;
+    --link3: #c719af;
+    --inline-code-bg: #eff3f8;
+    --border-color: #332a0d;
     --c_thumbnail_bg1: #d2e4e9;
     --c_thumbnail_bg2: #d1d184;
     --c_thumbnail_bg3: #c9e8bf;
@@ -19,20 +25,13 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --bg1: hsl(228, 9%, 9%);
-        --text1: #333;
-        --text2: #555;
-        --text1_w: #fff;
-        --c_thumbnail_bg1: #d2e4e9;
-        --c_thumbnail_bg2: #d1d184;
-        --c_thumbnail_bg3: #c9e8bf;
-        --account_scratch1: #f8aa36;
-        --account_scratch2: #fff;
-        --account_discord1: #5865f2;
-        --account_discord2: #fff;
-        --account_github1: #111;
-        --account_github2: #fff;
-        --account_bluesky1: #fff;
-        --account_bluesky2: #333;
+        --bg2: #333;
+        --text1: #fff;
+        --text2: #ddd;
+        --text1_w: #000;
+        --c_thumbnail_bg1: hsl(193, 26%, 13%);
+        --c_thumbnail_bg2: hsl(60, 14%, 33%);
+        --c_thumbnail_bg3: hsl(105, 13%, 17%);
     }
 }
 
@@ -86,6 +85,7 @@ div.account>a {
     display: flex;
     flex-direction: row;
     position: relative;
+    color: inherit;
 }
 
 div.account_icon {

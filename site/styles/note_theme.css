@@ -9,11 +9,11 @@ body {
 }
 
 :root {
-    --text1: #261f0a;
+    --text1: #333;
     --link1: #4d97ff;
     --link2: #855cd6;
     --link3: #c719af;
-    --bg1: #fbf6e2;
+    --bg1: #fff5cf;
     --bg2: #fff;
     --inline-code-bg: #eff3f8;
     --border-color: #332a0d;

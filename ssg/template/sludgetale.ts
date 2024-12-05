@@ -19,6 +19,7 @@ export const sludgetale_template = (content: string, meta: MetaData, t_data: Tra
     <link rel="canonical" href="${meta.url}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
     <link rel="stylesheet" href="/styles/note.css">
+    <link rel="stylesheet" href="/styles/article.css">
     <link rel="stylesheet" href="/styles/ut_theme.css">
     <link rel="stylesheet" href="/styles/footer.css">
     ${card(meta)}
@@ -32,7 +33,7 @@ export const sludgetale_template = (content: string, meta: MetaData, t_data: Tra
             <h1 class="${title_determination}">${meta.title}</h1>
             <h2>${meta.subtitle}</h2>
         </div>
-        <article>
+        <article class="article">
         ${content}
         </article>
     </main>
