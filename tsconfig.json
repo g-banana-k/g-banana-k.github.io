@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "bundler",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "baseUrl": "./src",
+        "paths": {
+            "~/*": ["*"]
+        },
+        "jsxImportSource": "~/syzygy/jsx",
+        "jsx": "react-jsx"
+    },
+    "include": ["src/**/*"]
+}

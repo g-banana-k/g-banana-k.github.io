@@ -1,0 +1,21 @@
+{
+    "name": "syzygy",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "bundle": "node ./scripts/build.js",
+        "code": "npm run bundle && node ./dist/bundle.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "esbuild": "^0.24.0",
+        "typescript": "^5.7.2"
+    },
+    "dependencies": {
+        "lucide-static": "^0.468.0"
+    }
+}

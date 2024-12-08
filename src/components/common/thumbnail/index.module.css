@@ -1,0 +1,20 @@
+.root {
+    background-color: #fff4;
+    border: solid 2px #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+.title {
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
+
+.title > div {
+    margin-left: 8px;
+    margin-top: 8px;
+    font-weight: 600;
+}
