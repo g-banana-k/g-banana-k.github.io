@@ -1,5 +1,5 @@
 import type { Page } from "~/syzygy/page";
-import Syzygy from "~/syzygy";
+// import Syzygy from "~/syzygy";
 
 import top_page from "~/site/top";
 
