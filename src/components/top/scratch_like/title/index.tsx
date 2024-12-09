@@ -2,7 +2,7 @@ import { Raw } from "~/syzygy/preset/raw";
 import styles from "./index.module.css";
 import { Text } from "~/components/ui/text";
 
-const icon = "/public/blinol.png";
+const icon = "/blinol.png";
 
 export const Title = () => {
     return (

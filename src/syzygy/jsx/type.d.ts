@@ -3,7 +3,7 @@ type styles = string;
 type defaultProps = { class?: string | string[]; id?: string; style?: styles };
 type hasChildren = { children?: Node[] | Node };
 
-namespace JSX {
+declare namespace JSX {
     export interface IntrinsicElements {
         div: defaultProps & hasChildren;
         img: defaultProps & { src: string; alt?: string };
@@ -20,3 +20,4 @@ namespace JSX {
 export type JSXElements = JSX.IntrinsicElements;
 
 export { JSX };
+export default JSX;

@@ -36,5 +36,4 @@ const jsx = (
 const jsxs = jsx;
 
 export { jsx, jsxs };
-
-export { JSX } from "~/syzygy/jsx/type";
+export type { JSX } from "./type.d.ts";

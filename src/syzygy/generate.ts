@@ -26,7 +26,7 @@ export const generate = async (routes: Routes) => {
     if (cache.t_s === t_s) return;
     cache.t_s = t_s;
     await fs.writeFile("./syzygy/cache.json", JSON.stringify(cache), "utf-8");
-    await copy_dir("public", "result/public");
+    await copy_dir("public", "result");
 };
 
 const mkdir = async (path: string) => {

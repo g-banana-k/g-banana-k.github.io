@@ -3,10 +3,10 @@ import { Account } from "~/components/common/account";
 import { FlexSpace } from "~/components/ui/flex_space";
 import { Text } from "~/components/ui/text";
 
-const scratch = "/public/scratch_s.svg";
-const discord = "/public/discord_white.svg";
-const github =  "/public/github_white.svg";
-const bluesky = "/public/bsky.svg";
+const scratch = "/scratch_s.svg";
+const discord = "/discord_white.svg";
+const github =  "/github_white.svg";
+const bluesky = "/bsky.svg";
 
 export const Accounts = () => {
     return (
