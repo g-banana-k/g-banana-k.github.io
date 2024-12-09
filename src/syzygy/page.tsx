@@ -32,25 +32,27 @@ const default_props: HeadProps = {
 };
 
 export class Page {
-    body: Element;
+    body: Node;
+    html: Element;
     constructor(body: Node);
     constructor(body: Node, head: HeadProps);
     constructor(body: Node, head: HeadComponent, lang?: string);
     constructor(body: Node, head?: HeadProps | HeadComponent, lang?: string) {
+        this.body = body;
         if (typeof head === "function") {
             const Head = head;
-            this.body = (
+            this.html = (
                 <html lang={lang}>
-                    <Head>{body}</Head>
+                    <Head>{this.body}</Head>
                 </html>
             );
         } else if (typeof head === "object") {
-            this.body = <HTMLHead {...head}>{body}</HTMLHead>;
+            this.html = <HTMLHead {...head}>{this.body}</HTMLHead>;
         } else {
-            this.body = <HTMLHead {...default_props}>{body}</HTMLHead>;
+            this.html = <HTMLHead {...default_props}>{this.body}</HTMLHead>;
         }
     }
     render() {
-        return this.body.render();
+        return this.html.render();
     }
 }
