@@ -1,9 +1,7 @@
-import type { Node } from "~/syzygy/element";
-
 import * as fs from "node:fs/promises";
 import * as fs_sync from "node:fs";
 import * as path from "node:path";
-import type { Page } from "./page";
+import type { Page } from "./core/page";
 
 export type Routes = Map<string, Page | Routes>;
 

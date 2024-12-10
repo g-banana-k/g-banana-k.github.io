@@ -1,4 +1,4 @@
-import type { Page } from "~/syzygy/page";
+import type { Page } from "~/syzygy/core/page";
 // import Syzygy from "~/syzygy";
 
 import top_page from "~/site/top";

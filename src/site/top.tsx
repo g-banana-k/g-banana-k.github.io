@@ -3,7 +3,7 @@ import "~/site/global.css";
 import styles from "./top.module.css";
 
 import { ScratchLike } from "~/components/top/scratch_like";
-import { Page } from "~/syzygy/page";
+import { Page } from "~/syzygy/core/page";
 import { Footer } from "~/components/footer";
 
 export default new Page(

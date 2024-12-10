@@ -1,5 +1,5 @@
 import { CodeXml, Footprints, Notebook, Twitter } from "lucide-static";
-import type { FC } from "~/syzygy/fc";
+import type { FC } from "~/syzygy/core/fc";
 import styles from "./index.module.css";
 import { FlexSpace } from "~/components/ui/flex_space";
 import { Raw } from "~/syzygy/preset/raw";

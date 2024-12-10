@@ -1,5 +1,5 @@
-import { Element } from "~/syzygy/element";
-import type { JSXElements } from "../jsx/type";
+import { Element } from "~/syzygy/core/element";
+import type { JSXElements } from "../jsx/types";
 
 export const Raw = (props: { content: string, tag?: string } & JSXElements["div"]) => {
     let className = "";

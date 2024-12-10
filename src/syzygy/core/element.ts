@@ -1,4 +1,6 @@
-export class Element {
+import type { Fragment } from "./fragment";
+
+export class HTMLElement {
     tag: string;
     props: Map<string, string | number>;
     children: Node[];
@@ -28,7 +30,14 @@ export class Element {
         }
         return `<${this.tag}${props}>${children}</${this.tag}>`;
     }
+    isHTMLElement(): this is HTMLElement {
+        return true;
+    }
 }
+
+export type Node = Element | string;
+
+export type Element = HTMLElement | Fragment;
 
 const html_escape = (str: string): string =>
     str.replace(/[&<>"']/g, (match) => {
@@ -47,5 +56,3 @@ const html_escape = (str: string): string =>
                 return match;
         }
     });
-
-export type Node = Element | string;

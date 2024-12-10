@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { Text } from "../ui/text";
-import type { FC, withChildren } from "~/syzygy/fc";
+import type { FC, withChildren } from "~/syzygy/core/fc";
 
 export const Footer = () => {
     return (

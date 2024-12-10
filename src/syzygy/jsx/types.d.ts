@@ -1,4 +1,4 @@
-import type { Node, Element as SyzygyElement } from "~/syzygy/element";
+import type { Node, Element as SyzygyElement } from "~/syzygy/core/element";
 type styles = string;
 type defaultProps = { class?: string | string[]; id?: string; style?: styles };
 type hasChildren = { children?: Node[] | Node };

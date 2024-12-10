@@ -1,6 +1,6 @@
 import { Text } from "~/components/ui/text";
 import styles from "./index.module.css";
-import type { FC } from "~/syzygy/fc";
+import type { FC } from "~/syzygy/core/fc";
 
 export const Thumbnail: FC<{
     title: string;

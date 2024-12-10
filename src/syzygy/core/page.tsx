@@ -1,5 +1,5 @@
-import type { Element, Node } from "~/syzygy/element";
-import type { FC, withChildren } from "~/syzygy/fc";
+import type { Element, Node } from "~/syzygy/core/element";
+import type { FC, withChildren } from "~/syzygy/core/fc";
 
 const HTMLHead: FC<HeadProps & withChildren> = ({
     children,

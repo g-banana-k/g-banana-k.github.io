@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import type { FC, withChildren } from "~/syzygy/fc";
+import type { FC, withChildren } from "~/syzygy/core/fc";
 
 export const GridView: FC<
     {

@@ -1,6 +1,6 @@
-import type { FC } from "~/syzygy/fc";
-import type { Node } from "~/syzygy/element";
-import { Element } from "~/syzygy/element";
+import type { FC } from "~/syzygy/core/fc";
+import type { Node } from "~/syzygy/core/element";
+import { HTMLElement } from "~/syzygy/core/element";
 import { isArray } from "../util";
 
 const jsx = (
@@ -30,10 +30,10 @@ const jsx = (
             props_map.set(prop, props[prop] as string | number);
     }
     if (id) props_map.set("id", id);
-    return new Element(tag, props_map, (children as Node[]) ?? []);
+    return new HTMLElement(tag, props_map, (children as Node[]) ?? []);
 };
 
 const jsxs = jsx;
 
 export { jsx, jsxs };
-export type { JSX } from "./type.d.ts";
+export type { JSX } from "./types";
