@@ -1,4 +1,4 @@
-import { Element } from "~/syzygy/core/element";
+import { HTMLElement } from "~/syzygy/core/element";
 import type { JSXElements } from "../jsx/types";
 
 export const Raw = (props: { content: string, tag?: string } & JSXElements["div"]) => {
@@ -13,5 +13,5 @@ export const Raw = (props: { content: string, tag?: string } & JSXElements["div"
             props_map.set(prop, (props as never)[prop] as string | number);
     }
     if (props.id) props_map.set("id", props.id);
-    return new Element(props.tag ?? "div", props_map, [], props.content);
+    return new HTMLElement(props.tag ?? "div", props_map, [], props.content);
 };

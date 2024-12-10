@@ -1,5 +1,5 @@
 import type { FC } from "~/syzygy/core/fc";
-import type { Node } from "~/syzygy/core/element";
+import type { Element, Node } from "~/syzygy/core/element";
 import { HTMLElement } from "~/syzygy/core/element";
 import { isArray } from "../util";
 
@@ -14,7 +14,7 @@ const jsx = (
         class?: string | string[];
         id?: string;
     } & Record<string, unknown>,
-) => {
+): Element => {
     if (children === undefined) return jsx(tag, { children: [], id, ...props });
     if (!isArray<Node>(children))
         return jsx(tag, { children: [children], id, ...props });

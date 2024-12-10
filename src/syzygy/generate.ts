@@ -5,19 +5,20 @@ import type { Page } from "./core/page";
 
 export type Routes = Map<string, Page | Routes>;
 
-const isRoutes = (arg: Page | Routes): arg is Routes => {
-    if ((arg as { has?: true }).has) return true;
+export const isRoutes = (arg: Page | Routes | undefined): arg is Routes => {
+    if (typeof arg === "object" && (arg as { has?: true }).has) return true;
     return false;
 };
 
 export const generate = async (routes: Routes) => {
-    const arr: { path: string; body: Page }[] = [];
+    const map = new Map<string, Page>();
     const cache: { t_s: number } = JSON.parse(await fs.readFile("./syzygy/cache.json", "utf-8"));
-    routes_to_arr(arr, routes, "");
-    for (const p of arr) {
-        const page_path = path.join("./result", `${p.path}.html`);
+    flat(map, routes, "");
+    for (const p of map) {
+        const page = {path: p[0], body: p[1]}
+        const page_path = path.join("./result", `${page.path}.html`);
         mkdir(path.dirname(page_path));
-        fs.writeFile(page_path, p.body.render());
+        fs.writeFile(page_path, page.body.render());
     }
     await fs.copyFile("./dist/bundle.css", "./result/bundle.css");
     const t_s = await newest_stamp("public");
@@ -31,14 +32,14 @@ const mkdir = async (path: string) => {
     if (!fs_sync.existsSync(path)) await fs.mkdir(path, { recursive: true });
 };
 
-const routes_to_arr = (
-    arr: { path: string; body: Page }[],
+export const flat = (
+    map: Map<string, Page>,
     routes: Routes,
     r_path: string,
 ) => {
     routes.forEach((v, name) => {
-        if (isRoutes(v)) routes_to_arr(arr, v, `${r_path}/${name}`);
-        else arr.push({ path: `${r_path}/${name}`, body: v });
+        if (isRoutes(v)) flat(map, v, `${r_path}/${name}`);
+        else map.set(`${r_path}/${name}`, v);
     });
 };
 
