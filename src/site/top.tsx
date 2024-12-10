@@ -7,7 +7,7 @@ import { Page } from "~/syzygy/core/page";
 import { Footer } from "~/components/footer";
 
 export default new Page(
-    <div class={styles.root}>
+    <div id={styles.root}>
         <ScratchLike />
         <Footer />
     </div>,

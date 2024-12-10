@@ -40,16 +40,4 @@ export const render: Render = (node) => {
     return 0 as never;
 };
 
-console.log("hey");
-
-const page = routes.get("index")!;
-
-const rendering = render(page.body);
-
-const body = document.body;
-
-rendering(body);
-
-window.routes = routes;
-
-window.Router = Router;
+Router.init(routes);

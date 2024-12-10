@@ -27,18 +27,27 @@ const get_page = (routes: Routes, src: string): Page | undefined => {
     return undefined;
 }
 
-const locate = (routes: Routes, src: string) => {
-    if (src.startsWith("http://") || src.startsWith("https://")) location.href = src;
+const locate = (routes: Routes, src: string, push?: false) => {
+    console.log(src);
+    if (src.startsWith("http://") || src.startsWith("https://") || src.includes("#")) { location.href = src; return; }
     const page = get_page(routes, src)
-    if (!page) return;
 
     const body = document.body;
     body.innerHTML = "";
+    if (push ?? true) history.pushState(null, "", src);
+    if (!page) return;
     const rendering = render(page.body);
     rendering(body);
-    history.pushState(null, "", src);
+}
+
+const init = (routes: Routes) => {
+    locate(routes, location.pathname);
+    window.addEventListener("popstate", () => {
+        locate(routes, location.pathname, false)
+    })
 }
 
 export const Router = {
-    locate
+    locate,
+    init
 }
