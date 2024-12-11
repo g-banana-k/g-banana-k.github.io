@@ -5,7 +5,7 @@
     "scripts": {
         "bundle": "node ./scripts/build.js",
         "code": "npm run bundle && node ./dist/bundle.js",
-        "dev": "npx vite"
+        "dev": "vite"
     },
     "keywords": [],
     "author": "",
