@@ -1,4 +1,4 @@
-import { render } from ".";
+import type { Node } from "../core/element";
 import type { Page } from "../core/page";
 import { isRoutes, type Routes } from "../generate";
 
@@ -27,6 +27,12 @@ const get_page = (routes: Routes, src: string): Page | undefined => {
     return undefined;
 }
 
+declare global {
+    interface WindowEventMap {
+        "syzygy_rendering": CustomEvent<{ node: Node }>;
+    }
+}
+
 const locate = (routes: Routes, src: string, push?: false) => {
     console.log(src);
     if (src.startsWith("http://") || src.startsWith("https://") || src.includes("#")) { location.href = src; return; }
@@ -36,8 +42,11 @@ const locate = (routes: Routes, src: string, push?: false) => {
     body.innerHTML = "";
     if (push ?? true) history.pushState(null, "", src);
     if (!page) return;
-    const rendering = render(page.body);
-    rendering(body);
+    window.dispatchEvent(new CustomEvent("syzygy_rendering", {
+        detail: {
+            node: page.body
+        }
+    }))
 }
 
 const init = (routes: Routes) => {
@@ -49,5 +58,5 @@ const init = (routes: Routes) => {
 
 export const Router = {
     locate,
-    init
-}
+    init,
+};

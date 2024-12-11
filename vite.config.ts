@@ -11,10 +11,10 @@ export default defineConfig({
             name: "syzygy-redirect",
             configureServer(server) {
                 server.middlewares.use((req, res, next) => {
-                    // const reg = /(\.|@|vite)/;
-                    // if (!reg.test(req.url!)) {
-                    //     req.url = '/syzygy/index.html';
-                    // }
+                    const reg = /(\.|@|vite)/;
+                    if (!reg.test(req.url!)) {
+                        req.url = '/syzygy/index.html';
+                    }
                     next();
                 });
             }

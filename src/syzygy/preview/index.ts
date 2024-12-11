@@ -21,9 +21,9 @@ export const render: Render = (node) => {
         for (const [tag, val] of node.props.entries()) {
             if (tag === "class") e.className = `${val}`;
             else if (node.tag === "a" && tag === "href") {
-                (e as HTMLAnchorElement).href="javascript:void(0);"
+                (e as HTMLAnchorElement).href = "javascript:void(0);"
                 e.onclick = (e) => {
-                    console.log(e);
+                    console.log(e, val);
                     Router.locate(routes, val as string);
                 };
             } else e[tag as unknown as "id"] = `${val}`;
@@ -40,4 +40,15 @@ export const render: Render = (node) => {
     return 0 as never;
 };
 
+const body = document.body;
+
+window.addEventListener("syzygy_rendering", (e) => {
+    const rendering = render(e.detail.node);
+    rendering(body);
+})
+
 Router.init(routes);
+
+
+//
+// body.innerText = `${Math.floor(Math.random() * 200)}`
