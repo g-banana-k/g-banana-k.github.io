@@ -13,6 +13,13 @@ declare namespace JSX {
         html: { lang?: string } & hasChildren;
         head: hasChildren;
         link: { rel: string; href: string };
+        h1: defaultProps & hasChildren;
+        h2: defaultProps & hasChildren;
+        h3: defaultProps & hasChildren;
+        h4: defaultProps & hasChildren;
+        h5: defaultProps & hasChildren;
+        h6: defaultProps & hasChildren;
+        p: defaultProps & hasChildren;
     }
     export type Element = SyzygyElement;
 }
