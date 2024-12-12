@@ -7,6 +7,12 @@
     user-select: none;
 }
 
+.root > a {
+    height: 100%;
+    width: 100%;
+    color: inherit;
+}
+
 .title {
     background-color: var(--thumbnail1);
     position: absolute;
