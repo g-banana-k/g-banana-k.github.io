@@ -21,12 +21,13 @@ body {
     --text2: #555;
     --text3: #bbb;
     --text1_w: #fff;
-    --border1: #ddd;
+    --border1: #eee;
     --link1: #4d97ff;
     --link2: #855cd6;
     --link3: #c719af;
-    --inline-code-bg: #eff3f8;
-    --border-color: #332a0d;
+
+    --thumbnail1: #fff;
+    --thumbnail2: #f4f4f4;
 
     --footer1: #332a0d;
     --footer_text1: #fff;
@@ -61,4 +62,15 @@ body {
         --card_bg2: hsl(60, 14%, 33%);
         --card_bg3: hsl(105, 13%, 17%);
     }
+}
+
+a {
+    color: var(--link1);
+    --link1: #4d97ff;
+    --link2: #855cd6;
+    --link3: #c719af;
+}
+
+a:visited {
+    color: var(--link2);
 }

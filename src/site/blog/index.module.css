@@ -4,8 +4,8 @@
     overflow-x: hidden;
 }
 
-#top {
+#main {
     width: 70%;
     margin-left: 15%;
-    height: 100vh;
+    min-height: 100vh;
 }
