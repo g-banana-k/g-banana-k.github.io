@@ -13,6 +13,6 @@
 .article {
     border-radius: 5px;
     background-color: #fff;
-    border: 2px solid var(--border1);
-    padding: 20px;
+    border: 1px solid var(--border1);
+    padding: 45px 35px;
 }

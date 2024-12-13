@@ -12,7 +12,15 @@ export default new Page(
         <div id={styles.main}>
             <Header title="Articles (4)" />
             <div class={styles.article}>
-                <Title>gBanaKnalの読みを"ばなくな"にするか"じばなくなる"にするか</Title>
+                <Title
+                    tags={[
+                        { color: "hsl(0, 100%, 90%)", name: "sample1" },
+                        { color: "hsl(120, 100%, 90%)", name: "sample1" },
+                        { color: "hsl(240, 100%, 90%)", name: "sample1" },
+                    ]}
+                >
+                    gBanaKnalの読みを"ばなくな"にするか"じばなくなる"にするか
+                </Title>
                 <Heading level={2}>見出し2</Heading>
                 <Paragraph>テキスト</Paragraph>
                 <Heading level={3}>見出し3</Heading>

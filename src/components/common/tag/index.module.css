@@ -1,0 +1,14 @@
+.root {
+    font-size: 12px;
+    line-height: 20px;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 5px;
+}
+
+.area {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    gap: 10px;
+}
