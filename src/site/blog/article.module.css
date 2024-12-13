@@ -5,7 +5,14 @@
 }
 
 #main {
-    width: 70%;
     margin-left: 15%;
+    margin-right: 15%;
     min-height: 100vh;
+}
+
+.article {
+    border-radius: 5px;
+    background-color: #fff;
+    border: 2px solid var(--border1);
+    padding: 20px;
 }

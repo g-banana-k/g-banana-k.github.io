@@ -5,8 +5,8 @@
 }
 
 #top {
-    width: 70%;
     margin-left: 15%;
+    margin-right: 15%;
     height: 100vh;
 }
 
@@ -30,5 +30,5 @@
 
 .works>div {
     margin-left: 15%;
-    width: 70%;
+    margin-right: 15%;
 }
