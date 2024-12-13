@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 
 export const Heading: FC<
     {
-        level?: 2 | 3 | 4 | 5 | 6;
+        level?: 2 | 3 | 4;
         class?: string;
     } & withChildren
 > = (props) => {
@@ -29,15 +29,15 @@ export const Heading: FC<
                 <h4 class={[styles.h4, props.class ?? ""]}>{props.children}</h4>
             );
         }
-        case 5: {
-            return (
-                <h5 class={[styles.h5, props.class ?? ""]}>{props.children}</h5>
-            );
-        }
-        case 6: {
-            return (
-                <h6 class={[styles.h6, props.class ?? ""]}>{props.children}</h6>
-            );
-        }
+        // case 5: {
+        //     return (
+        //         <h5 class={[styles.h5, props.class ?? ""]}>{props.children}</h5>
+        //     );
+        // }
+        // case 6: {
+        //     return (
+        //         <h6 class={[styles.h6, props.class ?? ""]}>{props.children}</h6>
+        //     );
+        // }
     }
 };

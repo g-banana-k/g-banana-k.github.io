@@ -21,15 +21,13 @@ export default new Page(
                 >
                     gBanaKnalの読みを"ばなくな"にするか"じばなくなる"にするか
                 </Title>
+                <Paragraph>テキスト</Paragraph>
                 <Heading level={2}>見出し2</Heading>
                 <Paragraph>テキスト</Paragraph>
                 <Heading level={3}>見出し3</Heading>
+                <Paragraph>テキスト<br />テキスト</Paragraph>
                 <Paragraph>テキスト</Paragraph>
                 <Heading level={4}>見出し4</Heading>
-                <Paragraph>テキスト</Paragraph>
-                <Heading level={5}>見出し5</Heading>
-                <Paragraph>テキスト</Paragraph>
-                <Heading level={6}>見出し6</Heading>
                 <Paragraph>テキスト</Paragraph>
             </div>
         </div>
