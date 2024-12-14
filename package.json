@@ -13,11 +13,18 @@
     "description": "",
     "devDependencies": {
         "@biomejs/biome": "^1.9.4",
+        "@types/js-yaml": "^4.0.9",
         "esbuild": "^0.24.0",
         "typescript": "^5.7.2",
         "vite": "^6.0.3"
     },
     "dependencies": {
-        "lucide-static": "^0.468.0"
+        "highlight.js": "^11.10.0",
+        "js-yaml": "^4.1.0",
+        "lucide-static": "^0.468.0",
+        "remark": "^15.0.1",
+        "remark-frontmatter": "^5.0.0",
+        "remark-gfm": "^4.0.0",
+        "remark-parse": "^11.0.0"
     }
 }

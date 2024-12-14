@@ -1,12 +1,14 @@
 import { isArray } from "../util"
 import type { HTMLElement, Node } from "~/syzygy/core/element";
 
-export const FragmentC = ({ children }: { children: Node | Node[] }) => {
-    if (isArray(children)) return new Fragment(children);
-    return new Fragment([children]);
+export const Fragment = ({ children }: { children: Node | Node[] }) => {
+    if (isArray(children)) return new FragmentC(children);
+    return new FragmentC([children]);
 }
 
-export class Fragment {
+export type Fragment = FragmentC;
+
+class FragmentC {
     children: Node[];
     constructor(children: Node[]) {
         this.children = children;

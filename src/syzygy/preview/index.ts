@@ -1,6 +1,7 @@
 import type { Node } from "~/syzygy/core/element";
 import routes from "~/site/routes";
 import { Router } from "./routing";
+import { withChildren } from "../core/fc";
 
 type Rendering = (e: HTMLElement) => void;
 
@@ -49,6 +50,10 @@ window.addEventListener("syzygy_rendering", (e) => {
 
 Router.init(routes);
 
-
+//import { FC } from "react"
+//import { withChildren } from "../core/fc"
+//const A: FC<withChildren> = ({children}) => {
+//    return <div><a />{children}</div>
+//}
 //
-// body.innerText = `${Math.floor(Math.random() * 200)}`
+//console.log(<A><div /><div /></A>)

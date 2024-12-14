@@ -44,7 +44,7 @@ const Button: FC<{
         <div class={[styles.button, props.class ?? ""]}>
             <a href={props.link}>
                 {props.icon ? (
-                    <Raw class={styles.icon} content={props.icon} />
+                    <Raw class={styles.icon} innerHTML={props.icon} />
                 ) : (
                     ""
                 )}

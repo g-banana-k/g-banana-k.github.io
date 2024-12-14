@@ -9,18 +9,21 @@ export class HTMLElement {
     props: Map<string, string | number>;
     children: Node[];
     innerHTML?: string;
+    HTML?: string;
     constructor(
         tag: string,
         props: Map<string, string | number>,
         children: Node[],
-        innerHTML?: string,
+        option: { innerHTML?: string } | { HTML?: string },
     ) {
         this.tag = tag;
         this.props = props;
         this.children = children;
-        this.innerHTML = innerHTML;
+        this.innerHTML = (option as { innerHTML: string })?.innerHTML;
+        this.HTML = (option as { HTML: string })?.HTML;
     }
     render(): string {
+        if (this.HTML !== undefined) return this.HTML;
         const children = this.children
             .map((n) => (typeof n === "string" ? html_escape(n) : n.render()))
             .join("");

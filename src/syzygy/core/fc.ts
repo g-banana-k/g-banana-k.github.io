@@ -1,6 +1,6 @@
 import type { Element } from "~/syzygy/core/element";
 
-export type FC<P extends Record<Exclude<string, "children">, unknown>> = (
+export type FC<P extends Record<string, unknown>> = (
     props: P,
 ) => Element;
 

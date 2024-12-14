@@ -20,6 +20,21 @@ declare namespace JSX {
         h5: defaultProps & hasChildren;
         h6: defaultProps & hasChildren;
         p: defaultProps & hasChildren;
+        pre: defaultProps & hasChildren;
+        code: defaultProps & hasChildren;
+        s: defaultProps & hasChildren;
+        em: defaultProps & hasChildren;
+        ol: defaultProps & hasChildren;
+        ul: defaultProps & hasChildren;
+        li: defaultProps & hasChildren;
+        strong: defaultProps & hasChildren;
+        li: defaultProps & hasChildren;
+        table: defaultProps & hasChildren;
+        th: defaultProps & hasChildren;
+        td: defaultProps & hasChildren;
+        tfoot: defaultProps & hasChildren;
+        tbody: defaultProps & hasChildren;
+        thead: defaultProps & hasChildren;
     }
     export type Element = SyzygyElement;
 }

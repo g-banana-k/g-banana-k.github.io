@@ -30,10 +30,12 @@ const jsx = (
             props_map.set(prop, props[prop] as string | number);
     }
     if (id) props_map.set("id", id);
-    return new HTMLElement(tag, props_map, (children as Node[]) ?? []);
+
+    return new HTMLElement(tag, props_map, children.flat(1));
 };
 
 const jsxs = jsx;
 
 export { jsx, jsxs };
+export { Fragment } from "~/syzygy/core/fragment";
 export type { JSX } from "./types";
