@@ -5,7 +5,7 @@ import frontmatter from "remark-frontmatter";
 import * as yaml from "js-yaml";
 
 export class ArticleData {
-    date: `${number}-${number}-${number}`;
+    date: `${number}-${number}-${number}` | "None";
     thumbnail?: string;
     title: string;
     tags: string[];
@@ -13,11 +13,11 @@ export class ArticleData {
     constructor(md: string, name: string) {
         if (name.length !== 8) throw Error(`date was unknown format: ${name}`);
         const [ast, fm] = parse(md);
-        const date = `${name.slice(0, 4)}-${name.slice(4, 6)}-${name.slice(6, 8)}`
+        const date = name.length === 8 && /^\d+$/.test(name) ? `${name.slice(0, 4)}-${name.slice(4, 6)}-${name.slice(6, 8)}` : "None"
         const tags = (fm as { tags?: string[] })?.tags ?? []
         const title = (fm as { title?: string })?.title ?? "untitled"
         const thumbnail = (fm as { thumbnail?: string })?.thumbnail;
-        this.date = date as `${number}-${number}-${number}`;
+        this.date = date as `${number}-${number}-${number}` | "None";
         this.tags = tags;
         this.title = title;
         this.body = ast;
