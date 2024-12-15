@@ -1,0 +1,10 @@
+html,
+body {
+    font-family: "UT JP", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.determination {
+    font-family: "UT EN",sans-serif;
+    font-weight: normal;
+}

@@ -111,6 +111,9 @@ class RMap2<T> {
     public get(k: string) {
         return this.body.get(k);
     }
+    public raw() {
+        return this.body;
+    }
     public delete(k: string) {
         this.body.delete(k);
     }

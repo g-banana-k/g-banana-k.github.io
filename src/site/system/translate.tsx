@@ -5,6 +5,7 @@ import type { Element, Node } from "~/syzygy/core/element";
 import { Raw } from "~/syzygy/preset/raw";
 import { Heading } from "~/components/article/heading";
 import { Paragraph } from "~/components/article/paragraph";
+import { Img } from "~/components/article/img";
 
 export class Translate {
     styles: Record<string, string>;
@@ -64,7 +65,7 @@ export class Translate {
                         return (
                             <Heading
                                 level={(e.depth + 1) as 2 | 3 | 4}
-                                class={this.styles.italic}
+                                class={this.styles[`h${e.depth + 1}`]}
                             >
                                 {this.nodes(e.children)}
                             </Heading>
@@ -75,10 +76,10 @@ export class Translate {
             case "html": {
                 return <Raw HTML={e.value} />;
             }
-            case "image":
-                {
-                }
-                break;
+            case "image": {
+                console.log(e.url);
+                return <Img src={e.url} alt={""} />;
+            }
             case "imageReference":
                 {
                 }

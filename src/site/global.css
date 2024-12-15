@@ -63,3 +63,33 @@ body {
         --card_bg3: hsl(105, 13%, 17%);
     }
 }
+
+
+
+div.space_line_1 {
+    height: 20px;
+}
+
+div.space_line_2 {
+    height: 40px;
+}
+
+div.space_line_4 {
+    height: 80px;
+}
+
+div.space_line_8 {
+    height: 160px;
+}
+
+div.space_line_16 {
+    height: 320px;
+}
+
+div.space_line_32 {
+    height: 640px;
+}
+
+div.space_line_64 {
+    height: 1280px;
+}
