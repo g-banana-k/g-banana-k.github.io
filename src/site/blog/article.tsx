@@ -7,7 +7,6 @@ import { Translate } from "../system/translate";
 import styles from "./article.module.css";
 
 export const article_page = (data: ArticleData) => {
-    console.log(data);
     const t = new Translate(styles);
     const body = t.nodes(data.body.children);
     return new Page(

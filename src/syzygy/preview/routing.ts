@@ -34,7 +34,6 @@ declare global {
 }
 
 const locate = (routes: Routes, src: string, push?: false) => {
-    console.log(src);
     if (
         src.startsWith("http://") ||
         src.startsWith("https://") ||

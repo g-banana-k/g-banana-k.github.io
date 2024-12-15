@@ -24,17 +24,17 @@ export class HTMLElement {
     }
     render(): string {
         if (this.HTML !== undefined) return this.HTML;
+        const props = this.props
+            .entries()
+            .map(([name, content]) => name !== "innerHTML" ? `${name}="${content}"` : "")
+            .reduce((acc, c) => `${acc} ${c}`, "");
+        if (this.innerHTML) {
+            return `<${this.tag}${props}>${this.innerHTML}</${this.tag}>`;
+        }
+        if (this.tag === "br") return `<${this.tag}${props}>`;
         const children = this.children
             .map((n) => (typeof n === "string" ? html_escape(n) : n.render()))
             .join("");
-        const props = this.props
-            .entries()
-            .map(([name, content]) => `${name}="${content}"`)
-            .reduce((acc, c) => `${acc} ${c}`, "");
-        if (this.innerHTML) {
-            console.log(`<${this.tag}${props}>${this.innerHTML}</${this.tag}>`);
-            return `<${this.tag}${props}>${this.innerHTML}</${this.tag}>`;
-        }
         return `<${this.tag}${props}>${children}</${this.tag}>`;
     }
     isHTMLElement(): this is HTMLElement {

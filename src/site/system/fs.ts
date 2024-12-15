@@ -34,6 +34,7 @@ export const crawl = async (
     await Promise.all(promises);
     return res;
 };
+
 type Kind = "dir" | "file" | "md";
 
 const check_kind = async (path: string): Promise<Kind> => {

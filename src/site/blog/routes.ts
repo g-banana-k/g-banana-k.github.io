@@ -12,7 +12,6 @@ routes.set("index", top_page);
 routes.set("sample", sample_page);
 
 blog.forEach((d, k) => {
-    console.log(k);
     routes.set(k, article_page(d));
 });
 

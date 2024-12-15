@@ -10,5 +10,7 @@ esbuild
         jsxImportSource: "~/syzygy/jsx",
         platform: "node",
         sourcemap: "inline",
+        target: "es2022",
+        format: "esm",
     })
     .catch(() => process.exit(1));

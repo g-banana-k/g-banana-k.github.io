@@ -2,7 +2,9 @@ import { crawl, rel_path } from "~/site/system/fs";
 import { RMap } from "./r_map";
 import { ArticleData } from "./markdown";
 
-const blog = (await crawl(rel_path("src/contents/blog")))
+// const blog = RMap.new<ArticleData>();
+
+const blog = (await crawl(rel_path("src/contents"),"",["blog"]))
     .as_map()
     .map(({ code }, key) => new ArticleData(code, key))
     .as_map();

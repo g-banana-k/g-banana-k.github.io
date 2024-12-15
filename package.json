@@ -4,7 +4,7 @@
     "main": "index.js",
     "scripts": {
         "bundle": "node ./scripts/build.js",
-        "code": "npm run bundle && node ./dist/bundle.js",
+        "build": "npm run bundle && node ./dist/bundle.js",
         "dev": "vite"
     },
     "keywords": [],
@@ -26,5 +26,6 @@
         "remark-frontmatter": "^5.0.0",
         "remark-gfm": "^4.0.0",
         "remark-parse": "^11.0.0"
-    }
+    },
+    "type": "module"
 }

@@ -11,7 +11,6 @@ export class ArticleData {
     tags: string[];
     body: Root;
     constructor(md: string, name: string) {
-        if (name.length !== 8) throw Error(`date was unknown format: ${name}`);
         const [ast, fm] = parse(md);
         const date =
             (fm as { date?: string[] })?.date ??

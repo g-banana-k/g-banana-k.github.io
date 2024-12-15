@@ -63,14 +63,3 @@ body {
         --card_bg3: hsl(105, 13%, 17%);
     }
 }
-
-a {
-    color: var(--link1);
-    --link1: #4d97ff;
-    --link2: #855cd6;
-    --link3: #c719af;
-}
-
-a:visited {
-    color: var(--link2);
-}
