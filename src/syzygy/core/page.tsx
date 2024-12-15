@@ -28,7 +28,10 @@ type HeadComponent = FC<withChildren>;
 
 const default_props: HeadProps = {
     lang: "ja",
-    stylesheets: ["/bundle.css"],
+    stylesheets: [
+        "https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css",
+        "/bundle.css",
+    ],
 };
 
 export class Page {

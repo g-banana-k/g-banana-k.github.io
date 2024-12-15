@@ -14,7 +14,7 @@ export class HTMLElement {
         tag: string,
         props: Map<string, string | number>,
         children: Node[],
-        option: { innerHTML?: string } | { HTML?: string },
+        option?: { innerHTML?: string } | { HTML?: string },
     ) {
         this.tag = tag;
         this.props = props;
