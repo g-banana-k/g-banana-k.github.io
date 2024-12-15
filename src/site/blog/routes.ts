@@ -9,8 +9,6 @@ const routes = new Map<string, Page>();
 routes.set("index", top_page);
 
 blog.forEach((d, k) => {
-    console.log(k);
-    
     routes.set(k, article_page(d));
 });
 

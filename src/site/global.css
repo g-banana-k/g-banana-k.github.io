@@ -53,11 +53,16 @@ body {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg1: hsl(228, 9%, 9%);
+        --bg1: hsl(228, 10%, 10%);
+        --bg2: #000;
+        --bg3: hsl(228, 10%, 20%);
         --bg2: #333;
         --text1: #fff;
         --text2: #ddd;
-        --text1_w: #000;
+        --text1_w: #333;
+        --border1: #444;
+        --thumbnail1: #333;
+        --thumbnail2: #222;
         --card_bg1: hsl(193, 26%, 13%);
         --card_bg2: hsl(60, 14%, 33%);
         --card_bg3: hsl(105, 13%, 17%);
