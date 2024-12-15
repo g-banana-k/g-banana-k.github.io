@@ -115,7 +115,7 @@ class RMap2<T> {
         this.body.delete(k);
     }
     public forEach(
-        f: (value: T, ey: string, full_key: string, map: RMap<T>) => void,
+        f: (value: T, key: string, full_key: string, map: RMap<T>) => void,
     ) {
         this.for_each_2(f, "");
     }

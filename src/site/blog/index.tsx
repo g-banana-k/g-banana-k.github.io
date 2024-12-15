@@ -5,20 +5,21 @@ import { GridView } from "~/components/common/grid_view";
 import { Thumbnail } from "~/components/common/thumbnail";
 import { Header } from "~/components/common/header";
 import { Footer } from "~/components/footer";
+import { blog } from "../system/cms";
+import type { Node } from "~/syzygy/core/element";
 
-const thumbnail = "/group_photo.png";
+const contents: Node[] = [];
+
+blog.forEach((page, _, full_key) => {
+    contents.push(<Thumbnail title={page.title} img={page.thumbnail} link={`/${full_key}`}/>);
+});
 
 export default new Page(
     <div id={styles.root}>
         <div id={styles.main}>
             <Header title="Articles (4)" />
             <GridView>
-                <Thumbnail
-                    title="Sample 1"
-                    img={thumbnail}
-                    link="/blog/sample"
-                />
-                <Thumbnail title="Sample 2" link="/blog/20241214" />
+                {contents}
             </GridView>
         </div>
         <Footer />

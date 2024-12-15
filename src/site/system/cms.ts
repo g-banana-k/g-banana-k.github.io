@@ -4,7 +4,7 @@ import { ArticleData } from "./markdown";
 
 // const blog = RMap.new<ArticleData>();
 
-const blog = (await crawl(rel_path("src/contents"),"",["blog"]))
+const contents = (await crawl(rel_path("src/contents"), "", ["blog", "info", "sludgetale", "creation"]))
     .as_map()
     .map(({ code }, key) => new ArticleData(code, key))
     .as_map();
@@ -15,4 +15,9 @@ const tags = new Map<string, string>([
     ["sample3", "hsl(240, 100%, 90%)"],
 ]);
 
-export { blog, tags };
+const blog = contents.get("blog")!.as_map();
+const info = contents.get("info")!.as_map();
+const sludgetale = contents.get("sludgetale")!.as_map();
+const creation = contents.get("creation")!.as_map();
+
+export { tags, blog, info, sludgetale };
