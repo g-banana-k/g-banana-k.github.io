@@ -1,5 +1,5 @@
 import type { FC, withChildren } from "~/syzygy/core/fc";
-import hljs from 'highlight.js';
+import hljs from "highlight.js";
 import type { RootContent, RootContentMap } from "mdast";
 import type { Element, Node } from "~/syzygy/core/element";
 import { Raw } from "~/syzygy/preset/raw";
@@ -12,7 +12,7 @@ export class Translate {
         this.styles = styles;
     }
     nodes(r: RootContent[]): Node[] {
-        return r.map(this.node)
+        return r.map(e=>this.node(e))
     }
     node(e: RootContent): Node {
         switch(e.type) {

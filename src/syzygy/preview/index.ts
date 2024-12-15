@@ -1,7 +1,7 @@
 import type { Node } from "~/syzygy/core/element";
 import routes from "~/site/routes";
 import { Router } from "./routing";
-import { withChildren } from "../core/fc";
+// import { withChildren } from "../core/fc";
 
 type Rendering = (e: HTMLElement) => void;
 
@@ -17,6 +17,7 @@ export const render: Render = (node) => {
         };
     }
     if (node.isHTMLElement()) {
+        if (node.HTML !== undefined) return (e) => e.insertAdjacentHTML("beforeend", node.HTML!);
         const children = node.children;
         const e = document.createElement(node.tag);
         for (const [tag, val] of node.props.entries()) {

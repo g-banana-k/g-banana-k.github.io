@@ -13,9 +13,9 @@ export class ArticleData {
     constructor(md: string, name: string) {
         if (name.length !== 8) throw Error(`date was unknown format: ${name}`);
         const [ast, fm] = parse(md);
-        const date = name.length === 8 && /^\d+$/.test(name) ? `${name.slice(0, 4)}-${name.slice(4, 6)}-${name.slice(6, 8)}` : "None"
-        const tags = (fm as { tags?: string[] })?.tags ?? []
-        const title = (fm as { title?: string })?.title ?? "untitled"
+        const date = (fm as { date?: string[] })?.date ?? (name.length === 8 && /^\d+$/.test(name) ? `${name.slice(0, 4)}-${name.slice(4, 6)}-${name.slice(6, 8)}` : "None")
+        const tags = (fm as { tags?: string[] })?.tags ?? [];
+        const title = (fm as { title?: string })?.title ?? "untitled";
         const thumbnail = (fm as { thumbnail?: string })?.thumbnail;
         this.date = date as `${number}-${number}-${number}` | "None";
         this.tags = tags;
@@ -33,17 +33,3 @@ const parse = (md: string): [Root, unknown] => {
     const fm = fm_yaml ? yaml.load(fm_yaml) : undefined;
     return [ast, fm]
 }
-
-parse(`---
-title: "Example Document"
-date: "2024-12-14"
-tags: []
----
-
-# Heading 1
-
-This is a paragraph with **bold text**.
-
-- List item 1
-- List item 2
-`)
