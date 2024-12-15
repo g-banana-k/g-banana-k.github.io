@@ -7,13 +7,13 @@ import { article_page } from "./article";
 
 const routes = new Map<string, Page>();
 
-routes.set("index", top_page)
+routes.set("index", top_page);
 
-routes.set("sample", sample_page)
+routes.set("sample", sample_page);
 
 blog.forEach((d, k) => {
     console.log(k);
-    routes.set(k, article_page(d))
-})
+    routes.set(k, article_page(d));
+});
 
 export default routes;

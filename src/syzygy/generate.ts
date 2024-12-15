@@ -12,10 +12,12 @@ export const isRoutes = (arg: Page | Routes | undefined): arg is Routes => {
 
 export const generate = async (routes: Routes) => {
     const map = new Map<string, Page>();
-    const cache: { t_s: number } = JSON.parse(await fs.readFile("./syzygy/cache.json", "utf-8"));
+    const cache: { t_s: number } = JSON.parse(
+        await fs.readFile("./syzygy/cache.json", "utf-8"),
+    );
     flat(map, routes, "");
     for (const p of map) {
-        const page = {path: p[0], body: p[1]}
+        const page = { path: p[0], body: p[1] };
         const page_path = path.join("./result", `${page.path}.html`);
         mkdir(path.dirname(page_path));
         fs.writeFile(page_path, page.body.render());
@@ -46,7 +48,7 @@ export const flat = (
 const copy_dir = async (src: string, dest: string) => {
     const entries = await fs.readdir(src, { withFileTypes: true });
     await mkdir(dest);
-    const promises: Promise<void>[] = []
+    const promises: Promise<void>[] = [];
     for (const entry of entries) {
         const src_path = path.join(src, entry.name);
         const dest_path = path.join(dest, entry.name);
@@ -57,7 +59,7 @@ const copy_dir = async (src: string, dest: string) => {
         }
     }
     await Promise.all(promises);
-}
+};
 
 const newest_stamp = async (src: string): Promise<number> => {
     const entries = await fs.readdir(src, { withFileTypes: true });
@@ -67,9 +69,9 @@ const newest_stamp = async (src: string): Promise<number> => {
         if (entry.isDirectory()) {
             promises.push(newest_stamp(src_path));
         } else {
-            promises.push(fs.stat(src_path).then(s => s.mtimeMs));
+            promises.push(fs.stat(src_path).then((s) => s.mtimeMs));
         }
     }
     const arr = await Promise.all(promises);
     return Math.max(...arr);
-}
+};

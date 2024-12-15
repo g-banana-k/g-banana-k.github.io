@@ -1,10 +1,10 @@
-import { isArray } from "../util"
+import { isArray } from "../util";
 import type { HTMLElement, Node } from "~/syzygy/core/element";
 
 export const Fragment = ({ children }: { children: Node | Node[] }) => {
     if (isArray(children)) return new FragmentC(children);
     return new FragmentC([children]);
-}
+};
 
 export type Fragment = FragmentC;
 
@@ -16,7 +16,7 @@ class FragmentC {
     render() {
         let s = "";
         for (const node of this.children) {
-            if (typeof node === "string") s+=node;
+            if (typeof node === "string") s += node;
             else s += node.render();
         }
         return s;

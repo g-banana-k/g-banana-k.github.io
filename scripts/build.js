@@ -9,6 +9,6 @@ esbuild
         jsx: "automatic",
         jsxImportSource: "~/syzygy/jsx",
         platform: "node",
-        sourcemap: "inline"
+        sourcemap: "inline",
     })
     .catch(() => process.exit(1));

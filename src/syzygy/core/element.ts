@@ -32,7 +32,7 @@ export class HTMLElement {
             .map(([name, content]) => `${name}="${content}"`)
             .reduce((acc, c) => `${acc} ${c}`, "");
         if (this.innerHTML) {
-            console.log(`<${this.tag}${props}>${this.innerHTML}</${this.tag}>`)
+            console.log(`<${this.tag}${props}>${this.innerHTML}</${this.tag}>`);
             return `<${this.tag}${props}>${this.innerHTML}</${this.tag}>`;
         }
         return `<${this.tag}${props}>${children}</${this.tag}>`;

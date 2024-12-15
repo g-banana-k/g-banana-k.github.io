@@ -28,7 +28,7 @@
     background-color: var(--section_bg1);
 }
 
-.works>div {
+.works > div {
     margin-left: 15%;
     margin-right: 15%;
 }

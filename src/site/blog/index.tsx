@@ -13,8 +13,12 @@ export default new Page(
         <div id={styles.main}>
             <Header title="Articles (4)" />
             <GridView>
-            <Thumbnail title="Sample 1" img={thumbnail} link="/blog/sample"/>
-            <Thumbnail title="Sample 2" link="/blog/20241214"/>
+                <Thumbnail
+                    title="Sample 1"
+                    img={thumbnail}
+                    link="/blog/sample"
+                />
+                <Thumbnail title="Sample 2" link="/blog/20241214" />
             </GridView>
         </div>
         <Footer />

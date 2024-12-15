@@ -17,13 +17,14 @@ export const render: Render = (node) => {
         };
     }
     if (node.isHTMLElement()) {
-        if (node.HTML !== undefined) return (e) => e.insertAdjacentHTML("beforeend", node.HTML!);
+        if (node.HTML !== undefined)
+            return (e) => e.insertAdjacentHTML("beforeend", node.HTML!);
         const children = node.children;
         const e = document.createElement(node.tag);
         for (const [tag, val] of node.props.entries()) {
             if (tag === "class") e.className = `${val}`;
             else if (node.tag === "a" && tag === "href") {
-                (e as HTMLAnchorElement).href = "javascript:void(0);"
+                (e as HTMLAnchorElement).href = "javascript:void(0);";
                 e.onclick = (e) => {
                     console.log(e, val);
                     Router.locate(routes, val as string);
@@ -47,7 +48,7 @@ const body = document.body;
 window.addEventListener("syzygy_rendering", (e) => {
     const rendering = render(e.detail.node);
     rendering(body);
-})
+});
 
 Router.init(routes);
 

@@ -5,7 +5,7 @@ import { Text } from "~/components/ui/text";
 
 const scratch = "/scratch_s.svg";
 const discord = "/discord_white.svg";
-const github =  "/github_white.svg";
+const github = "/github_white.svg";
 const bluesky = "/bsky.svg";
 
 export const Accounts = () => {

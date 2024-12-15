@@ -1,1 +1,1 @@
-import "~/ssg"
+import "~/ssg";
