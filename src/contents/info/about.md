@@ -1,11 +1,7 @@
 ---
-title: "Sample"
-date: "2024-12-14"
-tags: [sample1]
+title: "このサイトについて"
+date: "2024-12-15"
+tags: ["gBanaKnal", "About"]
 ---
 
-# Heading1
-
-## Heading2
-
-### Heading3
+gBanaKnalのポートフォリオサイト兼ブログです。

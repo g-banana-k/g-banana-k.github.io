@@ -1,7 +1,6 @@
 import { Page } from "~/syzygy/core/page";
 import type { ArticleData } from "../system/markdown";
 import { Article } from "~/components/article";
-import { Paragraph } from "~/components/article/paragraph";
 import { Translate } from "../system/translate";
 
 import styles from "./article.module.css";
