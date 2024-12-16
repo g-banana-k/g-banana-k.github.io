@@ -2,7 +2,7 @@ import styles from "./index.module.css";
 import { Text } from "../ui/text";
 import type { FC, withChildren } from "~/syzygy/core/fc";
 
-export const Footer = () => {
+export const Footer: FC<{}> = () => {
     return (
         <div class={styles.root}>
             <Content title="Info">
@@ -10,7 +10,6 @@ export const Footer = () => {
             </Content>
             <Content title="Works">
                 <Link href="/blog">Blog</Link>
-                <Link href="/creation">HKHUVASV</Link>
                 <Link href="/banahexel_site">BanaHexel</Link>
             </Content>
             <Content title="Sludgetale">
