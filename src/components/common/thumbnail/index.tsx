@@ -7,12 +7,13 @@ export const Thumbnail: FC<{
     height?: string;
     img?: string;
     link?: string;
+    date?: string;
 }> = (props) => {
     return (
         <div class={styles.root} style={`height: ${props.height ?? 240}px`}>
             <a href={props.link}>
-                <div class={styles.title}>
-                    <Text>{props.title}</Text>
+                <div class={styles.description}>
+                <Text>{props.title}</Text>
                 </div>
                 <div class={styles.main}>
                     {props.img ? (

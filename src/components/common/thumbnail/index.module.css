@@ -13,7 +13,7 @@
     color: inherit;
 }
 
-.title {
+.description {
     background-color: var(--thumbnail1);
     position: absolute;
     bottom: 0;
@@ -21,11 +21,11 @@
     width: 100%;
 }
 
-.root:hover .title {
+.root:hover .description {
     background-color: var(--thumbnail2);
 }
 
-.title > div {
+.description > div {
     margin-left: 8px;
     margin-top: 8px;
     font-weight: 600;
