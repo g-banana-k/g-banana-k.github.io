@@ -17,4 +17,6 @@ routes.set("info", info);
 
 routes.set("sludgetale", sludgetale);
 
+console.log(routes);
+
 export default routes;

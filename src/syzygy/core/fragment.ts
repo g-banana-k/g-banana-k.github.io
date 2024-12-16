@@ -1,7 +1,8 @@
 import { isArray } from "../util";
 import type { HTMLElement, Node } from "~/syzygy/core/element";
 
-export const Fragment = ({ children }: { children: Node | Node[] }) => {
+export const Fragment = ({ children }: { children?: Node | Node[] }) => {
+    if (children === undefined) return new FragmentC([]);
     if (isArray(children)) return new FragmentC(children);
     return new FragmentC([children]);
 };

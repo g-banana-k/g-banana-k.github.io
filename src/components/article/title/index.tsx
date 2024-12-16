@@ -5,7 +5,7 @@ import { Tag, TagArea } from "~/components/common/tag";
 export const Title: FC<
     {
         tags: { name: string; color: string }[];
-        "yyyy-mm-dd": `${number}-${number}-${number}`;
+        "yyyy-mm-dd": string;
     } & withChildren
 > = (props) => {
     return (

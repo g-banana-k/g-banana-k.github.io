@@ -26,6 +26,9 @@
             },
             "complexity": {
                 "noBannedTypes": "off"
+            },
+            "correctness": {
+                "useJsxKeyInIterable": "info"
             }
         }
     },

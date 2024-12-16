@@ -5,7 +5,7 @@ import { article_page } from "../blog/article";
 const routes = new Map<string, Page>();
 
 info.forEach((d, k) => {
-    routes.set(k, article_page(d));
+    routes.set(k, article_page(d, { name: "Info" }));
 });
 
 export default routes;

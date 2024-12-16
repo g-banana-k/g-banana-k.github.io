@@ -141,14 +141,25 @@ class RMap2<T> {
     public as_map(): RMap2<T> {
         return this;
     }
+    public size() {
+        let res = 0;
+        for (const [_, v] of this.body) {
+            if (v.is_map()) {
+                res += v.size();
+            } else {
+                res += 1;
+            }
+        };
+        return res;
+    }
 }
 
 export type RMap<T> = RMap2<T> | RMap1<T>;
 
 type RMapObj = {
     new: (<T>() => RMap2<T>) &
-        (<T>(v: T) => RMap1<T>) &
-        (<T>(m: Map<string, RMap<T>>) => RMap2<T>);
+    (<T>(v: T) => RMap1<T>) &
+    (<T>(m: Map<string, RMap<T>>) => RMap2<T>);
 };
 
 export const RMap: RMapObj = {

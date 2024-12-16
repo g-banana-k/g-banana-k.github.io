@@ -11,16 +11,20 @@ import type { Node } from "~/syzygy/core/element";
 const contents: Node[] = [];
 
 blog.forEach((page, _, full_key) => {
-    contents.push(<Thumbnail title={page.title} img={page.thumbnail} link={`/${full_key}`}/>);
+    contents.push(
+        <Thumbnail
+            title={page.title}
+            img={page.thumbnail}
+            link={`/blog/${full_key}`}
+        />,
+    );
 });
 
 export default new Page(
     <div id={styles.root}>
         <div id={styles.main}>
-            <Header title="Articles (4)" />
-            <GridView>
-                {contents}
-            </GridView>
+            <Header path={[{ name: "Articles" }]} />
+            <GridView>{contents}</GridView>
         </div>
         <Footer />
     </div>,

@@ -9,16 +9,21 @@ export const article_page_st = (data: ArticleData) => {
     const t = new Translate(styles);
     const body = t.nodes(data.body.children);
     return new Page(
-        <Article title={data.title} tags={data.tags}>
+        <Article
+            date={data.date}
+            path={[{ name: "Sludgetale" }]}
+            title={data.title}
+            tags={data.tags}
+        >
             {body}
-        </Article>,{
-            
-    lang: "ja",
-    stylesheets: [
-        "https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css",
-        "/fonts.css",
-        "/bundle.css",
-    ],
-        }
+        </Article>,
+        {
+            lang: "ja",
+            stylesheets: [
+                "https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css",
+                "/fonts.css",
+                "/bundle.css",
+            ],
+        },
     );
 };

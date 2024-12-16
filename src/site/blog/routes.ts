@@ -9,7 +9,7 @@ const routes = new Map<string, Page>();
 routes.set("index", top_page);
 
 blog.forEach((d, k) => {
-    routes.set(k, article_page(d));
+    routes.set(k, article_page(d, { name: "Articles", link: "/blog" }));
 });
 
 export default routes;
