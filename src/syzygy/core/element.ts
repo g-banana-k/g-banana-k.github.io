@@ -24,10 +24,10 @@ export class HTMLElement {
     }
     render(): string {
         if (this.HTML !== undefined) return this.HTML;
-        const props = this.props
-            .entries()
-            .map(([name, content]) => name !== "innerHTML" ? `${name}="${content}"` : "")
-            .reduce((acc, c) => `${acc} ${c}`, "");
+        let props = "";
+        for (const [name, content] of this.props.entries()) {
+            if (name !=="innerHTML") props += ` ${name}="${content}"`
+        }
         if (this.innerHTML) {
             return `<${this.tag}${props}>${this.innerHTML}</${this.tag}>`;
         }
