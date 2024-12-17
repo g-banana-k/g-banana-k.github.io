@@ -12,14 +12,9 @@ export const isRoutes = (arg: Page | Routes | undefined): arg is Routes => {
 
 export const generate = async (routes: Routes) => {
     const map = new Map<string, Page>();
-    const cache: { t_s: number } = JSON.parse(await (async () => {
-        try {
-            return await fs.readFile("./syzygy/cache.json", "utf-8")
-        } catch {
-            return `{ "t_s": 0 }`
-        }
-    })()
-    );
+    const cache: { t_s: number } = fs_sync.existsSync("./syzygy/cache.json") ? JSON.parse(
+        await fs.readFile("./syzygy/cache.json", "utf-8"),
+    ) : { t_s: 0 };
     flat(map, routes, "");
     for (const p of map) {
         const page = { path: p[0], body: p[1] };
