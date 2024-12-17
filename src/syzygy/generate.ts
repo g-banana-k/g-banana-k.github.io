@@ -12,9 +12,9 @@ export const isRoutes = (arg: Page | Routes | undefined): arg is Routes => {
 
 export const generate = async (routes: Routes) => {
     const map = new Map<string, Page>();
-    const cache: { t_s: number } = fs_sync.existsSync("./syzygy/cache.json") ? JSON.parse(
-        await fs.readFile("./syzygy/cache.json", "utf-8"),
-    ) : { t_s: 0 };
+    // const cache: { t_s: number } = fs_sync.existsSync("./syzygy/cache.json") ? JSON.parse(
+    //     await fs.readFile("./syzygy/cache.json", "utf-8"),
+    // ) : { t_s: 0 };
     flat(map, routes, "");
     for (const p of map) {
         const page = { path: p[0], body: p[1] };
@@ -23,10 +23,10 @@ export const generate = async (routes: Routes) => {
         fs.writeFile(page_path, page.body.render());
     }
     await fs.copyFile("./dist/bundle.css", "./result/bundle.css");
-    const t_s = await newest_stamp("public");
-    if (cache.t_s === t_s) return;
-    cache.t_s = t_s;
-    await fs.writeFile("./syzygy/cache.json", JSON.stringify(cache), "utf-8");
+    // const t_s = await newest_stamp("public");
+    // if (cache.t_s === t_s) return;
+    // cache.t_s = t_s;
+    // await fs.writeFile("./syzygy/cache.json", JSON.stringify(cache), "utf-8");
     await copy_dir("public", "result");
 };
 
