@@ -33,14 +33,14 @@ body {
     --footer_text1: #fff;
     --footer_text2: #ccc;
 
-    --card_bg1: #d2e4e9;
-    --card_bg2: #dede8e;
-    --card_bg3: #c9e8bf;
-    --card_bg4: #c7a776;
-    --section_bg1: hsl(193, 14%, 92%);
-    --section_bg2: hsl(60, 26%, 72%);
-    --section_bg3: hsl(105, 27%, 88%);
-    --section_bg4: hsl(36, 22%, 82%);
+    --card_bg1: hsl(193, 40%, 85%);
+    --card_bg2: hsl(60 , 40%, 85%);
+    --card_bg3: hsl(105, 40%, 85%);
+    --card_bg4: hsl(36 , 40%, 85%);
+    --section_bg1: hsl(193, 60%, 90%);
+    --section_bg2: hsl(60 , 60%, 90%);
+    --section_bg3: hsl(105, 60%, 90%);
+    --section_bg4: hsl(36 , 60%, 90%);
     --account_scratch1: #f8aa36;
     --account_scratch2: #fff;
     --account_discord1: #5865f2;

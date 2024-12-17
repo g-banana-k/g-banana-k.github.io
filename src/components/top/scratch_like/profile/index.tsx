@@ -8,7 +8,7 @@ export const Profile = () => {
             <div class={styles.box}>
                 gBanaKnalです。
                 <br />
-                読みは決めてないので適当に呼んでください。
+                読みはまだ決めてないので好きなように呼んでください。
                 <br />
             </div>
         </div>

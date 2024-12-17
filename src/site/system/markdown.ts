@@ -3,6 +3,8 @@ import { remark } from "remark";
 import type { Root } from "mdast";
 import frontmatter from "remark-frontmatter";
 import * as yaml from "js-yaml";
+import { Translate } from "./translate";
+import type { Node } from "~/syzygy/core/element";
 
 export class ArticleData {
     date: `${number}-${number}-${number}` | "None";
@@ -25,6 +27,18 @@ export class ArticleData {
         this.title = title;
         this.body = ast;
         this.thumbnail = thumbnail;
+    }
+}
+
+export class Section {
+    body: Root;
+    constructor(md: string) {
+        const ast = parser.parse(md);
+        this.body = ast;
+    }
+    translate(styles: Record<string, string>): Node[] {
+        const translate = new Translate(styles);
+        return translate.nodes(this.body.children)
     }
 }
 

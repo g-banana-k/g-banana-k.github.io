@@ -15,7 +15,7 @@ export const Title = () => {
                 <Text class={styles.aka}>ばなくな</Text>
                 <Raw
                     tag="script"
-                    content={String.raw`{
+                    innerHTML={String.raw`{
     const element = document.querySelector(".${styles.aka}");
     element.innerText = ["ばなくな", "じばなくなる","ばなな","ばなへき","ごばなきなる","がばなな","ごばなな"][Math.floor(Math.random()*7)];
 }`}
