@@ -1,0 +1,42 @@
+.root {
+	height: 100px;
+	width: 400px;
+	display: flex;
+	flex-direction: row;
+}
+
+.icon {
+	height: 100px;
+	width: 100px;
+	margin-right: 15px;
+	position: relative;
+}
+
+.icon > img {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	height: 100px;
+	width: 100px;
+}
+
+.name_area {
+	display: flex;
+	flex-direction: column;
+}
+
+.name {
+	height: 65px;
+	font-weight: 600;
+	font-size: 26px;
+	margin-top: 15px;
+}
+
+.aka {
+	position: relative;
+	bottom: 2px;
+	height: 65px;
+	font-weight: 400;
+	color: var(--text2);
+	font-size: 18px;
+}

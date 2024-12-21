@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&display=swap");
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 450;
+	font-style: normal;
+	font-optical-sizing: auto;
+}
+
+:root {
+	--bg1: hsl(48, 100%, 90%);
+	--bg2: #fff;
+	--bg3: hsl(48, 100%, 80%);
+	--text1: #333;
+	--text2: #555;
+	--text3: #bbb;
+	--text1_w: #fff;
+	--border1: #eee;
+	--link1: #4d97ff;
+	--link2: #855cd6;
+	--link3: #c719af;
+
+	--thumbnail1: #fff;
+	--thumbnail2: #f4f4f4;
+
+	--footer1: #332a0d;
+	--footer_text1: #fff;
+	--footer_text2: #ccc;
+
+	--h2_left: hsl(47, 100%, 50%);
+
+	--card_bg1: hsl(193, 40%, 85%);
+	--card_bg2: hsl(60, 40%, 85%);
+	--card_bg3: hsl(105, 40%, 85%);
+	--card_bg4: hsl(36, 40%, 85%);
+	--section_bg1: hsl(193, 60%, 90%);
+	--section_bg2: hsl(60, 60%, 90%);
+	--section_bg3: hsl(105, 60%, 90%);
+	--section_bg4: hsl(36, 60%, 90%);
+	--account_scratch1: #f8aa36;
+	--account_scratch2: #fff;
+	--account_discord1: #5865f2;
+	--account_discord2: #fff;
+	--account_github1: #111;
+	--account_github2: #fff;
+	--account_bluesky1: #fff;
+	--account_bluesky2: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg1: hsl(228, 10%, 10%);
+		--bg2: #000;
+		--bg3: hsl(228, 10%, 20%);
+		--bg2: #333;
+		--text1: #fff;
+		--text2: #ddd;
+		--text1_w: #333;
+		--border1: #444;
+		--thumbnail1: #333;
+		--thumbnail2: #222;
+		--card_bg1: hsl(193, 26%, 13%);
+		--card_bg2: hsl(60, 14%, 33%);
+		--card_bg3: hsl(105, 13%, 17%);
+	}
+}

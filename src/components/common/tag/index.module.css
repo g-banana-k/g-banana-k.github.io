@@ -1,0 +1,16 @@
+.root {
+	font-size: 13px;
+	line-height: 21px;
+	height: 21px;
+	padding: 0 8px;
+	border-radius: 5px;
+	user-select: none;
+}
+
+.area {
+	display: flex;
+	flex-direction: row;
+	margin: 10px 0;
+	height: 21px;
+	gap: 10px;
+}

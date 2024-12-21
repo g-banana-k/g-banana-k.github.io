@@ -1,0 +1,39 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 300px;
+}
+
+.title {
+	font-weight: 600;
+	font-size: 20px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.container {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.scratch {
+	background-color: var(--account_scratch1);
+	color: var(--account_scratch2);
+}
+
+.discord {
+	background-color: var(--account_discord1);
+	color: var(--account_discord2);
+}
+
+.github {
+	background-color: var(--account_github1);
+	color: var(--account_github2);
+}
+
+.bluesky {
+	background-color: var(--account_bluesky1);
+	color: var(--account_bluesky2);
+}

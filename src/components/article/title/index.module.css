@@ -1,0 +1,13 @@
+.root {
+	margin-bottom: 20px;
+}
+
+.title {
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.date {
+	color: var(--text2);
+	font-size: 14px;
+}

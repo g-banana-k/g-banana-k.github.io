@@ -1,0 +1,43 @@
+.root {
+	height: 80px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.logo {
+	text-decoration: inherit;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.root a {
+	color: var(--link1);
+}
+
+.icon {
+	height: 80px;
+	width: 80px;
+	margin-right: 15px;
+	position: relative;
+}
+
+.icon > img {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	height: 80px;
+	width: 80px;
+}
+
+.name {
+	height: 80px;
+	line-height: 80px;
+	font-weight: 600;
+	font-size: 26px;
+}
+
+.double_colon {
+	margin: 0 10px;
+}
