@@ -20,9 +20,9 @@
 		"deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
 		"dev": "vite --mode ssr",
 		"dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
-		"fmt": "prettier --write .",
-		"fmt.check": "prettier --check .",
-		"lint": "eslint \"src/**/*.ts*\"",
+		"fmt": "biome format --write",
+		"fmt.check": "biome format",
+		"lint": "npx biome lint",
 		"preview": "qwik build preview && vite preview --open",
 		"start": "vite --open --mode ssr",
 		"qwik": "qwik"

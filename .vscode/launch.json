@@ -7,7 +7,7 @@
 		{
 			"name": "Launch Chrome",
 			"request": "launch",
-			"type": "chrome",
+			"type": "brave",
 			"url": "http://localhost:5173",
 			"webRoot": "${workspaceFolder}"
 		},
