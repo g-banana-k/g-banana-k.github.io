@@ -6,11 +6,10 @@ import { Footer } from "~/components/footer";
 import { Thumbnail } from "~/components/common/thumbnail";
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { getList } from "~/system/microcms";
-
+import { get_list } from "~/system/cms_wrapper";
 
 export const useListLoader = routeLoader$(async () => {
-    const { contents } = await getList();
+    const contents = await get_list("blog");
     return contents;
 });
 
@@ -22,7 +21,7 @@ export default component$(() => {
                 <Header path={[{ name: "Blog" }]} />
                 <GridView>{
                     // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
-                    list.value.map(data => { return <Thumbnail title={data.title} link={`/blog/${data.id}`} /> })
+                    list.value.map(data => { return <Thumbnail title={data.title} link={`/blog/${data.name}`} /> })
                 }</GridView>
             </div>
             <Footer />

@@ -1,12 +1,9 @@
-// src/routes/blog/[postId]/index.tsx
-
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { Article } from "~/components/article";
-import { getDetail } from "~/system/microcms";
-
 import styles from "./index.module.css";
+import { get_content } from "~/system/cms_wrapper";
 
 export const usePostLoader = routeLoader$(async ({ params, status }) => {
     if (!params.slug) {
@@ -14,8 +11,7 @@ export const usePostLoader = routeLoader$(async ({ params, status }) => {
     }
 
     try {
-        const post = await getDetail(params.slug);
-        return post;
+        return get_content("blog", params.slug);
     } catch {
         status(404);
     }
@@ -31,15 +27,15 @@ export default component$(() => {
     const val = post.value;
 
     return (
-		<Article
-			path={[{ name: "Blog", link: "/blog" }]}
-			date={val.updatedAt}
-			title={val.title}
-			tags={[]}
+        <Article
+            path={[{ name: "Blog", link: "/blog" }]}
+            date={val.edited}
+            title={val.title}
+            tags={[]}
             styles={styles}
-            innerHTML={val.content}
-		>
-		</Article>
+        >
+            <val.content />
+        </Article>
     );
 });
 
