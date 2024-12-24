@@ -5,14 +5,14 @@ class Post {
     tags: string[];
     name: string;
     published: string;
-    edited: string;
+    updated: string;
     content: Component<unknown>;
-    constructor(content: Component<unknown>, title: string, tags: string[], name: string, published: string, edited?: string) {
+    constructor(content: Component<unknown>, title: string, tags: string[], name: string, published: string, updated?: string) {
         this.title = title;
         this.tags = tags;
         this.name = name;
         this.published = published;
-        this.edited = edited ?? published;
+        this.updated = updated ?? published;
         this.content = content;
     }
 }

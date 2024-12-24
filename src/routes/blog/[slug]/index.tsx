@@ -29,7 +29,7 @@ export default component$(() => {
     return (
         <Article
             path={[{ name: "Blog", link: "/blog" }]}
-            date={val.edited}
+            date={val.updated}
             title={val.title}
             tags={[]}
             styles={styles}
