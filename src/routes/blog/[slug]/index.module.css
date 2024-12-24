@@ -1,0 +1,30 @@
+.root h2 {
+    font-size: 30px;
+    font-weight: 600;
+    padding-left: 10px;
+    border-left: solid 5px var(--h2_left);
+    margin: 15px 0;
+}
+
+.root h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 12px 0;
+}
+
+.root h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.root img {
+    object-fit: scale-down;
+    width: 100%;
+    max-height: 100vh;
+}
+
+.root p {
+    font-size: 17px;
+    margin: 8px 0;
+}

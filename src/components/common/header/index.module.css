@@ -16,6 +16,11 @@
 	color: var(--link1);
 }
 
+.name a {
+	color: var(--link1);
+	text-decoration: none;
+}
+
 .icon {
 	height: 80px;
 	width: 80px;

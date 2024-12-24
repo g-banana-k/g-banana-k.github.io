@@ -27,9 +27,13 @@ export default component$(() => {
 						href={`${import.meta.env.BASE_URL}manifest.json`}
 					/>
 				)}
+				<link
+					rel="stylesheet"
+					href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"
+				/>
 				<RouterHead />
 			</head>
-			<body lang="en">
+			<body lang="ja">
 				<RouterOutlet />
 				{!isDev && <ServiceWorkerRegister />}
 			</body>

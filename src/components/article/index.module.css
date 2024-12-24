@@ -16,5 +16,5 @@
 	border: 1px solid var(--border1);
 	padding: 45px 35px;
 	margin-bottom: 80px;
-	min-height: calc(100% - 160px);
+	min-height: calc(100vh - 250px);
 }

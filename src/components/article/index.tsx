@@ -11,6 +11,7 @@ export const Article = component$<{
 	date: string;
 	tags: string[];
 	styles: CSSModuleClasses;
+	innerHTML?: string;
 }>((props) => {
 	return (
 		<div id={styles.root}>
@@ -26,9 +27,14 @@ export const Article = component$<{
 					>
 						{props.title}
 					</Title>
-					<div class={`${styles.body} ${props.styles.root ?? ""}`}>
-						<Slot />
-					</div>
+					{props.innerHTML ?
+						<div class={`${styles.body} ${// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+							props.styles.root ?? ""}`} dangerouslySetInnerHTML={props.innerHTML} />
+						:
+						<div class={`${styles.body} ${props.styles.root ?? ""}`}>
+							<Slot />
+						</div>
+					}
 				</div>
 			</div>
 			<Footer />
