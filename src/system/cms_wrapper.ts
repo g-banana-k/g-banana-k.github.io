@@ -1,4 +1,5 @@
-import type { Component } from "@builder.io/qwik";
+import type { JSXOutput } from "@builder.io/qwik";
+import { read } from "./fs";
 
 export class Post {
 	title: string;
@@ -6,9 +7,9 @@ export class Post {
 	name: string;
 	published: string;
 	updated: string;
-	content: Component<unknown>;
+	content: JSXOutput;
 	constructor(
-		content: Component<unknown>,
+		content: JSXOutput,
 		title: string,
 		tags: string[],
 		name: string,
@@ -25,7 +26,7 @@ export class Post {
 }
 
 export const get_list = async (category: "blog"): Promise<Post[]> => {
-	return [][0];
+	return read("blog")
 };
 
 export const get_content = async (
