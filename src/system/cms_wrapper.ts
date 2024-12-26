@@ -26,7 +26,7 @@ export class Post {
 }
 
 export const get_list = async (category: "blog"): Promise<Post[]> => {
-	return read("blog")
+	return read("blog");
 };
 
 export const get_content = async (
