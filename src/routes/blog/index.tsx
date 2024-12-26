@@ -9,22 +9,28 @@ import { routeLoader$ } from "@builder.io/qwik-city";
 import { get_list } from "~/system/cms_wrapper";
 
 export const useListLoader = routeLoader$(async () => {
-    const contents = await get_list("blog");
-    return contents;
+	const contents = await get_list("blog");
+	return contents;
 });
 
 export default component$(() => {
-    const list = useListLoader();
-    return (
-        <div id={styles.root}>
-            <div id={styles.main}>
-                <Header path={[{ name: "Blog" }]} />
-                <GridView>{
-                    // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
-                    list.value.map(data => { return <Thumbnail title={data.title} link={`/blog/${data.name}`} /> })
-                }</GridView>
-            </div>
-            <Footer />
-        </div>
-    );
+	const list = useListLoader();
+	return (
+		<div id={styles.root}>
+			<div id={styles.main}>
+				<Header path={[{ name: "Blog" }]} />
+				<GridView>
+					{
+						// biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
+						list.value.map((data) => {
+							return (
+								<Thumbnail title={data.title} link={`/blog/${data.name}`} />
+							);
+						})
+					}
+				</GridView>
+			</div>
+			<Footer />
+		</div>
+	);
 });

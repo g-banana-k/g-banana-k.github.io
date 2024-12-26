@@ -27,14 +27,19 @@ export const Article = component$<{
 					>
 						{props.title}
 					</Title>
-					{props.innerHTML ?
-						<div class={`${styles.body} ${// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-							props.styles.root ?? ""}`} dangerouslySetInnerHTML={props.innerHTML} />
-						:
+					{props.innerHTML ? (
+						<div
+							class={`${styles.body} ${
+								// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+								props.styles.root ?? ""
+							}`}
+							dangerouslySetInnerHTML={props.innerHTML}
+						/>
+					) : (
 						<div class={`${styles.body} ${props.styles.root ?? ""}`}>
 							<Slot />
 						</div>
-					}
+					)}
 				</div>
 			</div>
 			<Footer />

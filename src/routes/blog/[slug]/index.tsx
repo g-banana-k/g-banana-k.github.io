@@ -6,50 +6,50 @@ import styles from "./index.module.css";
 import { get_content } from "~/system/cms_wrapper";
 
 export const usePostLoader = routeLoader$(async ({ params, status }) => {
-    if (!params.slug) {
-        throw new Error("slug is required");
-    }
+	if (!params.slug) {
+		throw new Error("slug is required");
+	}
 
-    try {
-        return get_content("blog", params.slug);
-    } catch {
-        status(404);
-    }
+	try {
+		return get_content("blog", params.slug);
+	} catch {
+		status(404);
+	}
 });
 
 export default component$(() => {
-    const post = usePostLoader();
+	const post = usePostLoader();
 
-    if (!post.value) {
-        return <h1>Not Found.</h1>;
-    }
+	if (!post.value) {
+		return <h1>Not Found.</h1>;
+	}
 
-    const val = post.value;
+	const val = post.value;
 
-    return (
-        <Article
-            path={[{ name: "Blog", link: "/blog" }]}
-            date={val.updated}
-            title={val.title}
-            tags={[]}
-            styles={styles}
-        >
-            <val.content />
-        </Article>
-    );
+	return (
+		<Article
+			path={[{ name: "Blog", link: "/blog" }]}
+			date={val.updated}
+			title={val.title}
+			tags={[]}
+			styles={styles}
+		>
+			<val.content />
+		</Article>
+	);
 });
 
 // 動的にheadを書き換える
 export const head: DocumentHead = ({ resolveValue }) => {
-    const post = resolveValue(usePostLoader);
+	const post = resolveValue(usePostLoader);
 
-    return {
-        title: post?.title || "Welcome to Qwik",
-        meta: [
-            {
-                name: "description",
-                content: post?.title || "Qwik site description",
-            },
-        ],
-    };
+	return {
+		title: post?.title || "Welcome to Qwik",
+		meta: [
+			{
+				name: "description",
+				content: post?.title || "Qwik site description",
+			},
+		],
+	};
 };

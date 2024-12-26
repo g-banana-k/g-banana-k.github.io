@@ -15,12 +15,7 @@ export const Jump = component$(() => {
 				class={styles.coding}
 			/>
 			<FlexSpace />
-			<Button
-				link="#blog"
-				title="Blog"
-				icon={Notebook}
-				class={styles.blog}
-			/>
+			<Button link="#blog" title="Blog" icon={Notebook} class={styles.blog} />
 			<FlexSpace />
 			<Button link="#sns" title="SNS" icon={Twitter} class={styles.sns} />
 			<FlexSpace />
