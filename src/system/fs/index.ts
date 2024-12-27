@@ -6,7 +6,7 @@ import { parse } from "./md";
 
 import { z } from "zod";
 
-export const read = async (p: string): Promise<Post[]> => {
+export const read_list = async (p: string): Promise<Post[]> => {
 	const p2 = path.resolve(process.cwd(), "contents", p);
 	const dir = await fs.readdir(p2);
 	const promises: Promise<void>[] = [];
@@ -39,12 +39,38 @@ export const read = async (p: string): Promise<Post[]> => {
 	return res;
 };
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
+export const read_content = async (p: string, name: string): Promise<Post> => {
+	const p2 = path.resolve(process.cwd(), "contents", p, `${name}.md`);
+	const p3 = path.resolve(process.cwd(), "contents", p, `${name}.mdx`);
+	const p4 = path.resolve(process.cwd(), "contents", p, name, "index.md");
+	const p5 = path.resolve(process.cwd(), "contents", p, name, "index.mdx");
+	const code = await fs.readFile(p2, "utf-8")
+		.catch(() => fs.readFile(p3, "utf-8"))
+		.catch(() => fs.readFile(p4, "utf-8"))
+		.catch(() => fs.readFile(p5, "utf-8"))
+
+	const translator = new Translate({});
+
+	const [root, f_m_unknown] = parse(code);
+	const f_m: Frontmatter = f_m_scheme.parse(f_m_unknown);
+	const content = translator.nodes(root.children);
+	return new Post(
+		content,
+		f_m.title ?? "Untitled",
+		f_m.tags ?? [],
+		name,
+		f_m.published ?? "None",
+		f_m.updated,
+	);
+};
+
 const scheme_check =
 	<T = unknown>() =>
-	<S extends z.ZodType<T, any, any>>(arg: S) => {
-		return arg;
-	};
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		<S extends z.ZodType<T, any, any>>(arg: S) => {
+			return arg;
+		};
 
 type Frontmatter = {
 	title?: string;

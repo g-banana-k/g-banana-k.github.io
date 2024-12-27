@@ -1,5 +1,5 @@
-import type { JSXOutput } from "@builder.io/qwik";
-import { read } from "./fs";
+import { type NoSerialize, noSerialize, type JSXOutput } from "@builder.io/qwik";
+import { read_content, read_list } from "./fs";
 
 export class Post {
 	title: string;
@@ -25,13 +25,13 @@ export class Post {
 	}
 }
 
-export const get_list = async (category: "blog"): Promise<Post[]> => {
-	return read("blog");
+export const get_list = async (category: "blog"): Promise<NoSerialize<Post>[]> => {
+	return (await read_list(category)).map(noSerialize);
 };
 
 export const get_content = async (
 	category: "blog",
 	name: string,
-): Promise<Post | undefined> => {
-	return [][0];
+): Promise<NoSerialize<Post>> => {
+	return noSerialize(await read_content(category, name))
 };

@@ -31,10 +31,9 @@ export default component$(() => {
 			path={[{ name: "Blog", link: "/blog" }]}
 			date={val.updated}
 			title={val.title}
-			tags={[]}
+			tags={val.tags}
 			styles={styles}
-		>
-			<val.content />
+		>{val.content}
 		</Article>
 	);
 });

@@ -39,9 +39,7 @@ const Button = component$<{
 		<div class={`${styles.button} ${props.class ?? ""}`}>
 			<a href={props.link}>
 				{props.icon ? (
-					<div class={styles.icon}>
-						<Raw innerHTML={props.icon} />
-					</div>
+					<Raw class={styles.icon} innerHTML={props.icon} />
 				) : (
 					""
 				)}

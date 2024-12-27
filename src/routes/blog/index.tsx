@@ -21,10 +21,10 @@ export default component$(() => {
 				<Header path={[{ name: "Blog" }]} />
 				<GridView>
 					{
-						// biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
 						list.value.map((data) => {
 							return (
-								<Thumbnail title={data.title} link={`/blog/${data.name}`} />
+								// biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
+								<Thumbnail title={data?.title ?? "Untitled"} link={`/blog/${data?.name ?? ""}`} />
 							);
 						})
 					}

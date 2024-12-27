@@ -31,6 +31,7 @@ export default component$(() => {
 					rel="stylesheet"
 					href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"
 				/>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
 				<RouterHead />
 			</head>
 			<body lang="ja">

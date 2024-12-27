@@ -5,6 +5,7 @@ import { Paragraph } from "~/components/article/paragraph";
 import { Img } from "~/components/article/img";
 import { Raw } from "~/components/ui/raw";
 import type { JSXOutput } from "@builder.io/qwik";
+import { CodeBlock } from "~/components/article/code";
 
 export class Translate {
 	styles: Record<string, string>;
@@ -25,14 +26,8 @@ export class Translate {
 				return <br />;
 			}
 			case "code": {
-				const highlighted = e.lang
-					? hljs.highlight(e.value, { language: e.lang })
-					: hljs.highlightAuto(e.value);
-				return (
-					<pre class={this.styles.hljs}>
-						<code>{highlighted.value}</code>
-					</pre>
-				);
+				const styles = this.styles;
+				return <CodeBlock lang={e.lang ?? undefined} code={e.value} styles={styles} />
 			}
 			case "definition":
 				{
@@ -70,7 +65,6 @@ export class Translate {
 				return <Raw innerHTML={e.value} />;
 			}
 			case "image": {
-				console.log(e.url);
 				return <Img src={e.url} alt={""} />;
 			}
 			case "imageReference":
@@ -148,21 +142,7 @@ export class Translate {
 				}
 				break;
 			case "text": {
-				const text = e.value
-					.replace(
-						/[&'`"<>]/g,
-						(c) =>
-							({
-								"&": "&amp;",
-								"'": "&#x27;",
-								"`": "&#x60;",
-								'"': "&quot;",
-								"<": "&lt;",
-								">": "&gt;",
-							})[c] ?? c,
-					)
-					.replaceAll("\n", "<br />");
-				return <Raw innerHTML={text} />;
+				return e.value;
 			}
 			case "thematicBreak": {
 				return <div class={this.styles.horizon} />;

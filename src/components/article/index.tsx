@@ -4,6 +4,7 @@ import { Header } from "~/components/common/header";
 import { Title } from "~/components/article/title";
 import { component$, Slot } from "@builder.io/qwik";
 import { tags } from "~/system/tags";
+import { Raw } from "../ui/raw";
 
 export const Article = component$<{
 	path?: { name: string; link?: string }[];
@@ -28,12 +29,11 @@ export const Article = component$<{
 						{props.title}
 					</Title>
 					{props.innerHTML ? (
-						<div
+						<Raw
 							class={`${styles.body} ${
-								// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
 								props.styles.root ?? ""
 							}`}
-							dangerouslySetInnerHTML={props.innerHTML}
+							innerHTML={props.innerHTML}
 						/>
 					) : (
 						<div class={`${styles.body} ${props.styles.root ?? ""}`}>
