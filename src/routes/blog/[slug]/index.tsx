@@ -31,7 +31,10 @@ export default component$(() => {
 
 	const val = post.value;
 
-	const tags = val.tags.map((name) => ({ name, color: tags_map.get(name) ?? "hsl(0, 0%, 90%)", }))
+	const tags = val.tags.map((name) => ({
+		name,
+		color: tags_map.get(name) ?? "hsl(0, 0%, 90%)",
+	}));
 
 	return (
 		<Article
@@ -40,7 +43,8 @@ export default component$(() => {
 			title={val.title}
 			tags={tags}
 			styles={styles}
-		>{val.content}
+		>
+			{val.content}
 		</Article>
 	);
 });

@@ -1,4 +1,8 @@
-import { type NoSerialize, noSerialize, type JSXOutput } from "@builder.io/qwik";
+import {
+	type NoSerialize,
+	noSerialize,
+	type JSXOutput,
+} from "@builder.io/qwik";
 import { read_content, read_list } from "./fs";
 import { tags } from "./fs/tags";
 
@@ -26,7 +30,9 @@ export class Post {
 	}
 }
 
-export const get_list = async (category: "blog"): Promise<NoSerialize<Post>[]> => {
+export const get_list = async (
+	category: "blog",
+): Promise<NoSerialize<Post>[]> => {
 	return (await read_list(category)).map(noSerialize);
 };
 
@@ -34,18 +40,13 @@ export const get_content = async (
 	category: "blog",
 	name: string,
 ): Promise<NoSerialize<Post>> => {
-	return noSerialize(await read_content(category, name))
+	return noSerialize(await read_content(category, name));
 };
 
-export const get_tags = async () => { 
+export const get_tags = async () => {
 	return tags;
 };
 
+export const get_tag_list = async () => {};
 
-export const get_tag_list = async () => { };
-
-
-export const get_tagged_list = async (
-	category: "blog",
-	tag: string,
-) => { };
+export const get_tagged_list = async (category: "blog", tag: string) => {};

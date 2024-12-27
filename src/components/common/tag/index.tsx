@@ -8,7 +8,7 @@ export const Tag = component$<{
 	return (
 		<div class={styles.root} style={`background-color: ${props.color}`}>
 			<a href={`/tags/${props.name}`}>{props.name}</a>
-		</div >
+		</div>
 	);
 });
 

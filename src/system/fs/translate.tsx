@@ -27,7 +27,13 @@ export class Translate {
 			}
 			case "code": {
 				const styles = this.styles;
-				return <CodeBlock lang={e.lang ?? undefined} code={e.value} styles={styles} />
+				return (
+					<CodeBlock
+						lang={e.lang ?? undefined}
+						code={e.value}
+						styles={styles}
+					/>
+				);
 			}
 			case "definition":
 				{

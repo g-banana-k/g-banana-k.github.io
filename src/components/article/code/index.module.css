@@ -1,17 +1,17 @@
 .pre {
-    margin: 8px 0px;
-    padding: 8px;
-    border-radius: 6px;
+	margin: 8px 0px;
+	padding: 8px;
+	border-radius: 6px;
 }
 
 .code {
-    font-family: Consolas, monospace;
+	font-family: Consolas, monospace;
 }
 
 .inline_code {
-    font-family: Consolas, monospace;
-    border-radius: 6px;
-    background-color: var(--code_bg2);
-    position: relative;
-    padding: 2px 3px;
+	font-family: Consolas, monospace;
+	border-radius: 6px;
+	background-color: var(--code_bg2);
+	position: relative;
+	padding: 2px 3px;
 }

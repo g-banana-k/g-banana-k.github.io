@@ -9,7 +9,7 @@ export const Article = component$<{
 	path?: { name: string; link?: string }[];
 	title: string;
 	date: string;
-	tags: { name: string, color: string }[];
+	tags: { name: string; color: string }[];
 	styles: CSSModuleClasses;
 	innerHTML?: string;
 }>((props) => {
@@ -20,7 +20,8 @@ export const Article = component$<{
 				<div class={styles.article}>
 					<Title
 						tags={props.tags.map(({ name, color }) => ({
-							name, color,
+							name,
+							color,
 						}))}
 						yyyy-mm-dd={props.date}
 					>
@@ -28,8 +29,7 @@ export const Article = component$<{
 					</Title>
 					{props.innerHTML ? (
 						<Raw
-							class={`${styles.body} ${props.styles.root ?? ""
-								}`}
+							class={`${styles.body} ${props.styles.root ?? ""}`}
 							innerHTML={props.innerHTML}
 						/>
 					) : (

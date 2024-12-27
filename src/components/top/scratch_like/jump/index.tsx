@@ -38,11 +38,7 @@ const Button = component$<{
 	return (
 		<div class={`${styles.button} ${props.class ?? ""}`}>
 			<a href={props.link}>
-				{props.icon ? (
-					<Raw class={styles.icon} innerHTML={props.icon} />
-				) : (
-					""
-				)}
+				{props.icon ? <Raw class={styles.icon} innerHTML={props.icon} /> : ""}
 				<Text class={styles.title}>{props.title}</Text>
 			</a>
 		</div>
