@@ -8,7 +8,7 @@ export const CodeBlock = component$<{ code: string, lang?: string, styles: CSSMo
         ? hljs.highlight(props.code, { language: props.lang })
         : hljs.highlightAuto(props.code);
     return (
-        <pre class={`$hljs ${styles.pre} ${props.styles.pre ?? ""}`}>
+        <pre class={`hljs ${styles.pre} ${props.styles.pre ?? ""}`}>
             <Raw tag="code" class={props.styles.code} innerHTML={highlighted.value} />
         </pre>
     );

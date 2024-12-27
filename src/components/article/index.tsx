@@ -3,14 +3,13 @@ import { Footer } from "~/components/footer";
 import { Header } from "~/components/common/header";
 import { Title } from "~/components/article/title";
 import { component$, Slot } from "@builder.io/qwik";
-import { tags } from "~/system/tags";
 import { Raw } from "../ui/raw";
 
 export const Article = component$<{
 	path?: { name: string; link?: string }[];
 	title: string;
 	date: string;
-	tags: string[];
+	tags: { name: string, color: string }[];
 	styles: CSSModuleClasses;
 	innerHTML?: string;
 }>((props) => {
@@ -20,9 +19,8 @@ export const Article = component$<{
 				<Header path={props.path} />
 				<div class={styles.article}>
 					<Title
-						tags={props.tags.map((tag) => ({
-							name: tag,
-							color: tags.get(tag) ?? "hsl(0, 0%, 90%)",
+						tags={props.tags.map(({ name, color }) => ({
+							name, color,
 						}))}
 						yyyy-mm-dd={props.date}
 					>
@@ -30,9 +28,8 @@ export const Article = component$<{
 					</Title>
 					{props.innerHTML ? (
 						<Raw
-							class={`${styles.body} ${
-								props.styles.root ?? ""
-							}`}
+							class={`${styles.body} ${props.styles.root ?? ""
+								}`}
 							innerHTML={props.innerHTML}
 						/>
 					) : (

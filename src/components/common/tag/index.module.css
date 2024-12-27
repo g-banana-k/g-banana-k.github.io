@@ -2,9 +2,12 @@
 	font-size: 13px;
 	line-height: 21px;
 	height: 21px;
-	padding: 0 8px;
 	border-radius: 5px;
 	user-select: none;
+}
+
+.root>a {
+	padding: 0 8px;
 }
 
 .area {

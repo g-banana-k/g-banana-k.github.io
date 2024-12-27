@@ -3,9 +3,9 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { Article } from "~/components/article";
 import styles from "./index.module.css";
-import { get_content } from "~/system/cms_wrapper";
+import { get_content, get_tags } from "~/system/cms_wrapper";
 
-export const usePostLoader = routeLoader$(async ({ params, status }) => {
+const usePostLoader = routeLoader$(async ({ params, status }) => {
 	if (!params.slug) {
 		throw new Error("slug is required");
 	}
@@ -17,8 +17,13 @@ export const usePostLoader = routeLoader$(async ({ params, status }) => {
 	}
 });
 
+const useTagsLoader = routeLoader$(async ({ params, status }) => {
+	return get_tags();
+});
+
 export default component$(() => {
 	const post = usePostLoader();
+	const tags_map = useTagsLoader().value;
 
 	if (!post.value) {
 		return <h1>Not Found.</h1>;
@@ -26,12 +31,14 @@ export default component$(() => {
 
 	const val = post.value;
 
+	const tags = val.tags.map((name) => ({ name, color: tags_map.get(name) ?? "hsl(0, 0%, 90%)", }))
+
 	return (
 		<Article
 			path={[{ name: "Blog", link: "/blog" }]}
 			date={val.updated}
 			title={val.title}
-			tags={val.tags}
+			tags={tags}
 			styles={styles}
 		>{val.content}
 		</Article>

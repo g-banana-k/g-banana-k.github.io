@@ -1,5 +1,6 @@
 import { type NoSerialize, noSerialize, type JSXOutput } from "@builder.io/qwik";
 import { read_content, read_list } from "./fs";
+import { tags } from "./fs/tags";
 
 export class Post {
 	title: string;
@@ -35,3 +36,16 @@ export const get_content = async (
 ): Promise<NoSerialize<Post>> => {
 	return noSerialize(await read_content(category, name))
 };
+
+export const get_tags = async () => { 
+	return tags;
+};
+
+
+export const get_tag_list = async () => { };
+
+
+export const get_tagged_list = async (
+	category: "blog",
+	tag: string,
+) => { };
