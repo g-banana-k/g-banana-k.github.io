@@ -43,10 +43,19 @@ export const get_content = async (
 	return noSerialize(await read_content(category, name));
 };
 
-export const get_tags = async () => {
+export const get_tags = async (): Promise<Map<string, string>> => {
 	return tags;
 };
 
-export const get_tag_list = async () => {};
+export const get_tag_list = async (): Promise<
+	{ name: string; color: string; pages: number }[]
+> => {
+	throw new Error();
+};
 
-export const get_tagged_list = async (category: "blog", tag: string) => {};
+export const get_tagged_list = async (
+	category: "blog",
+	tag: string,
+): Promise<NoSerialize<Post>[]> => {
+	throw new Error();
+};
