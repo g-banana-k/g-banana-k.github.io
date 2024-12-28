@@ -1,0 +1,11 @@
+#root {
+	background-color: var(--bg1);
+	color: var(--text1);
+	overflow-x: hidden;
+}
+
+#main {
+	margin-left: 15%;
+	margin-right: 15%;
+	min-height: 100vh;
+}
