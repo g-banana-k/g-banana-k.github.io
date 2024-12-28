@@ -30,7 +30,8 @@ export const read_list = async (p: string): Promise<Post[]> => {
 						f_m.tags ?? [],
 						name.replace(/\.md|\.mdx/, ""),
 						f_m.published ?? "None",
-						f_m.updated,
+						f_m.updated ?? f_m.published ?? "None",
+						p
 					),
 				);
 			})(name),
@@ -61,16 +62,17 @@ export const read_content = async (p: string, name: string): Promise<Post> => {
 		f_m.tags ?? [],
 		name,
 		f_m.published ?? "None",
-		f_m.updated,
+		f_m.updated ?? f_m.published ?? "None",
+		p
 	);
 };
 
 const scheme_check =
 	<T = unknown>() =>
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	<S extends z.ZodType<T, any, any>>(arg: S) => {
-		return arg;
-	};
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		<S extends z.ZodType<T, any, any>>(arg: S) => {
+			return arg;
+		};
 
 type Frontmatter = {
 	title?: string;

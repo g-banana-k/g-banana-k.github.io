@@ -18,7 +18,7 @@ export default component$(() => {
     return (
         <div id={styles.root}>
             <div id={styles.main}>
-                <Header path={[{ name: "Tags" }]} />
+                <Header path={[{ name: "Tag" }]} />
                 <TagView>
                     {val.map(({ color, name, pages }) => <LargeTag color={color} name={name} pages={pages} />)}
                 </TagView>

@@ -8,7 +8,7 @@ export const LargeTag = component$<{
 }>((props) => {
 	return (
 		<div class={styles.tag} style={`background-color: ${props.color}`}>
-			<a href={`/tags/${props.name}`}>{`${props.name} (${props.pages})`}</a>
+			<a href={`/tag/${props.name}`}>{`${props.name} (${props.pages})`}</a>
 		</div>
 	);
 });

@@ -31,6 +31,19 @@
 	font-weight: 600;
 }
 
+.description_sub {
+	color: var(--text3);
+	position: absolute;
+	bottom: -24px;
+	height: 60px;
+	width: 100%;
+}
+
+.description_sub > div {
+	margin-left: 8px;
+	margin-top: 8px;
+}
+
 .main {
 	position: absolute;
 	width: 100%;
