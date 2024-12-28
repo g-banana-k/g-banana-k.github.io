@@ -8,22 +8,24 @@ import { get_tag_list } from "~/system/cms_wrapper";
 import { LargeTag, TagView } from "~/components/tag_list";
 
 export const useTagListLoader = routeLoader$(async () => {
-    const contents = await get_tag_list();
-    return contents;
+	const contents = await get_tag_list();
+	return contents;
 });
 
 export default component$(() => {
-    const list = useTagListLoader();
-    const val = list.value;
-    return (
-        <div id={styles.root}>
-            <div id={styles.main}>
-                <Header path={[{ name: "Tag" }]} />
-                <TagView>
-                    {val.map(({ color, name, pages }) => <LargeTag color={color} name={name} pages={pages} />)}
-                </TagView>
-            </div>
-            <Footer />
-        </div>
-    );
+	const list = useTagListLoader();
+	const val = list.value;
+	return (
+		<div id={styles.root}>
+			<div id={styles.main}>
+				<Header path={[{ name: "Tag" }]} />
+				<TagView>
+					{val.map(({ color, name, pages }) => (
+						<LargeTag color={color} name={name} pages={pages} />
+					))}
+				</TagView>
+			</div>
+			<Footer />
+		</div>
+	);
 });

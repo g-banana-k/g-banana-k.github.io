@@ -1,4 +1,4 @@
-import styles from "./index.module.css"
+import styles from "./index.module.css";
 import { component$, Slot } from "@builder.io/qwik";
 
 export const LargeTag = component$<{
@@ -16,9 +16,7 @@ export const LargeTag = component$<{
 export const TagView = component$((props) => {
 	return (
 		<div class={styles.view}>
-			<h1 class={styles.title}>
-				Tags
-			</h1>
+			<h1 class={styles.title}>Tags</h1>
 			<div class={styles.main}>
 				<Slot />
 			</div>

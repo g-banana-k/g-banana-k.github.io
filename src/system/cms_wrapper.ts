@@ -36,13 +36,13 @@ export class Post {
 export const categories = ["blog"] as const;
 
 export const get_list = async (
-	category: typeof categories[number],
+	category: (typeof categories)[number],
 ): Promise<NoSerialize<Post>[]> => {
 	return (await read_list(category)).map(noSerialize);
 };
 
 export const get_content = async (
-	category: typeof categories[number],
+	category: (typeof categories)[number],
 	name: string,
 ): Promise<NoSerialize<Post>> => {
 	return noSerialize(await read_content(category, name));
@@ -65,5 +65,8 @@ export const get_tagged_list = async (
 	for (const category of categories) {
 		res.push(read_list(category));
 	}
-	return (await Promise.all(res)).flat().filter(post => post.tags.includes(tag)).map(noSerialize)
+	return (await Promise.all(res))
+		.flat()
+		.filter((post) => post.tags.includes(tag))
+		.map(noSerialize);
 };

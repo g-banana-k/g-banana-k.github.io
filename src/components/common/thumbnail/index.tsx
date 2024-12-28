@@ -15,9 +15,13 @@ export const Thumbnail = component$<{
 				<div class={styles.description}>
 					<Text>{props.title}</Text>
 				</div>
-				{props.link ? <div class={styles.description_sub}>
-					<Text>{props.link}</Text>
-				</div> : ""}
+				{props.link ? (
+					<div class={styles.description_sub}>
+						<Text>{props.link}</Text>
+					</div>
+				) : (
+					""
+				)}
 				<div class={styles.main}>
 					{props.img ? (
 						<img src={props.img} alt={props.img} />

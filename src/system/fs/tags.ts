@@ -15,7 +15,7 @@ export const tag_list = async () => {
 		const p_list = await read_list(category);
 		for (const post of p_list) {
 			for (const tag of post.tags) {
-				console.log(tag ,m.has(tag));
+				console.log(tag, m.has(tag));
 				if (!m.has(tag)) continue;
 				m.set(tag, (m.get(tag) ?? 0) + 1);
 			}
@@ -24,7 +24,7 @@ export const tag_list = async () => {
 	console.log(m);
 	const res: { name: string; color: string; pages: number }[] = [];
 	for (const [tag, pages] of m) {
-		res.push({name: tag, pages, color: tags.get(tag) ?? "hsl(0, 0%, 90%)"});
+		res.push({ name: tag, pages, color: tags.get(tag) ?? "hsl(0, 0%, 90%)" });
 	}
 	return res;
-}
+};
