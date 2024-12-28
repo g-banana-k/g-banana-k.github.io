@@ -14,6 +14,7 @@ export class Post {
 	updated: string;
 	content: JSXOutput;
 	category: string;
+	link: string;
 	constructor(
 		content: JSXOutput,
 		title: string,
@@ -22,6 +23,7 @@ export class Post {
 		published: string,
 		updated: string,
 		category: string,
+		link: string,
 	) {
 		this.title = title;
 		this.tags = tags;
@@ -30,10 +32,11 @@ export class Post {
 		this.updated = updated;
 		this.content = content;
 		this.category = category;
+		this.link = link;
 	}
 }
 
-export const categories = ["blog"] as const;
+export const categories = ["blog", "info"] as const;
 
 export const get_list = async (
 	category: (typeof categories)[number],
