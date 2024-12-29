@@ -5,8 +5,8 @@
 }
 
 #top {
-	margin-left: 15%;
-	margin-right: 15%;
+	margin-left: var(--root_margin_rl);
+	margin-right: var(--root_margin_rl);
 	height: 100vh;
 }
 
@@ -29,8 +29,8 @@
 }
 
 .works > div {
-	margin-left: 15%;
-	margin-right: 15%;
+	margin-left: var(--root_margin_rl);
+	margin-right: var(--root_margin_rl);
 }
 
 .link {

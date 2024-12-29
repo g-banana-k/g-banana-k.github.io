@@ -4,6 +4,7 @@
 	height: 21px;
 	border-radius: 5px;
 	user-select: none;
+	color: var(--tag_text1);
 }
 
 .root > a {

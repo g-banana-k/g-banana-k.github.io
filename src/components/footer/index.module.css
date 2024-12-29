@@ -1,7 +1,7 @@
 .root {
 	background-color: var(--footer1);
-	padding-left: 15%;
-	padding-right: 15%;
+	padding-left: var(--root_margin_rl);
+	padding-right: var(--root_margin_rl);
 	height: 340px;
 	padding-top: 40px;
 	display: grid;
