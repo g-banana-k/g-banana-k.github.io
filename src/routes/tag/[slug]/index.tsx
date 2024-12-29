@@ -1,6 +1,15 @@
-import { component$, type NoSerialize } from "@builder.io/qwik";
-import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
-import { get_tagged_list, type Post } from "~/system/cms_wrapper";
+import { component$ } from "@builder.io/qwik";
+import {
+	type DocumentHead,
+	routeLoader$,
+	type StaticGenerateHandler,
+} from "@builder.io/qwik-city";
+import {
+	get_tag_list,
+	get_tagged_list,
+	Post,
+	type PostJson,
+} from "~/system/cms_wrapper";
 import { IndexPage } from "~/components/article/index_page";
 
 export const useTaggedListLoader = routeLoader$(async ({ params, status }) => {
@@ -8,7 +17,7 @@ export const useTaggedListLoader = routeLoader$(async ({ params, status }) => {
 		throw new Error("slug is required");
 	}
 	const contents = await get_tagged_list(params.slug);
-	return [contents, params.slug] as [NoSerialize<Post>[], string];
+	return [contents, params.slug] as [PostJson[], string];
 });
 
 export default component$(() => {
@@ -32,5 +41,15 @@ export const head: DocumentHead = ({ resolveValue }) => {
 				content: `Posts with '${slug}' tag`,
 			},
 		],
+	};
+};
+
+export const onStaticGenerate: StaticGenerateHandler = async () => {
+	const list = await get_tag_list();
+	const paths = list.map((post) => post.name);
+	return {
+		params: paths.map((slug) => {
+			return { slug };
+		}),
 	};
 };

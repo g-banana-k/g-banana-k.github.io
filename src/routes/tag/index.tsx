@@ -3,7 +3,11 @@ import styles from "./index.module.css";
 import { Header } from "~/components/common/header";
 import { Footer } from "~/components/footer";
 import { component$ } from "@builder.io/qwik";
-import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
+import {
+	type DocumentHead,
+	routeLoader$,
+	type StaticGenerateHandler,
+} from "@builder.io/qwik-city";
 import { get_tag_list } from "~/system/cms_wrapper";
 import { LargeTag, TagView } from "~/components/tag_list";
 

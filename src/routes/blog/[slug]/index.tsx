@@ -1,9 +1,12 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import type {
+	DocumentHead,
+	StaticGenerateHandler,
+} from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { Article } from "~/components/article";
 import styles from "./index.module.css";
-import { get_content, get_tags } from "~/system/cms_wrapper";
+import { get_content, get_list, get_tags, Post } from "~/system/cms_wrapper";
 
 const usePostLoader = routeLoader$(async ({ params, status }) => {
 	if (!params.slug) {
@@ -22,16 +25,16 @@ const useTagsLoader = routeLoader$(async ({ params, status }) => {
 });
 
 export default component$(() => {
-	const post = usePostLoader();
+	const post_raw = usePostLoader();
 	const tags_map = useTagsLoader().value;
 
-	if (!post.value) {
+	if (!post_raw.value) {
 		return <h1>Not Found.</h1>;
 	}
 
-	const val = post.value;
+	const post = Post.from_json(post_raw.value);
 
-	const tags = val.tags.map((name) => ({
+	const tags = post.tags.map((name) => ({
 		name,
 		color: tags_map.get(name) ?? "hsl(0, 0%, 90%)",
 	}));
@@ -39,19 +42,21 @@ export default component$(() => {
 	return (
 		<Article
 			path={[{ name: "Blog", link: "/blog" }]}
-			date={val.updated}
-			title={val.title}
+			date={post.updated}
+			title={post.title}
 			tags={tags}
 			styles={styles}
 		>
-			{val.content}
+			{post.jsx()}
 		</Article>
 	);
 });
 
 // 動的にheadを書き換える
 export const head: DocumentHead = ({ resolveValue }) => {
-	const post = resolveValue(usePostLoader);
+	const post_raw = resolveValue(usePostLoader);
+
+	const post: Partial<Post> = post_raw ? Post.from_json(post_raw) : {};
 
 	return {
 		title: `${post?.title ?? "Post"} | gBanaKnal's House`,
@@ -61,5 +66,15 @@ export const head: DocumentHead = ({ resolveValue }) => {
 				content: post?.title ?? "",
 			},
 		],
+	};
+};
+
+export const onStaticGenerate: StaticGenerateHandler = async () => {
+	const list = (await get_list("blog")).map((j) => Post.from_json(j));
+	const paths = list.map((post) => post.name);
+	return {
+		params: paths.map((slug) => {
+			return { slug };
+		}),
 	};
 };

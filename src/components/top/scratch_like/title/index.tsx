@@ -1,7 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 import styles from "./index.module.css";
 import { Text } from "~/components/ui/text";
-import icon from "/blinol.png";
+
+const icon = "/blinol.png";
 
 export const Title = component$(() => {
 	return (

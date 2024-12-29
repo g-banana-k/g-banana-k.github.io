@@ -1,22 +1,21 @@
-import {
-	type NoSerialize,
-	noSerialize,
-	type JSXOutput,
-} from "@builder.io/qwik";
+import type { JSXOutput } from "@builder.io/qwik";
 import { read_content, read_list } from "./fs";
 import { tag_list, tags } from "./fs/tags";
+import { parse } from "./fs/md";
+import { Translate } from "./fs/translate";
 
+export type PostJson = string & { __brand: "post_json" };
 export class Post {
 	title: string;
 	tags: string[];
 	name: string;
 	published: string;
 	updated: string;
-	content: JSXOutput;
+	content: string;
 	category: string;
 	link: string;
 	constructor(
-		content: JSXOutput,
+		content: string,
 		title: string,
 		tags: string[],
 		name: string,
@@ -25,14 +24,36 @@ export class Post {
 		category: string,
 		link: string,
 	) {
+		this.content = content;
 		this.title = title;
 		this.tags = tags;
 		this.name = name;
 		this.published = published;
 		this.updated = updated;
-		this.content = content;
 		this.category = category;
 		this.link = link;
+	}
+	as_json(): PostJson {
+		return JSON.stringify({ ...this }) as PostJson;
+	}
+	jsx(): JSXOutput {
+		const [root] = parse(this.content);
+		const translator = new Translate({});
+		const content = translator.nodes(root.children);
+		return content;
+	}
+	static from_json(json: PostJson) {
+		const o: Post = JSON.parse(json);
+		return new Post(
+			o.content,
+			o.title,
+			o.tags,
+			o.name,
+			o.published,
+			o.updated,
+			o.category,
+			o.link,
+		);
 	}
 }
 
@@ -40,15 +61,15 @@ export const categories = ["blog", "info"] as const;
 
 export const get_list = async (
 	category: (typeof categories)[number],
-): Promise<NoSerialize<Post>[]> => {
-	return (await read_list(category)).map(noSerialize);
+): Promise<PostJson[]> => {
+	return (await read_list(category)).map((post) => post.as_json());
 };
 
 export const get_content = async (
 	category: (typeof categories)[number],
 	name: string,
-): Promise<NoSerialize<Post>> => {
-	return noSerialize(await read_content(category, name));
+): Promise<PostJson> => {
+	return (await read_content(category, name)).as_json();
 };
 
 export const get_tags = async (): Promise<Map<string, string>> => {
@@ -61,9 +82,7 @@ export const get_tag_list = async (): Promise<
 	return await tag_list();
 };
 
-export const get_tagged_list = async (
-	tag: string,
-): Promise<NoSerialize<Post>[]> => {
+export const get_tagged_list = async (tag: string): Promise<PostJson[]> => {
 	const res: Promise<Post[]>[] = [];
 	for (const category of categories) {
 		res.push(read_list(category));
@@ -71,5 +90,5 @@ export const get_tagged_list = async (
 	return (await Promise.all(res))
 		.flat()
 		.filter((post) => post.tags.includes(tag))
-		.map(noSerialize);
+		.map((post) => post.as_json());
 };
