@@ -15,6 +15,6 @@ tags: ["Info", "gBanaKnal"]
 
 ```rust
 fn main() {
-    println!("HEY!")
+    println!("HEY!");
 }
 ```
