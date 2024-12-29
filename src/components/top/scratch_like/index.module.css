@@ -1,5 +1,5 @@
 .root {
-	margin-left : var(--root_margin_rl);
+	margin-left: var(--root_margin_rl);
 	margin-right: var(--root_margin_rl);
 	margin-top: 50px;
 	margin-bottom: 150px;

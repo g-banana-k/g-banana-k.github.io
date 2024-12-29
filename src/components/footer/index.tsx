@@ -22,7 +22,9 @@ export const Footer = component$(() => {
 				</Content>
 				<Content title="Accounts">
 					<Link href="https://scratch.mit.edu/users/g_banana_k">Scratch</Link>
-					<Link href="https://discord.com/users/834563592069447731">Discord</Link>
+					<Link href="https://discord.com/users/834563592069447731">
+						Discord
+					</Link>
 					<Link href="https://github.com/g-banana-k">GitHub</Link>
 					<Link href="https://bsky.app/profile/g-banana-k.bsky.social">
 						Bluesky

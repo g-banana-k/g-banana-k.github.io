@@ -5,7 +5,7 @@
 }
 
 #main {
-	margin-left : var(--root_margin_rl);
+	margin-left: var(--root_margin_rl);
 	margin-right: var(--root_margin_rl);
 	min-height: 100vh;
 }
