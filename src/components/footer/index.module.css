@@ -1,12 +1,28 @@
 .root {
 	background-color: var(--footer1);
-	padding-left: var(--root_margin_rl);
-	padding-right: var(--root_margin_rl);
+	color: var(--footer_text1);
 	height: 340px;
 	padding-top: 40px;
+	position: relative;
+}
+
+.main {
+	margin-left: var(--root_margin_rl);
+	margin-right: var(--root_margin_rl);
+	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	color: var(--footer_text1);
+}
+
+.source_link {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.source_link img {
+	width: 40px;
+	height: 40px;
 }
 
 .content {

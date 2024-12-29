@@ -75,6 +75,10 @@ body {
 		--card_bg2: hsl(60, 30%, 25%);
 		--card_bg3: hsl(105, 30%, 25%);
 		--card_bg4: hsl(36, 30%, 25%);
+		--section_bg1: hsl(193, 50%, 30%);
+		--section_bg2: hsl(60, 50%, 30%);
+		--section_bg3: hsl(105, 50%, 30%);
+		--section_bg4: hsl(36, 50%, 30%);
 	}
 }
 

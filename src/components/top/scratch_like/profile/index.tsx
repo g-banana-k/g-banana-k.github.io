@@ -7,10 +7,7 @@ export const Profile = component$(() => {
 		<div class={styles.root}>
 			<Text class={styles.title}>About me</Text>
 			<div class={styles.box}>
-				gBanaKnalです。
-				<br />
-				読みはまだ決めてないので好きなように呼んでください。
-				<br />
+				gBanaKnalです。ばなくなとでも読んでください。
 			</div>
 		</div>
 	);
