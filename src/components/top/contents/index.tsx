@@ -1,4 +1,4 @@
-import { component$, JSXChildren, Slot } from "@builder.io/qwik";
+import { component$, type JSXChildren, Slot } from "@builder.io/qwik";
 import styles from "./index.module.css";
 
 export const Content = component$<{

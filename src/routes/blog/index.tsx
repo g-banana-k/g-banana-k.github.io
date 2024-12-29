@@ -13,7 +13,6 @@ export default component$(() => {
 	return <IndexPage path={[{ name: "Blog" }]} list={list.value} />;
 });
 
-// 動的にheadを書き換える
 export const head: DocumentHead = () => {
 	return {
 		title: "Blog | gBanaKnal's House",

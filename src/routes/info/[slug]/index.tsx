@@ -52,7 +52,6 @@ export default component$(() => {
 	);
 });
 
-// 動的にheadを書き換える
 export const head: DocumentHead = ({ resolveValue }) => {
 	const post_raw = resolveValue(usePostLoader);
 

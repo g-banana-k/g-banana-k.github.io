@@ -14,7 +14,6 @@ export default component$(() => {
 	);
 });
 
-// 動的にheadを書き換える
 export const head: DocumentHead = () => {
 	return {
 		title: "gBanaKnal's House",
