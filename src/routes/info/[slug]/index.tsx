@@ -54,11 +54,11 @@ export const head: DocumentHead = ({ resolveValue }) => {
 	const post = resolveValue(usePostLoader);
 
 	return {
-		title: post?.title || "Welcome to Qwik",
+		title: `${post?.title ?? "Info"} | gBanaKnal's House`,
 		meta: [
 			{
 				name: "description",
-				content: post?.title || "Qwik site description",
+				content: post?.title ?? "",
 			},
 		],
 	};

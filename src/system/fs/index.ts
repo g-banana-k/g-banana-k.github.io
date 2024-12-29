@@ -32,7 +32,7 @@ export const read_list = async (p: string): Promise<Post[]> => {
 						f_m.published ?? "None",
 						f_m.updated ?? f_m.published ?? "None",
 						p,
-						`/${p}/${name.replace(/\.md|\.mdx/, "")}`
+						`/${p}/${name.replace(/\.md|\.mdx/, "")}`,
 					),
 				);
 			})(name),
@@ -65,22 +65,21 @@ export const read_content = async (p: string, name: string): Promise<Post> => {
 		f_m.published ?? "None",
 		f_m.updated ?? f_m.published ?? "None",
 		p,
-		`/${p}/${name.replace(/\.md|\.mdx/, "")}`
+		`/${p}/${name.replace(/\.md|\.mdx/, "")}`,
 	);
 };
 
 const scheme_check =
 	<T = unknown>() =>
-		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-		<S extends z.ZodType<T, any, any>>(arg: S) => {
-			return arg;
-		};
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	<S extends z.ZodType<T, any, any>>(arg: S) => {
+		return arg;
+	};
 
 type Frontmatter = {
 	title?: string;
 	published?: string;
 	updated?: string;
-	category?: string;
 	tags?: string[];
 };
 
@@ -89,7 +88,6 @@ const f_m_scheme = scheme_check<Frontmatter>()(
 		title: z.string().optional(),
 		published: z.string().optional(),
 		updated: z.string().optional(),
-		category: z.string().optional(),
 		tags: z.array(z.string()),
 	}),
 );

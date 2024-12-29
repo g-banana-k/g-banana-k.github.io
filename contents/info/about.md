@@ -1,8 +1,8 @@
 ---
-title: "サンプル"
-published: "2024-12-14"
-updated: "2024-12-14"
-tags: ["Info", "gBanaKnal"]
+title: "About"
+published: "2024-12-29"
+updated: "2024-12-29"
+tags: ["gBanaKnal", "Sample"]
 ---
 
 # 見出し1
