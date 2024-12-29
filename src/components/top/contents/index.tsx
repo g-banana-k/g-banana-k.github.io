@@ -1,9 +1,9 @@
-import { component$, type JSXChildren, Slot } from "@builder.io/qwik";
+import { component$, type JSXOutput, Slot } from "@builder.io/qwik";
 import styles from "./index.module.css";
 
 export const Content = component$<{
 	id: string;
-	icon: JSXChildren;
+	icon: JSXOutput;
 	bg: string;
 }>((props) => {
 	return (
