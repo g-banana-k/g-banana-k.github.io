@@ -16,7 +16,7 @@ export const Footer = component$(() => {
 					<Link href="/banahexel_site">BanaHexel</Link>
 				</Content>
 				<Content title="Sludgetale">
-					<Link href="/sludgetale/hexagon_kimchi_happy_union_verse_abandoned_school_verse_time_trio">
+					<Link href="/sludgetale/hkhuvasvtt">
 						HKHUVASVTT
 					</Link>
 				</Content>
