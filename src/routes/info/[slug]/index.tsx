@@ -5,7 +5,7 @@ import type {
 } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { Article } from "~/components/article";
-import styles from "./index.module.css";
+import styles from "~/routes/blog/index.module.css";
 import { get_content, get_list, get_tags, Post } from "~/system/cms_wrapper";
 
 const usePostLoader = routeLoader$(async ({ params, status }) => {

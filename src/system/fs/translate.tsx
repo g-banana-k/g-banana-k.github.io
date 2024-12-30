@@ -5,7 +5,7 @@ import { Paragraph } from "~/components/article/paragraph";
 import { Img } from "~/components/article/img";
 import { Raw } from "~/components/ui/raw";
 import type { JSXOutput } from "@builder.io/qwik";
-import { CodeBlock } from "~/components/article/code";
+import { CodeBlock, InlineCode } from "~/components/article/code";
 
 export class Translate {
 	styles: Record<string, string>;
@@ -78,7 +78,8 @@ export class Translate {
 				}
 				break;
 			case "inlineCode": {
-				return <code class={this.styles.inline_code}>{e.value}</code>;
+				const styles = this.styles;
+				return <InlineCode code={e.value} styles={styles} />;
 			}
 			case "link": {
 				return (
@@ -148,7 +149,13 @@ export class Translate {
 				}
 				break;
 			case "text": {
-				return e.value;
+				const res = [];
+				for (const p of e.value.split("\n")) {
+					res.push(p);
+					res.push(<br />);
+				}
+				res.pop();
+				return res;
 			}
 			case "thematicBreak": {
 				return <div class={this.styles.horizon} />;

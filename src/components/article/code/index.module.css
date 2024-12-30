@@ -13,5 +13,6 @@
 	border-radius: 6px;
 	background-color: var(--code_bg2);
 	position: relative;
+	bottom:2px;
 	padding: 2px 3px;
 }
