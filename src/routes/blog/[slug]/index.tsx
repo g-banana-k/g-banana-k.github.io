@@ -65,6 +65,12 @@ export const head: DocumentHead = ({ resolveValue }) => {
 				content: post?.title ?? "",
 			},
 		],
+		links: [
+			{
+				rel:"icon",
+				href:"/blinol.png"
+			}
+		]
 	};
 };
 

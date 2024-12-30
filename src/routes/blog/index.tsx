@@ -22,5 +22,11 @@ export const head: DocumentHead = () => {
 				content: "Blog of gBanaKnal",
 			},
 		],
+		links: [
+			{
+				rel:"icon",
+				href:"/blinol.png"
+			}
+		]
 	};
 };

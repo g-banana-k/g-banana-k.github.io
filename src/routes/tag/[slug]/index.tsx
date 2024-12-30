@@ -40,6 +40,12 @@ export const head: DocumentHead = ({ resolveValue }) => {
 				content: `Posts with '${slug}' tag`,
 			},
 		],
+		links: [
+			{
+				rel:"icon",
+				href:"/blinol.png"
+			}
+		]
 	};
 };
 
