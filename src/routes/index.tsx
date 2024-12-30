@@ -9,6 +9,7 @@ import { WorksSection } from "~/components/top/works";
 
 import { get_list } from "~/system/cms_wrapper";
 import { BlogSection } from "~/components/top/blog";
+import { HistorySection } from "~/components/top/history";
 
 export const useListLoader = routeLoader$(async () => {
 	const contents = await get_list("blog");
@@ -24,6 +25,7 @@ export default component$(() => {
 			<SkillsSection />
 			<WorksSection />
 			<BlogSection contents={contents} />
+			<HistorySection />
 			<Footer />
 		</div>
 	);
