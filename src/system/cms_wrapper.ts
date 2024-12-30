@@ -57,7 +57,7 @@ export class Post {
 	}
 }
 
-export const categories = ["blog", "info"] as const;
+export const categories = ["blog", "info", "sludgetale"] as const;
 
 export const get_list = async (
 	category: (typeof categories)[number],
