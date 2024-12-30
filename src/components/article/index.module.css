@@ -1,7 +1,10 @@
 #root {
+	overflow-x: hidden;
+}
+
+.root {
 	background-color: var(--bg1);
 	color: var(--text1);
-	overflow-x: hidden;
 }
 
 #main {
@@ -12,9 +15,12 @@
 
 .article {
 	border-radius: 5px;
-	background-color: var(--bg2);
-	border: 1px solid var(--border1);
 	padding: 45px 35px;
 	min-height: calc(100vh - 160px);
 	margin-bottom: 80px;
+}
+
+.article2 {
+	background-color: var(--bg2);
+	border: 1px solid var(--border1);
 }

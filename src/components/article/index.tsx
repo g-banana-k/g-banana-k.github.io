@@ -14,10 +14,10 @@ export const Article = component$<{
 	innerHTML?: string;
 }>((props) => {
 	return (
-		<div id={styles.root}>
+		<div id={styles.root} class={props.styles.root ?? styles.root}>
 			<div id={styles.main}>
 				<Header path={props.path} />
-				<div class={styles.article}>
+				<div class={`${styles.article} ${props.styles.article ?? styles.article2}`}>
 					<Title
 						tags={props.tags.map(({ name, color }) => ({
 							name,
@@ -29,11 +29,11 @@ export const Article = component$<{
 					</Title>
 					{props.innerHTML ? (
 						<Raw
-							class={`${styles.body} ${props.styles.root ?? ""}`}
+							class={`${styles.body} ${props.styles.body ?? ""}`}
 							innerHTML={props.innerHTML}
 						/>
 					) : (
-						<div class={`${styles.body} ${props.styles.root ?? ""}`}>
+						<div class={`${styles.body} ${props.styles.body ?? ""}`}>
 							<Slot />
 						</div>
 					)}

@@ -12,15 +12,13 @@ export const Thumbnail = component$<{
 		<div class={styles.root} style={`height: ${props.height ?? 240}px`}>
 			<a href={props.link}>
 				<div class={styles.description}>
-					<Text>{props.title}</Text>
+					<Text class={styles.main_description}>{props.title}</Text>
+					{props.link ? (
+						<Text class={styles.sub_description}>{props.link}</Text>
+					) : (
+						""
+					)}
 				</div>
-				{props.link ? (
-					<div class={styles.description_sub}>
-						<Text>{props.link}</Text>
-					</div>
-				) : (
-					""
-				)}
 				<div class={styles.main}>
 					{props.img ? (
 						<img src={props.img} alt={props.img} />

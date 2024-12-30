@@ -47,7 +47,7 @@ export default component$(() => {
 			tags={tags}
 			styles={styles}
 		>
-			{post.jsx()}
+			{post.jsx(styles)}
 		</Article>
 	);
 });

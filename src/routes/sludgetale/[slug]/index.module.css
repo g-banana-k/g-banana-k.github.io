@@ -1,3 +1,41 @@
+@font-face {
+	font-family: "UT JP";
+	src: url("/assets/JF-Dot-Shinonome16.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "UT JP";
+	src: url("/assets/JF-Dot-Shinonome16B.woff2") format("woff2");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "UT EN";
+	src: url("/assets/determination.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
 .link {
 	color: var(--link1);
+}
+
+.root {
+	color: #fff;
+	background-color: #333;
+	font-family: "UT JP", sans-serif;
+	font-optical-sizing: auto;
+}
+
+.article {
+	background-color: #222;
+	border: 1px solid #111;
+}
+
+.body {
+	font-family: "UT JP", sans-serif;
+	font-optical-sizing: auto;
 }

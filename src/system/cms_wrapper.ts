@@ -36,9 +36,9 @@ export class Post {
 	as_json(): PostJson {
 		return JSON.stringify({ ...this }) as PostJson;
 	}
-	jsx(): JSXOutput {
+	jsx(styles: CSSModuleClasses): JSXOutput {
 		const [root] = parse(this.content);
-		const translator = new Translate({});
+		const translator = new Translate(styles);
 		const content = translator.nodes(root.children);
 		return content;
 	}

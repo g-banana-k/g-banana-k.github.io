@@ -4,7 +4,7 @@ published: "2024-12-30"
 updated: "2024-12-30"
 tags: ["SLUDGETALE", "CC!SLUDGETALE", "HKHUVASVTT"]
 ---
-![](./group_photo.png)
+![](/assets/sludgetale/hkhuvasvtt/group_photo.png)
 
 ...
 
