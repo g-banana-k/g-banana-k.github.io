@@ -3,21 +3,21 @@ import { FlexSpace } from "~/components/ui/flex_space";
 import { Text } from "~/components/ui/text";
 import { component$ } from "@builder.io/qwik";
 import { Raw } from "~/components/ui/raw";
-import { CodeXml, Footprints, Notebook, Twitter } from "lucide-static";
+import { Briefcase, CodeXml, Footprints, Notebook } from "lucide-static";
 
 export const Jump = component$(() => {
 	return (
 		<div class={styles.root}>
 			<Button
-				link="#coding"
-				title="Coding"
+				link="#skills"
+				title="Skills"
 				icon={CodeXml}
 				class={styles.coding}
 			/>
 			<FlexSpace />
-			<Button link="#blog" title="Blog" icon={Notebook} class={styles.blog} />
+			<Button link="#works" title="Works" icon={Briefcase} class={styles.works} />
 			<FlexSpace />
-			<Button link="#sns" title="SNS" icon={Twitter} class={styles.sns} />
+			<Button link="#blog" title="Blog" icon={Notebook} class={styles.blog} />
 			<FlexSpace />
 			<Button
 				link="#history"

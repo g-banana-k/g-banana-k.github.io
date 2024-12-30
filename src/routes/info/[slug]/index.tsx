@@ -68,7 +68,7 @@ export const head: DocumentHead = ({ resolveValue }) => {
 		links: [
 			{
 				rel:"icon",
-				href:"/blinol.png"
+				href:"/assets/blinol.png"
 			}
 		]
 	};

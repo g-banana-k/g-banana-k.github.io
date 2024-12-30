@@ -4,10 +4,10 @@ import { Account } from "~/components/common/account";
 import { FlexSpace } from "~/components/ui/flex_space";
 import { Text } from "~/components/ui/text";
 
-const scratch = "/scratch_s.svg";
-const discord = "/discord_white.svg";
-const github = "/github_white.svg";
-const bluesky = "/bsky.svg";
+const scratch = "/assets/scratch_s.svg";
+const discord = "/assets/discord_white.svg";
+const github = "/assets/github_white.svg";
+const bluesky = "/assets/bsky.svg";
 
 export const Accounts = component$(() => {
 	return (

@@ -25,7 +25,7 @@ export const head: DocumentHead = () => {
 		links: [
 			{
 				rel:"icon",
-				href:"/blinol.png"
+				href:"/assets/blinol.png"
 			}
 		]
 	};

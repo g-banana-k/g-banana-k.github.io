@@ -4,11 +4,13 @@ import { ScratchLike } from "~/components/top/scratch_like";
 import { Footer } from "~/components/footer";
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { SkillsSection } from "~/components/top/skills";
 
 export default component$(() => {
 	return (
 		<div id={styles.root}>
 			<ScratchLike />
+			<SkillsSection />
 			<Footer />
 		</div>
 	);
@@ -26,7 +28,7 @@ export const head: DocumentHead = () => {
 		links: [
 			{
 				rel:"icon",
-				href:"/blinol.png"
+				href:"/assets/blinol.png"
 			}
 		]
 	};

@@ -2,7 +2,7 @@ import { Text } from "~/components/ui/text";
 import styles from "./index.module.css";
 import { component$ } from "@builder.io/qwik";
 
-const icon = "/blinol.png";
+const icon = "/assets/blinol.png";
 
 export const Header = component$<{
 	path?: { name: string; link?: string }[];

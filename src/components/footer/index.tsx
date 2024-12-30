@@ -2,7 +2,7 @@ import styles from "./index.module.css";
 import { Text } from "../ui/text";
 import { component$, Slot } from "@builder.io/qwik";
 
-const github = "/github_white.svg";
+const github = "/assets/github_white.svg";
 
 export const Footer = component$(() => {
 	return (
