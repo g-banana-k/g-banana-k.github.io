@@ -4,7 +4,6 @@
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
-	margin-bottom: 80px;
 }
 
 .title {
@@ -43,10 +42,43 @@
 }
 
 .thumbnail {
-	background-color: #fff4;
+	background-color: #fffa;
 	border: solid 2px var(--border1);
 	border-radius: 5px;
 	overflow: hidden;
 	position: relative;
 	user-select: none;
+	height: 240px;
+}
+
+.thumbnail_title {
+	padding-left: 20px;
+	height: 60px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	font-size: 20px;
+	background-color: var(--thumbnail1);
+}
+
+.thumbnail_icon {
+	height: 60px;
+	width: 60px;
+	position: relative;
+}
+
+.thumbnail_icon > img {
+	width: 45px;
+	height: 45px;
+	position: absolute;
+	inset: 0;
+	margin: auto;
+}
+
+.thumbnail_name {
+	line-height: 60px;
+}
+
+.thumbnail_main {
+	padding: 15px 20px;
 }

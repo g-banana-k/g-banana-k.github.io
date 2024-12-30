@@ -20,7 +20,18 @@ export const SkillsSection = component$(() => {
 			</div>
 			<div class={styles.main} >
 				<GridView>
-
+					<SkillThumbnail logo="/assets/rust.svg" name="Rust" >
+						Atcoderで緑になるまでほぼRust一本で行った。Unsafe Rustが使えない。'static以外のライフタイムも使えない。
+					</SkillThumbnail>
+					<SkillThumbnail logo="/assets/typescript.svg" name="TypeScript" >
+						最近はこればっかり書いてる。型パズルができない。
+					</SkillThumbnail>
+					<SkillThumbnail logo="/assets/react.svg" name="React" >
+						useStateとuseEffect以外の使い方を知らない。useStateに変なラッパーを被せてしまう。strictModeだと動かない。
+					</SkillThumbnail>
+					<SkillThumbnail logo="/assets/solid.svg" name="Solid" >
+						Reactよりは出来る。ReactのStateと違ってすぐ値が更新されるので好き。
+					</SkillThumbnail>
 				</GridView>
 			</div>
 		</div>
@@ -28,5 +39,17 @@ export const SkillsSection = component$(() => {
 });
 
 const SkillThumbnail = component$<{ logo: string, name: string }>((props) => {
-	return <div class={styles.thumbnail}><img src={props.logo} alt={props.name} /></div>
+	return <div class={styles.thumbnail}>
+		<div class={styles.thumbnail_title}>
+			<div class={styles.thumbnail_icon}>
+				<img src={props.logo} alt={props.name} />
+			</div>
+			<div class={styles.thumbnail_name}>
+				{props.name}
+			</div>
+		</div>
+		<div class={styles.thumbnail_main}>
+			<Slot />
+		</div>
+	</div>
 })

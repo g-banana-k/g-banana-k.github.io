@@ -1,0 +1,42 @@
+.root {
+	background-color: var(--section_bg2);
+	min-height: 50vh;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+}
+
+.title {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+}
+
+.icon {
+	height: 100px;
+	width: 100px;
+	position: relative;
+}
+
+.icon img,
+.icon svg {
+	max-height: 60%;
+	max-width: 60%;
+	height: 60%;
+	width: 60%;
+	position: absolute;
+	inset: 0;
+	margin: auto;
+}
+
+.name {
+	height: 100px;
+	line-height: 100px;
+	font-size: 30px;
+}
+
+.main {
+	margin-left: var(--root_margin_rl);
+	margin-right: var(--root_margin_rl);
+	padding: 0 35px 45px 35px;
+}

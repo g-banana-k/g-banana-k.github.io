@@ -5,12 +5,14 @@ import { Footer } from "~/components/footer";
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { SkillsSection } from "~/components/top/skills";
+import { WorksSection } from "~/components/top/works";
 
 export default component$(() => {
 	return (
 		<div id={styles.root}>
 			<ScratchLike />
 			<SkillsSection />
+			<WorksSection />
 			<Footer />
 		</div>
 	);

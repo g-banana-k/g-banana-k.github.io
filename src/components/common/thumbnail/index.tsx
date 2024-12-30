@@ -7,7 +7,6 @@ export const Thumbnail = component$<{
 	height?: string;
 	img?: string;
 	link?: string;
-	date?: string;
 }>((props) => {
 	return (
 		<div class={styles.root} style={`height: ${props.height ?? 240}px`}>
