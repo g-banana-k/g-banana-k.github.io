@@ -15,7 +15,7 @@ export const Footer = component$(() => {
 					<Link href="/blog">Blog</Link>
 					<Link href="/banahexel_site">BanaHexel</Link>
 				</Content>
-				<Content title="Sludgetale">
+				<Content title="Sludgetale" link="/sludgetale/index">
 					<Link href="/sludgetale/hkhuvasvtt">
 						HKHUVASVTT
 					</Link>
@@ -42,10 +42,11 @@ export const Footer = component$(() => {
 
 const Content = component$<{
 	title: string;
+	link?: string;
 }>((props) => {
 	return (
 		<div class={styles.content}>
-			<Text class={styles.title}>{props.title}</Text>
+			<Text class={styles.title}>{!props.link ? props.title : <a href={props.link}>{props.title}</a>}</Text>
 			<div class={styles.content_main}>
 				<Slot />
 			</div>

@@ -9,6 +9,9 @@ export const tags = new Map<string, string>([
 	["SLUDGETALE", "#99867a"],
 	["CC!SLUDGETALE", "#99867a"],
 	["HKHUVASVTT", "#99867a"],
+	["Character(ST)", "#99867a"],
+	["Area(ST)", "#99867a"],
+	["World(ST)", "#99867a"],
 ]);
 
 export const tag_list = async () => {
