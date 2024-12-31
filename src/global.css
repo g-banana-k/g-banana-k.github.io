@@ -58,6 +58,8 @@ body {
 	--account_github2: #fff;
 	--account_bluesky1: #fff;
 	--account_bluesky2: #333;
+
+	--sludgetale_text1: #99867a;
 }
 
 @media (prefers-color-scheme: dark) {

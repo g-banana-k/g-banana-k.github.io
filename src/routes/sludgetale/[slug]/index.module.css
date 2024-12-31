@@ -24,18 +24,33 @@
 }
 
 .root {
-	color: #fff;
-	background-color: #333;
+	color: var(--sludgetale_text1);
+	background-color: #000;
 	font-family: "UT JP", sans-serif;
 	font-optical-sizing: auto;
 }
 
 .article {
-	background-color: #222;
-	border: 1px solid #111;
+	background-color: #111;
+	border: 1px solid #222;
 }
 
 .body {
 	font-family: "UT JP", sans-serif;
 	font-optical-sizing: auto;
+}
+
+.title {
+	font-family: "UT EN", "UT JP", sans-serif;
+	font-size: 45px;
+}
+
+.date {
+	color: #666;
+	font-size: 14px;
+}
+
+.tag {
+	font-family: "UT EN", sans-serif;
+	font-size: 16px;
 }

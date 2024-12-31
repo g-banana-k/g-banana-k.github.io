@@ -19,6 +19,7 @@ export const Article = component$<{
 				<Header path={props.path} />
 				<div class={`${styles.article} ${props.styles.article ?? styles.article2}`}>
 					<Title
+						styles={props.styles}
 						tags={props.tags.map(({ name, color }) => ({
 							name,
 							color,

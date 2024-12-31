@@ -6,6 +6,9 @@ export const tags = new Map<string, string>([
 	["Tech", "hsl(200, 100%, 90%)"],
 	["gBanaKnal", "hsl(48, 100%, 90%)"],
 	["Qwik", "hsl(200, 100%, 90%)"],
+	["SLUDGETALE", "#99867a"],
+	["CC!SLUDGETALE", "#99867a"],
+	["HKHUVASVTT", "#99867a"],
 ]);
 
 export const tag_list = async () => {
